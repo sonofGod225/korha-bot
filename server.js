@@ -1,11 +1,5 @@
 'use strict';
 
-/*
- * nodejs-express-mongoose
- * Copyright(c) 2015 Madhusudhan Srinivasa <madhums8@gmail.com>
- * MIT Licensed
- */
-
 /**
  * Module dependencies
  */
@@ -30,14 +24,14 @@ const connection = connect();
  */
 
 module.exports = {
-  app,
-  connection
+    app,
+    connection
 };
 
 // Bootstrap models
 fs.readdirSync(models)
     .filter(file => ~file.indexOf('.js'))
-.forEach(file => require(join(models, file)));
+    .forEach(file => require(join(models, file)));
 
 // Bootstrap routes
 require('./config/passport')(passport);
@@ -49,14 +43,14 @@ connection
     .on('disconnected', connect)
     .once('open', listen);
 
-function listen () {
-  if (app.get('env') === 'test') return;
-  app.listen(port);
-  console.log('Express app started on port ' + port);
+function listen() {
+    if (app.get('env') === 'test') return;
+    app.listen(port);
+    console.log('Express app started on port ' + port);
 }
 
-function connect () {
-  var options = { server: { socketOptions: { keepAlive: 1 } } };
-  var connection = mongoose.connect(config.db, options).connection;
-  return connection;
+function connect() {
+    var options = {server: {socketOptions: {keepAlive: 1}}};
+    var connection = mongoose.connect(config.db, options).connection;
+    return connection;
 }

@@ -24,5 +24,11 @@ module.exports = {
       'https://www.googleapis.com/auth/userinfo.email',
       'https://www.google.com/m8/feeds',
     ]
+  },
+  facebookmessenger: {
+    appSecret:"6d741afeda0b64e47c43480b4b3d9073",
+    pageAccessToken: "EAAXkZCNDkRCwBAPnRbrZBXyc1lwUX3zQZAxOhBGVW0fc6aUggmOuRVnJTWakLQc4QdZBMtL7c0SW1xrnlLM5WfTKAHjliXp03ycJ7cDpZAGQ3hQiZAYn9ZC2ZBQ0g5KuxIsgXNDeWjTYZCgWlhNGzy2qFhAQXuQoW5jIQnTYOiJfrPQZDZD",
+    validationToken: "mon_token_de_verification",
+    serverURL: ""
   }
 };

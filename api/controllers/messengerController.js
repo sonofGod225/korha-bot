@@ -1,4 +1,5 @@
-
+var config = require('../../config');
+const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
 exports.webhook = function(req,res){
     if (req.query['hub.mode'] === 'subscribe' &&
         req.query['hub.verify_token'] === VALIDATION_TOKEN) {

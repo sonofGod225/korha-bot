@@ -214,4 +214,55 @@ exports.webhookpost = function (req, res) {
         // to let them know it was successful.
         sendTextMessage(senderID, "Authentication successful");
     }
+
+
+    function sendButtonMessage(recipientId) {
+        var messageData = {
+            recipient: {
+                id: recipientId
+            },
+            message: {
+                attachment: {
+                    type: "template",
+                    payload: {
+                        template_type: "button",
+                        text: "This is test text",
+                        buttons:[{
+                            type: "web_url",
+                            url: "https://www.oculus.com/en-us/rift/",
+                            title: "Open Web URL"
+                        }, {
+                            type: "postback",
+                            title: "Trigger Postback",
+                            payload: "DEVELOPED_DEFINED_PAYLOAD"
+                        }, {
+                            type: "phone_number",
+                            title: "Call Phone Number",
+                            payload: "+16505551234"
+                        }]
+                    }
+                }
+            }
+        };
+
+        callSendAPI(messageData);
+    }
+
+    function sendImageMessage(recipientId) {
+        var messageData = {
+            recipient: {
+                id: recipientId
+            },
+            message: {
+                attachment: {
+                    type: "image",
+                    payload: {
+                        url: "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xla1/v/t1.0-1/p160x160/13912903_1762893993988699_8962618189532067052_n.jpg?oh=d7090546c6cd73205101574fab66d9b0&oe=5880413C&__gda__=1480601177_31a9b7085ef8020a2e707ec3bcef3187"
+                    }
+                }
+            }
+        };
+
+        callSendAPI(messageData);
+    }
 }

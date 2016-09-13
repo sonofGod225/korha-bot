@@ -26,7 +26,7 @@ module.exports = {
     },
     facebookmessenger: {
         appSecret:"6d741afeda0b64e47c43480b4b3d9073",
-        pageAccessToken: "EAAXkZCNDkRCwBAPnRbrZBXyc1lwUX3zQZAxOhBGVW0fc6aUggmOuRVnJTWakLQc4QdZBMtL7c0SW1xrnlLM5WfTKAHjliXp03ycJ7cDpZAGQ3hQiZAYn9ZC2ZBQ0g5KuxIsgXNDeWjTYZCgWlhNGzy2qFhAQXuQoW5jIQnTYOiJfrPQZDZD",
+        pageAccessToken: "EAAXkZCNDkRCwBAEoZCJOVYdVo23q8rsvYYLG6rV74ZA0ZA5RymIDIreAPT86JctTPAR1kHU5zjj1FVbYOn3MVnJzi601Gzq7WlMjitBrWpfS3FGtZCMHyT9uDtDKpoFzPU6JoHbGKw39GUEQMyqkBe57G86mheRdo5voRuxCMQwZDZD",
         validationToken: "mon_token_de_verification",
         serverURL: ""
     }

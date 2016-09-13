@@ -1,4 +1,5 @@
-var config = require('../../config');
+const request = require('request');
+const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
 const PAGE_ACCESS_TOKEN = config.facebookmessenger.pageAccessToken;
 exports.webhook = function (req, res) {

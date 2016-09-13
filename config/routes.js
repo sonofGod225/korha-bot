@@ -16,6 +16,7 @@ module.exports = function (app, passport) {
   app.get('/api',i.place);
   app.get('/', home.index);
   app.get('/webhook',botMessenger.webhook);
+  app.post('/webhook',botMessenger.webhookpost)
 
   /**
    * Error handling

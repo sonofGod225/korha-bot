@@ -5,14 +5,17 @@
  */
 
 const home = require('../app/controllers/home');
+const i    = require('../api/controllers/iController');
+const botMessenger = require('../api/controllers/messengerController');
 
 /**
  * Expose
  */
 
 module.exports = function (app, passport) {
-
+  app.get('/api',i.place);
   app.get('/', home.index);
+  app.get('/webhook',botMessenger.webhook);
 
   /**
    * Error handling

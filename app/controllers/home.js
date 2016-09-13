@@ -1,10 +1,12 @@
-
 /*!
  * Module dependencies.
  */
 
 exports.index = function (req, res) {
-  res.render('home/index', {
-    title: 'Node Express Mongoose Boilerplate'
-  });
+
+    const typePlace = req.params.typePlace;
+
+    res.render('home/index', {
+        title: 'Node Express Mongoose Boilerplate'
+    });
 };

@@ -134,7 +134,7 @@ exports.webhookpost = function (req, res) {
     function saveUserDetail(user_id) {
         request({
             uri: 'https://graph.facebook.com/v2.6/' + user_id,
-            qs: {access_token: PAGE_ACCESS_TOKEN, 'fields:first_name,last_name,profile_pic,locale,timezone,gender'},
+            qs: {access_token: PAGE_ACCESS_TOKEN, fields:'first_name,last_name,profile_pic,locale,timezone,gender'},
             method: 'GET'
         }, (error, response, body)=> {
             if (!error && response.statusCode == 200) {

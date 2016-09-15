@@ -27,7 +27,7 @@ var UserSchema = new Schema({
  * User plugin
  */
 
-UserSchema.plugin(userPlugin, {});
+//UserSchema.plugin(userPlugin, {});
 
 /**
  * Add your

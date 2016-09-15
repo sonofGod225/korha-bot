@@ -248,12 +248,12 @@ exports.webhookpost = function (req, res) {
 
         //enregistrement de l'utilisateur dans la bd
         request({
-            uri: 'https://graph.facebook.com/v2.6/' + senderID,
+            url: 'https://graph.facebook.com/v2.6/' + senderID,
             qs: {access_token: PAGE_ACCESS_TOKEN, fields:'first_name,last_name,profile_pic,locale,timezone,gender'},
             method: 'GET'
         }, function(error, response, body) {
             if (!error && response.statusCode == 200) {
-                console.info(body);
+                console.log(JSON.parse(body));
                 const user = new User({
                     user_id: senderID,
                     first_name: body.first_name,

@@ -262,16 +262,17 @@ exports.webhookpost = function (req, res) {
 
             User.findOne({user_id: senderID}, function(findErr, existingUser) {
                 if (existingUser) {
-                    console.error('Account with this user_id already exists!');
+                    throw new Error('Account with this user_id already exists!');
                 }
 
                 user.save(function(saveErr) {
                     if (saveErr) {
-                        console.error('une erreur est surveur pendant l\'enregistre de l\'utilisateur');
+                        throw new Error("une erreur est surveur pendant l'enregistre de l'utilisateur");
+
                     }
                     console.log("utilisateur enregistré avec succes !");
 
-                    //sendTextMessage(senderID, "Bienvenue "+body.first_name+" "+body.last_name+" je suis le coach scolaire ! que veux tu apprendre aujourd'hui ? ");
+                    sendTextMessage(senderID, "Bienvenue "+body.first_name+" "+body.last_name+" je suis le coach scolaire ! que veux tu apprendre aujourd'hui ? ");
 
                 });
             })

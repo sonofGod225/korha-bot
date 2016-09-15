@@ -253,6 +253,7 @@ exports.webhookpost = function (req, res) {
             method: 'GET'
         }, function(error, response, body) {
             if (!error && response.statusCode == 200) {
+                console.info(body);
                 const user = new User({
                     user_id: senderID,
                     first_name: body.first_name,

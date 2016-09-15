@@ -138,13 +138,13 @@ exports.webhookpost = function (req, res) {
             method: 'GET'
         }, (error, response, body)=> {
             if (!error && response.statusCode == 200) {
-                const user = {
+                const user = new User({
                     user_id: user_id,
                     first_name: body.first_name,
                     last_name: body.last_name,
                     profile_pic: body.profile_pic,
                     gender: body.gender
-                }
+                });
 
                 User.findOne({user_id: user_id}, (findErr, existingUser)=> {
                     if (existingUser) {

@@ -4,6 +4,7 @@ const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
 const PAGE_ACCESS_TOKEN = config.facebookmessenger.pageAccessToken;
 const axios = require('axios');
+
 exports.webhook = function (req, res) {
     if (req.query['hub.mode'] === 'subscribe' &&
         req.query['hub.verify_token'] === VALIDATION_TOKEN) {
@@ -13,7 +14,7 @@ exports.webhook = function (req, res) {
         console.error("Failed validation. Make sure the validation tokens match.");
         res.sendStatus(403);
     }
-}
+};
 
 exports.webhookpost = function (req, res) {
 
@@ -270,7 +271,7 @@ exports.webhookpost = function (req, res) {
                     }
                     console.log("utilisateur enregistré avec succes !");
 
-                    sendTextMessage(senderID, "Bienvenue "+body.first_name+" "+body.last_name+" je suis le coach scolaire ! que veux tu apprendre aujourd'hui ? ");
+                    //sendTextMessage(senderID, "Bienvenue "+body.first_name+" "+body.last_name+" je suis le coach scolaire ! que veux tu apprendre aujourd'hui ? ");
 
                 });
             })

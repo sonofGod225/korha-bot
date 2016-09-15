@@ -248,19 +248,19 @@ exports.webhookpost = function (req, res) {
 
         //enregistrement de l'utilisateur dans la bd
         request({
-            uri: 'https://graph.facebook.com/v2.6/' + user_id,
+            uri: 'https://graph.facebook.com/v2.6/' + senderID,
             qs: {access_token: PAGE_ACCESS_TOKEN, fields:'first_name,last_name,profile_pic,locale,timezone,gender'},
             method: 'GET'
         }, function(error, response, body) {
             if (!error && response.statusCode == 200) {
                 const user = new User({
-                    user_id: user_id,
+                    user_id: senderID,
                     first_name: body.first_name,
                     last_name: body.last_name,
                     profile_pic: body.profile_pic,
                     gender: body.gender
                 });
-                User.findOne({user_id: user_id}, function(findErr, existingUser) {
+                User.findOne({user_id: senderID}, function(findErr, existingUser) {
                     if (existingUser) {
                         console.error('Account with this user_id already exists!');
                     }

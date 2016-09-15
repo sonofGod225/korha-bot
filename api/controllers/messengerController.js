@@ -266,21 +266,19 @@ exports.webhookpost = function (req, res) {
                     user.save(function (saveErr) {
                         if (saveErr) {
                             throw new Error("une erreur est surveur pendant l'enregistre de l'utilisateur");
-
                         }
                         console.log("utilisateur enregistré avec succes !");
-
-                        sendButtonMessageWithMatiere(senderID, "Bonsoir " + body.first_name + " " + body.last_name + " Comment vas-tu? Que révisons-nous ce soir ? ");
-
                     });
                 }
+                sendButtonMessageWithMatiere(senderID, "Bonsoir " + body.first_name + " " + body.last_name + " Comment vas-tu? Que révisons-nous ce soir ? ");
+
             })
         })
 
 
     }
 
-    function sendButtonMessageWithMatiere(recipiendId, message) {
+    function sendButtonMessageWithMatiere(recipientId, message) {
         Matiere.find(function (err, matieres) {
             var arrayMatiere = [];
             for (var i = 0; i < matieres.length; i++) {

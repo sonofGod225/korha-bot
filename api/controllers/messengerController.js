@@ -1,3 +1,5 @@
+import User from '../../app/models/user';
+
 const request = require('request');
 const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
@@ -129,6 +131,38 @@ exports.webhookpost = function (req, res) {
         });
     }
 
+    function saveUserDetail(user_id) {
+        request({
+            uri: 'https://graph.facebook.com/v2.6/' + user_id,
+            qs: {access_token: PAGE_ACCESS_TOKEN, 'fields:first_name,last_name,profile_pic,locale,timezone,gender'},
+            method: 'GET'
+        }, (error, response, body)=> {
+            if (!error && response.statusCode == 200) {
+                const user = {
+                    user_id: user_id,
+                    first_name: body.first_name,
+                    last_name: body.last_name,
+                    profile_pic: body.profile_pic,
+                    gender: body.gender
+                }
+
+                User.findOne({user_id: user_id}, (findErr, existingUser)=> {
+                    if (existingUser) {
+                        console.error('Account with this user_id already exists!');
+                    }
+
+                    return user.save((saveErr) => {
+                        if (saveErr) {
+                            console.error('une erreur est surveur pendant l\'enregistre de l\'utilisateur');
+                        }
+                        console.log("utilisateur enregistré avec succes !");
+
+                    });
+                })
+            }
+        });
+    }
+
     function sendGenericMessage(recipientId) {
         var messageData = {
             recipient: {
@@ -185,7 +219,7 @@ exports.webhookpost = function (req, res) {
         var sequenceNumber = delivery.seq;
 
         if (messageIDs) {
-            messageIDs.forEach(function(messageID) {
+            messageIDs.forEach(function (messageID) {
                 console.log("Received delivery confirmation for message ID: %s",
                     messageID);
             });
@@ -212,7 +246,14 @@ exports.webhookpost = function (req, res) {
 
         // When an authentication is received, we'll send a message back to the sender
         // to let them know it was successful.
-        sendTextMessage(senderID, "Authentication successful");
+
+        //enregistrement de l'utilisateur dans la bd
+        saveUserDetail(senderID);
+        User.findOne({user_id:senderID},(error,user)=>{
+            if(error){console.log("erreur lors de la recuperation de l'utilisateur dans la bd")}
+            sendTextMessage(senderID, "Bienvenue "+user.first_name+" "+user.first_name+" je suis le coach scolaire ! que veux tu apprendre aujourd'hui ? ");
+        })
+
     }
 
 
@@ -227,7 +268,7 @@ exports.webhookpost = function (req, res) {
                     payload: {
                         template_type: "button",
                         text: "This is test text",
-                        buttons:[{
+                        buttons: [{
                             type: "web_url",
                             url: "https://www.oculus.com/en-us/rift/",
                             title: "Open Web URL"

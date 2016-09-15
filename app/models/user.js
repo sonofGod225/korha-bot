@@ -14,6 +14,11 @@ var Schema = mongoose.Schema;
 var UserSchema = new Schema({
   name: { type: String, default: '' },
   email: { type: String, default: '' },
+  user_id:{type:String,default:''},
+  first_name:{type:String,default:''},
+  last_name:{type:String,default:''},
+  profile_pic:{type:String,default:''},
+  gender:{type:String,default:''},
   hashed_password: { type: String, default: '' },
   salt: { type: String, default: '' }
 });
@@ -51,4 +56,4 @@ UserSchema.static({
  * Register
  */
 
-mongoose.model('User', UserSchema);
+export default mongoose.model('User', UserSchema);

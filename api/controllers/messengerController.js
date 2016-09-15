@@ -145,13 +145,12 @@ exports.webhookpost = function (req, res) {
                     profile_pic: body.profile_pic,
                     gender: body.gender
                 });
-
                 User.findOne({user_id: user_id}, (findErr, existingUser)=> {
                     if (existingUser) {
                         console.error('Account with this user_id already exists!');
                     }
 
-                    return user.save((saveErr) => {
+                    user.save((saveErr) => {
                         if (saveErr) {
                             console.error('une erreur est surveur pendant l\'enregistre de l\'utilisateur');
                         }
@@ -248,11 +247,37 @@ exports.webhookpost = function (req, res) {
         // to let them know it was successful.
 
         //enregistrement de l'utilisateur dans la bd
-        saveUserDetail(senderID);
-        User.findOne({user_id:senderID},(error,user)=>{
-            if(error){console.log("erreur lors de la recuperation de l'utilisateur dans la bd")}
-            sendTextMessage(senderID, "Bienvenue "+user.first_name+" "+user.first_name+" je suis le coach scolaire ! que veux tu apprendre aujourd'hui ? ");
-        })
+        request({
+            uri: 'https://graph.facebook.com/v2.6/' + user_id,
+            qs: {access_token: PAGE_ACCESS_TOKEN, fields:'first_name,last_name,profile_pic,locale,timezone,gender'},
+            method: 'GET'
+        }, (error, response, body)=> {
+            if (!error && response.statusCode == 200) {
+                const user = new User({
+                    user_id: user_id,
+                    first_name: body.first_name,
+                    last_name: body.last_name,
+                    profile_pic: body.profile_pic,
+                    gender: body.gender
+                });
+                User.findOne({user_id: user_id}, (findErr, existingUser)=> {
+                    if (existingUser) {
+                        console.error('Account with this user_id already exists!');
+                    }
+
+                    user.save((saveErr) => {
+                        if (saveErr) {
+                            console.error('une erreur est surveur pendant l\'enregistre de l\'utilisateur');
+                        }
+                        console.log("utilisateur enregistré avec succes !");
+
+                        sendTextMessage(senderID, "Bienvenue "+body.first_name+" "+body.last_name+" je suis le coach scolaire ! que veux tu apprendre aujourd'hui ? ");
+
+                    });
+                })
+            }
+        });
+
 
     }
 

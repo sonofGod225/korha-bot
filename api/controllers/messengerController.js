@@ -1,4 +1,4 @@
-import User from '../../app/models/user';
+const User = require('../../app/models/user');
 
 const request = require('request');
 const config = require('../../config');

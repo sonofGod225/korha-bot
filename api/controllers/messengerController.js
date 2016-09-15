@@ -1,4 +1,5 @@
 var User = require('../../app/models/user');
+var Matiere = require('../../app/models/matiere');
 const request = require('request');
 const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
@@ -135,7 +136,7 @@ exports.webhookpost = function (req, res) {
     function saveUserDetail(user_id) {
         request({
             uri: 'https://graph.facebook.com/v2.6/' + user_id,
-            qs: {access_token: PAGE_ACCESS_TOKEN, fields:'first_name,last_name,profile_pic,locale,timezone,gender'},
+            qs: {access_token: PAGE_ACCESS_TOKEN, fields: 'first_name,last_name,profile_pic,locale,timezone,gender'},
             method: 'GET'
         }, (error, response, body)=> {
             if (!error && response.statusCode == 200) {
@@ -248,8 +249,8 @@ exports.webhookpost = function (req, res) {
         // to let them know it was successful.
 
         //enregistrement de l'utilisateur dans la bd
-        const urlUserProfil = "https://graph.facebook.com/v2.6/"+senderID+"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token="+PAGE_ACCESS_TOKEN;
-        axios.get(urlUserProfil).then(function(response){
+        const urlUserProfil = "https://graph.facebook.com/v2.6/" + senderID + "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + PAGE_ACCESS_TOKEN;
+        axios.get(urlUserProfil).then(function (response) {
             console.log(JSON.stringify(response.data))
             const body = response.data;
             const user = new User({
@@ -260,28 +261,55 @@ exports.webhookpost = function (req, res) {
                 gender: body.gender
             });
 
-            User.findOne({user_id: senderID}, function(findErr, existingUser) {
-                if (existingUser) {
-                    throw new Error('Account with this user_id already exists!');
+            User.findOne({user_id: senderID}, function (findErr, existingUser) {
+                if (!existingUser) {
+                    user.save(function (saveErr) {
+                        if (saveErr) {
+                            throw new Error("une erreur est surveur pendant l'enregistre de l'utilisateur");
+
+                        }
+                        console.log("utilisateur enregistré avec succes !");
+
+                        sendButtonMessageWithMatiere(senderID, "Bonsoir " + body.first_name + " " + body.last_name + " Comment vas-tu? Que révisons-nous ce soir ? ");
+
+                    });
                 }
-
-                user.save(function(saveErr) {
-                    if (saveErr) {
-                        throw new Error("une erreur est surveur pendant l'enregistre de l'utilisateur");
-
-                    }
-                    console.log("utilisateur enregistré avec succes !");
-
-                    sendTextMessage(senderID, "Bienvenue "+body.first_name+" "+body.last_name+" je suis le coach scolaire ! que veux tu apprendre aujourd'hui ? ");
-
-                });
             })
         })
-       
 
 
     }
 
+    function sendButtonMessageWithMatiere(recipiendId, message) {
+        Matiere.find(function (err, matieres) {
+            var arrayMatiere = [];
+            for (var i = 0; i < matieres.length; i++) {
+                var buttonMatiere = {
+                    type: "postback",
+                    title: matieres[i].name,
+                    payload: matieres[i]._id
+                };
+                arrayMatiere.push(buttonMatiere);
+            }
+            var messageData = {
+                recipient: {
+                    id: recipientId
+                },
+                message: {
+                    attachment: {
+                        type: "template",
+                        payload: {
+                            template_type: "button",
+                            text: message,
+                            buttons: arrayMatiere
+                        }
+                    }
+                }
+            };
+
+            callSendAPI(messageData);
+        })
+    }
 
     function sendButtonMessage(recipientId) {
         var messageData = {

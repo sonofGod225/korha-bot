@@ -1,9 +1,9 @@
-const User = require('../../app/models/user');
-
+var User = require('../../app/models/user');
 const request = require('request');
 const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
 const PAGE_ACCESS_TOKEN = config.facebookmessenger.pageAccessToken;
+const axios = require('axios');
 exports.webhook = function (req, res) {
     if (req.query['hub.mode'] === 'subscribe' &&
         req.query['hub.verify_token'] === VALIDATION_TOKEN) {
@@ -247,7 +247,11 @@ exports.webhookpost = function (req, res) {
         // to let them know it was successful.
 
         //enregistrement de l'utilisateur dans la bd
-        request({
+        const urlUserProfil = "https://graph.facebook.com/v2.6/"+senderID+"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token="+PAGE_ACCESS_TOKEN;
+        axios.get(urlUserProfil).then(function(response){
+            console.log(JSON.stringify(response.data))
+        })
+       /*request({
             url: 'https://graph.facebook.com/v2.6/' + senderID,
             qs: {access_token: PAGE_ACCESS_TOKEN, fields:'first_name,last_name,profile_pic,locale,timezone,gender'},
             method: 'GET'
@@ -277,7 +281,7 @@ exports.webhookpost = function (req, res) {
                     });
                 })
             }
-        });
+        });*/
 
 
     }

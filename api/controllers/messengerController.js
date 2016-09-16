@@ -289,7 +289,7 @@ exports.webhookpost = function (req, res) {
                 var buttonClasses = {
                     type: "postback",
                     title: classes[i].name,
-                    payload: 'choes_classes'+delimiter+classes[i]._id+delimiter+matiere_id
+                    payload: 'choes_classes'+delimiter+classes[i]
                 }
                 arrayClass.push(buttonClasses);
             }

@@ -283,7 +283,7 @@ exports.webhookpost = function (req, res) {
     }
     function sendButtonMessageWithClass(recipientId,matiere_id,message) {
         ClasseRoom.find(function (err, classes) {
-            throw JSON.parse(classes);
+            throw new error(JSON.stringify(classes));
             var arrayClass = [];
             for (var i = 0; i < classes.length; i++) {
                 var buttonClasses = {

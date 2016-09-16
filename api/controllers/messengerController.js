@@ -290,7 +290,7 @@ exports.webhookpost = function (req, res) {
             for (var i = 0; i < thematiques.length; i++) {
                 var buttonThematique = {
                     type: "postback",
-                    title: classes[i].name,
+                    title: thematiques[i].name,
                     payload: 'choes_thematique' + delimiter + thematiques[i]._id + delimiter + matiere_id + delimiter + classe_id
                 }
                 arrayThematique.push(buttonThematique);

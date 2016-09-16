@@ -283,17 +283,17 @@ exports.webhookpost = function (req, res) {
     }
     function sendButtonMessageWithClass(recipientId,matiere_id,message) {
         ClasseRoom.find(function (err, classes) {
-            //throw new error(JSON.stringify(classes));
+            console.log(JSON.stringify(classes));
             var arrayClass = [];
             for (var i = 0; i < classes.length; i++) {
                 var buttonClasses = {
                     type: "postback",
                     title: classes[i].name,
                     payload: 'choes_classes'+delimiter+classes[i]._id+delimiter+matiere_id
-                };
+                }
                 arrayClass.push(buttonClasses);
             }
-            const messageData = {
+            var messageData = {
                 recipient: {
                     id: recipientId
                 },

@@ -412,6 +412,7 @@ exports.webhookpost = function (req, res) {
              switch (stepPayload){
                  case 'choes_course' :{
                      const matiereId = arrayPayload[1];
+                     sendButtonMessageWithClass(senderID,matiereId,"En quelle classe es-tu déjà?")
                      // recuperation du commentaire bot de la matiere
                      Matiere.findOne({_id:matiereId},function(err,matiere){
                               if(err){
@@ -420,7 +421,7 @@ exports.webhookpost = function (req, res) {
                               }
                          //sendTypingOn(senderID);
                          //sendTextMessage(senderID,matiere.commentaireBot);
-                         sendButtonMessageWithClass(senderID,matiere._id,"En quelle classe es-tu déjà?")
+
                          //sendTypingOff(senderID);
                      });
                      break;

@@ -421,10 +421,11 @@ exports.webhookpost = function (req, res) {
                                   sendButtonMessageWithMatiere(senderID,"Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.")
                                   throw new error("matiere introuvable dans la base de donnée")
                               }
-                         //sendTypingOn(senderID);
+                         sendTypingOn(senderID);
                          sendTextMessage(senderID,matiere.commentaireBot);
+                         sendTypingOn(senderID);
                          sendButtonMessageWithClass(senderID,matiere._id,"En quelle classe es-tu déjà?");
-                         //sendTypingOff(senderID);
+                         sendTypingOff(senderID);
                      });
                      break;
                  }

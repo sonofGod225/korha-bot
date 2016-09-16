@@ -283,7 +283,7 @@ exports.webhookpost = function (req, res) {
     }
     function sendButtonMessageWithClass(recipientId,matiere_id,message) {
         ClasseRoom.find(function (err, classes) {
-            throw new error(JSON.stringify(classes));
+            //throw new error(JSON.stringify(classes));
             var arrayClass = [];
             for (var i = 0; i < classes.length; i++) {
                 var buttonClasses = {
@@ -422,7 +422,7 @@ exports.webhookpost = function (req, res) {
                                   throw new error("matiere introuvable dans la base de donnée")
                               }
                          //sendTypingOn(senderID);
-                         //sendTextMessage(senderID,matiere.commentaireBot);
+                         sendTextMessage(senderID,matiere.commentaireBot);
                          sendButtonMessageWithClass(senderID,matiereId,"En quelle classe es-tu déjà?");
                          //sendTypingOff(senderID);
                      });

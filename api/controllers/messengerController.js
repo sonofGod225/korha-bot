@@ -1,7 +1,6 @@
 var User = require('../../app/models/user');
 var Matiere = require('../../app/models/matiere');
-var Classe = require('../../app/models/classe');
-
+var Classe = require('../../app/models/Classe');
 const request = require('request');
 const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
@@ -281,15 +280,15 @@ exports.webhookpost = function (req, res) {
 
 
     }
-
-    function sendButtonMessageWithClass(recipientId, matiere_id, message) {
+    function sendButtonMessageWithClass(recipientId,matiere_id,message) {
         Classe.find(function (err, classes) {
+            console.log(classes);
             var arrayClass = [];
             for (var i = 0; i < classes.length; i++) {
                 var buttonClasses = {
                     type: "postback",
                     title: classes[i].name,
-                    payload: 'choes_classes' + delimiter + classes[i]._id + delimiter + matiere_id
+                    payload: 'choes_classes'+delimiter+classes[i]._id+delimiter+matiere_id
                 };
                 arrayClass.push(buttonClasses);
             }
@@ -303,23 +302,15 @@ exports.webhookpost = function (req, res) {
                         payload: {
                             template_type: "button",
                             text: message,
-                            buttons: [{
-                                type: "web_url",
-                                url: "https://www.oculus.com/en-us/touch/",
-                                title: "Open Web URL"
-                            }, {
-                                type: "postback",
-                                title: "Call Postback",
-                                payload: "Payload for second bubble",
-                            }]
+                            buttons: arrayClass
                         }
                     }
                 }
             };
+            console.log(messageData);
             callSendAPI(messageData);
         })
     }
-
     function sendButtonMessageWithMatiere(recipientId, message) {
         Matiere.find(function (err, matieres) {
             var arrayMatiere = [];
@@ -327,7 +318,7 @@ exports.webhookpost = function (req, res) {
                 var buttonMatiere = {
                     type: "postback",
                     title: matieres[i].name,
-                    payload: 'choes_course' + delimiter + matieres[i]._id
+                    payload: 'choes_course'+delimiter+matieres[i]._id
                 };
                 arrayMatiere.push(buttonMatiere);
             }
@@ -417,37 +408,34 @@ exports.webhookpost = function (req, res) {
         /**
          * recuperation de l'etape du payload
          */
-        const arrayPayload = payload.split(delimiter);
-        if (arrayPayload[0]) {
-            const stepPayload = arrayPayload[0];
-            switch (stepPayload) {
-                case 'choes_course' :
-                {
+         const arrayPayload = payload.split(delimiter);
+         if(arrayPayload[0]){
+             const stepPayload = arrayPayload[0];
+             switch (stepPayload){
+                 case 'choes_course' :{
+                     const matiereId = arrayPayload[1];
+                     sendButtonMessageWithClass(senderID,matiereId,"En quelle classe es-tu déjà?")
+                     // recuperation du commentaire bot de la matiere
+                     Matiere.findOne({_id:matiereId},function(err,matiere){
+                              if(err){
+                                  sendButtonMessageWithMatiere(senderID,"Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.")
+                                  throw new error("matiere introuvable dans la base de donnée")
+                              }
+                         //sendTypingOn(senderID);
+                         //sendTextMessage(senderID,matiere.commentaireBot);
 
-                    const matiereId = arrayPayload[1];
-
-                    // recuperation du commentaire bot de la matiere
-                    Matiere.findOne({_id: matiereId}, function (err, matiere) {
-                        if (err) {
-                            sendButtonMessageWithMatiere(senderID, "Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.")
-                            throw new error("matiere introuvable dans la base de donnée")
-                        }
-                        //sendTypingOn(senderID);
-                        //sendTextMessage(senderID,matiere.commentaireBot);
-                        sendButtonMessageWithClass(senderID, matiereId, "En quelle classe es-tu déjà?")
-                        //sendTypingOff(senderID);
-                    });
-                    break;
-                }
-                default:
-                {
-                    sendButtonMessageWithMatiere(senderID, "Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.");
-                }
-            }
-        } else {
-            sendTextMessage(senderID, "Quelque chose d'inattendu s'est passé! veuillez reessayer plutard !");
-            throw new error("erreur payload");
-        }
+                         //sendTypingOff(senderID);
+                     });
+                     break;
+                 }
+                 default:{
+                     sendButtonMessageWithMatiere(senderID,"Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.");
+                 }
+             }
+         }else{
+             sendTextMessage(senderID, "Quelque chose d'inattendu s'est passé! veuillez reessayer plutard !");
+             throw new error("erreur payload");
+         }
 
         // When a postback is called, we'll send a message back to the sender to
         // let them know it was successful

@@ -275,13 +275,13 @@ exports.webhookpost = function (req, res) {
                 }
 
                 sendButtonMessageWithMatiere(senderID, "Bonsoir " + body.first_name + " " + body.last_name + " Comment vas-tu? Que révisons-nous ce soir ? ");
-
+                sendButtonMessageWithClass(senderID,"okokok")
             })
         })
 
 
     }
-    function sendButtonMessageWithClass(recipientId,matiere_id,message) {
+    function sendButtonMessageWithClass(recipientId,message) {
         ClasseRoom.find(function (err, classes) {
             console.log(JSON.stringify(classes));
             var arrayClass = [];
@@ -289,7 +289,7 @@ exports.webhookpost = function (req, res) {
                 var buttonClasses = {
                     type: "postback",
                     title: classes[i].name,
-                    payload: 'choes_classes'+delimiter+classes[i]
+                    payload: 'choes_classes'+delimiter+classes[i]._id
                 }
                 arrayClass.push(buttonClasses);
             }
@@ -423,7 +423,7 @@ exports.webhookpost = function (req, res) {
                               }
                          //sendTypingOn(senderID);
                          sendTextMessage(senderID,matiere.commentaireBot);
-                         sendButtonMessageWithClass(senderID,matiereId,"En quelle classe es-tu déjà?");
+                         sendButtonMessageWithClass(senderID,matiere._id,"En quelle classe es-tu déjà?");
                          //sendTypingOff(senderID);
                      });
                      break;

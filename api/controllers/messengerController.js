@@ -21,11 +21,7 @@ exports.webhook = function (req, res) {
 };
 
 exports.webhookpost = function (req, res) {
-    var objClass = new ClasseRoom({
-        name:"CP",
-        commentaireBot:"Cool les cours elementaires*** !"
-    });
-    objClass.save();
+
     var data = req.body;
 
     // Make sure this is a page subscription

@@ -5,4 +5,4 @@ var classRoomSchema = new Schema({
     commentaireBot: { type: String, default: '' }
 });
 
-module.exports = mongoose.model('Classe',classRoomSchema);
+module.exports = mongoose.model('ClasseRoom',classRoomSchema);

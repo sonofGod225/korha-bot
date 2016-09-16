@@ -282,6 +282,7 @@ exports.webhookpost = function (req, res) {
     }
     function sendButtonMessageWithClass(recipientId,matiere_id,message) {
         Classe.find(function (err, classes) {
+            console.log(classes);
             var arrayClass = [];
             for (var i = 0; i < classes.length; i++) {
                 var buttonClasses = {
@@ -291,7 +292,7 @@ exports.webhookpost = function (req, res) {
                 };
                 arrayClass.push(buttonClasses);
             }
-            var messageData = {
+            const messageData = {
                 recipient: {
                     id: recipientId
                 },
@@ -306,6 +307,7 @@ exports.webhookpost = function (req, res) {
                     }
                 }
             };
+            console.log(messageData);
             callSendAPI(messageData);
         })
     }

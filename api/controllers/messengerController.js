@@ -95,7 +95,7 @@ exports.webhookpost = function (req, res) {
                     break;
 
                 default:
-                    sendTextMessage(senderID, messageText);
+                    sendButtonMessageWithMatiere(senderID,"Bonjour ! je suis ton coach scolaire ! que veux tu reviser ?")
             }
         } else if (messageAttachments) {
 

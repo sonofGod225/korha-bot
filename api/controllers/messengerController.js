@@ -1,10 +1,12 @@
 var User = require('../../app/models/user');
 var Matiere = require('../../app/models/matiere');
+var Classe = require('../../app/models/Classe');
 const request = require('request');
 const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
 const PAGE_ACCESS_TOKEN = config.facebookmessenger.pageAccessToken;
 const axios = require('axios');
+const delimiter = "_@@_";
 
 exports.webhook = function (req, res) {
     if (req.query['hub.mode'] === 'subscribe' &&
@@ -270,6 +272,7 @@ exports.webhookpost = function (req, res) {
                         console.log("utilisateur enregistré avec succes !");
                     });
                 }
+
                 sendButtonMessageWithMatiere(senderID, "Bonsoir " + body.first_name + " " + body.last_name + " Comment vas-tu? Que révisons-nous ce soir ? ");
 
             })
@@ -277,7 +280,36 @@ exports.webhookpost = function (req, res) {
 
 
     }
+    function sendButtonMessageWithClass(recipientId,matiere_id,message) {
+        Classe.find(function (err, classes) {
+            var arrayClass = [];
+            for (var i = 0; i < classes.length; i++) {
+                var buttonClasses = {
+                    type: "postback",
+                    title: classes[i].name,
+                    payload: 'choes_classes'+delimiter+classes[i]._id+delimiter+matiere_id
+                };
+                arrayClass.push(buttonClasses);
+            }
+            var messageData = {
+                recipient: {
+                    id: recipientId
+                },
+                message: {
+                    attachment: {
+                        type: "template",
+                        payload: {
+                            template_type: "button",
+                            text: message,
+                            buttons: arrayClass
+                        }
+                    }
+                }
+            };
 
+            callSendAPI(messageData);
+        })
+    }
     function sendButtonMessageWithMatiere(recipientId, message) {
         Matiere.find(function (err, matieres) {
             var arrayMatiere = [];
@@ -285,7 +317,7 @@ exports.webhookpost = function (req, res) {
                 var buttonMatiere = {
                     type: "postback",
                     title: matieres[i].name,
-                    payload: matieres[i]._id
+                    payload: 'choes_course'+delimiter+matieres[i]._id
                 };
                 arrayMatiere.push(buttonMatiere);
             }
@@ -354,6 +386,82 @@ exports.webhookpost = function (req, res) {
                     }
                 }
             }
+        };
+
+        callSendAPI(messageData);
+    }
+
+
+    function receivedPostback(event) {
+        var senderID = event.sender.id;
+        var recipientID = event.recipient.id;
+        var timeOfPostback = event.timestamp;
+
+        // The 'payload' param is a developer-defined field which is set in a postback
+        // button for Structured Messages.
+        var payload = event.postback.payload;
+
+        console.log("Received postback for user %d and page %d with payload '%s' " +
+            "at %d", senderID, recipientID, payload, timeOfPostback);
+
+        /**
+         * recuperation de l'etape du payload
+         */
+         const arrayPayload = payload.split(delimiter);
+         if(arrayPayload[0]){
+             const stepPayload = arrayPayload[0];
+             switch (stepPayload){
+                 case 'choes_course' :{
+                     const matiereId = arrayPayload[1];
+                     // recuperation du commentaire bot de la matiere
+                     Matiere.findOne({_id:matiereId},function(err,matiere){
+                              if(err){
+                                  sendButtonMessageWithMatiere(senderID,"Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.")
+                                  throw new error("matiere introuvable dans la base de donnée")
+                              }
+                         sendTypingOn(senderID);
+                         sendTextMessage(senderID,matiere.commentaireBot)
+                         sendButtonMessageWithClass(senderID,matiere._id,"En quelle classe es-tu déjà?")
+                         sendTypingOff(senderID);
+                     });
+                     break;
+                 }
+                 default:{
+                     sendButtonMessageWithMatiere(senderID,"Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.");
+                 }
+             }
+         }else{
+             sendTextMessage(senderID, "Quelque chose d'inattendu s'est passé! veuillez reessayer plutard !");
+             throw new error("erreur payload");
+         }
+
+        // When a postback is called, we'll send a message back to the sender to
+        // let them know it was successful
+
+    }
+
+
+    function sendTypingOn(recipientId) {
+        console.log("Turning typing indicator on");
+
+        var messageData = {
+            recipient: {
+                id: recipientId
+            },
+            sender_action: "typing_on"
+        };
+
+        callSendAPI(messageData);
+    }
+
+    function sendTypingOff(recipientId) {
+        console.log("Turning typing indicator off");
+
+        var messageData = {
+            recipient: {
+                id: recipientId
+            },
+            sender_action: "typing_off"
         };
 
         callSendAPI(messageData);

@@ -1,6 +1,7 @@
 var User = require('../../app/models/user');
 var Matiere = require('../../app/models/matiere');
 var Classe = require('../../app/models/classe');
+
 const request = require('request');
 const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
@@ -419,7 +420,7 @@ exports.webhookpost = function (req, res) {
              const stepPayload = arrayPayload[0];
              switch (stepPayload){
                  case 'choes_course' :{
-                     
+
                      const matiereId = arrayPayload[1];
 
                      // recuperation du commentaire bot de la matiere

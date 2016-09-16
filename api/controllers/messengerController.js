@@ -442,12 +442,12 @@ exports.webhookpost = function (req, res) {
                     const matiereId = arrayPayload[2];
                     Classeroom.findOne({_id:classeId},function(err,classe){
                         sendTypingOn(senderID);
-                        sendTextMessage(senderID, classe.commentaireBot);
                         Matiere.findOne({_id: matiereId}, function (err, matiere) {
                             if (err) {
                                 sendButtonMessageWithMatiere(senderID, "Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.")
                                 throw new error("matiere introuvable dans la base de donnée")
                             }
+                            sendTextMessage(senderID, classe.commentaireBot);
                             sendTextMessage(senderID,"Alors au menu en "+matiere.name+" pour "+ classe.name+" je te proposes: ");
 
                         });

@@ -1,6 +1,6 @@
 var User = require('../../app/models/user');
 var Matiere = require('../../app/models/matiere');
-var ClasseRoom = require('../../app/models/classroom');
+var Classeroom = require('../../app/models/classroom');
 const request = require('request');
 const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
@@ -275,14 +275,14 @@ exports.webhookpost = function (req, res) {
                 }
 
                 sendButtonMessageWithMatiere(senderID, "Bonsoir " + body.first_name + " " + body.last_name + " Comment vas-tu? Que révisons-nous ce soir ? ");
-                sendButtonMessageWithClass(senderID,"okokok")
+
             })
         })
 
 
     }
-    function sendButtonMessageWithClass(recipientId,message) {
-        ClasseRoom.find(function (err, classes) {
+    function sendButtonMessageWithClass(recipientId,matiere_id,message) {
+        Classeroom.find(function (err, classes) {
             console.log(JSON.stringify(classes));
             var arrayClass = [];
             for (var i = 0; i < classes.length; i++) {

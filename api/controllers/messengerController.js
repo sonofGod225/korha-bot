@@ -448,6 +448,7 @@ exports.webhookpost = function (req, res) {
                                 throw new error("matiere introuvable dans la base de donnée")
                             }
                             sendTextMessage(senderID, classe.commentaireBot);
+                            sendTypingOn(senderID);
                             sendTextMessage(senderID,"Alors au menu en "+matiere.name+" pour "+ classe.name+" je te proposes: ");
 
                         });

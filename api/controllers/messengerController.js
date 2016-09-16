@@ -284,7 +284,7 @@ exports.webhookpost = function (req, res) {
     }
 
     function sendButtonMessageWithThematique(recipientId, matiere_id, classe_id, message) {
-        Thematique.find({_id: matiere_id}, function (err, thematiques) {
+        Thematique.find({matiere_id: matiere_id}, function (err, thematiques) {
 
             var arrayThematique = [];
             for (var i = 0; i < thematiques.length; i++) {

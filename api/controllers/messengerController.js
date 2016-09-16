@@ -98,7 +98,11 @@ exports.webhookpost = function (req, res) {
                     sendTextMessage(senderID, messageText);
             }
         } else if (messageAttachments) {
-            sendTextMessage(senderID, "Message with attachment received");
+
+            sendButtonMessageWithMatiere(senderID,"Bonjour ! je suis ton coach scolaire ! que veux tu reviser ?")
+
+
+            //sendTextMessage(senderID, "Message with attachment received");
         }
     }
 

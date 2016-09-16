@@ -26,25 +26,24 @@
       <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="284" column="31" selection-start-line="284" selection-start-column="31" selection-end-line="284" selection-end-column="31" />
+            <state relative-caret-position="456">
+              <caret line="311" column="30" selection-start-line="311" selection-start-column="30" selection-end-line="311" selection-end-column="30" />
               <folding>
                 <element signature="e#4729#5931#0" expanded="false" />
                 <element signature="e#5978#7931#0" expanded="false" />
                 <element signature="e#7982#8535#0" expanded="false" />
-                <element signature="e#11912#12863#0" expanded="false" />
-                <element signature="e#12937#13907#0" expanded="false" />
-                <element signature="e#13994#14575#0" expanded="false" />
+                <element signature="e#13275#14245#0" expanded="false" />
+                <element signature="e#14332#14913#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Classe.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Classe.js">
+      <file leaf-file-name="classe.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/classe.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+              <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -162,6 +161,7 @@
         <option value="$PROJECT_DIR$/app/models/user.js" />
         <option value="$PROJECT_DIR$/app/models/matiere.js" />
         <option value="$PROJECT_DIR$/app/models/Classe.js" />
+        <option value="$PROJECT_DIR$/app/models/classe.js" />
         <option value="$PROJECT_DIR$/api/controllers/messengerController.js" />
       </list>
     </option>
@@ -478,12 +478,12 @@
       <workItem from="1472719795593" duration="1368000" />
       <workItem from="1472722157305" duration="15967000" />
       <workItem from="1473793388787" duration="8660000" />
-      <workItem from="1473966717285" duration="20433000" />
+      <workItem from="1473966717285" duration="21182000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46428000" />
+    <option name="totallyTimeSpent" value="47177000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -495,7 +495,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.011456628" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15220949" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -524,9 +524,8 @@
             <element signature="e#4729#5931#0" expanded="false" />
             <element signature="e#5978#7931#0" expanded="false" />
             <element signature="e#7982#8535#0" expanded="false" />
-            <element signature="e#11912#12863#0" expanded="false" />
-            <element signature="e#12937#13907#0" expanded="false" />
-            <element signature="e#13994#14575#0" expanded="false" />
+            <element signature="e#13275#14245#0" expanded="false" />
+            <element signature="e#14332#14913#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -898,25 +897,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Classe.js">
+    <entry file="file://$PROJECT_DIR$/app/models/classe.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+          <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="284" column="31" selection-start-line="284" selection-start-column="31" selection-end-line="284" selection-end-column="31" />
+        <state relative-caret-position="456">
+          <caret line="311" column="30" selection-start-line="311" selection-start-column="30" selection-end-line="311" selection-end-column="30" />
           <folding>
             <element signature="e#4729#5931#0" expanded="false" />
             <element signature="e#5978#7931#0" expanded="false" />
             <element signature="e#7982#8535#0" expanded="false" />
-            <element signature="e#11912#12863#0" expanded="false" />
-            <element signature="e#12937#13907#0" expanded="false" />
-            <element signature="e#13994#14575#0" expanded="false" />
+            <element signature="e#13275#14245#0" expanded="false" />
+            <element signature="e#14332#14913#0" expanded="false" />
           </folding>
         </state>
       </provider>

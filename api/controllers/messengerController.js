@@ -1,6 +1,6 @@
 var User = require('../../app/models/user');
 var Matiere = require('../../app/models/matiere');
-var Classe = require('../../app/models/Classe');
+var Classe = require('../../app/models/classe');
 const request = require('request');
 const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
@@ -281,8 +281,7 @@ exports.webhookpost = function (req, res) {
 
     }
     function sendButtonMessageWithClass(recipientId,matiere_id,message) {
-        Classe.find(function (err, classes) {
-            console.log(classes);
+       Classe.find(function (err, classes) {
             var arrayClass = [];
             for (var i = 0; i < classes.length; i++) {
                 var buttonClasses = {
@@ -302,12 +301,19 @@ exports.webhookpost = function (req, res) {
                         payload: {
                             template_type: "button",
                             text: message,
-                            buttons: arrayClass
+                            buttons: [{
+                                type: "web_url",
+                                url: "https://www.oculus.com/en-us/touch/",
+                                title: "Open Web URL"
+                            }, {
+                                type: "postback",
+                                title: "Call Postback",
+                                payload: "Payload for second bubble",
+                            }]
                         }
                     }
                 }
             };
-            console.log(messageData);
             callSendAPI(messageData);
         })
     }
@@ -414,7 +420,7 @@ exports.webhookpost = function (req, res) {
              switch (stepPayload){
                  case 'choes_course' :{
                      const matiereId = arrayPayload[1];
-                     sendButtonMessageWithClass(senderID,matiereId,"En quelle classe es-tu déjà?")
+
                      // recuperation du commentaire bot de la matiere
                      Matiere.findOne({_id:matiereId},function(err,matiere){
                               if(err){
@@ -423,7 +429,7 @@ exports.webhookpost = function (req, res) {
                               }
                          //sendTypingOn(senderID);
                          //sendTextMessage(senderID,matiere.commentaireBot);
-
+                         sendButtonMessageWithClass(senderID,matiereId,"En quelle classe es-tu déjà?")
                          //sendTypingOff(senderID);
                      });
                      break;

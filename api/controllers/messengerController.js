@@ -1,6 +1,6 @@
 var User = require('../../app/models/user');
 var Matiere = require('../../app/models/matiere');
-var Classe = require('../../app/models/Classe');
+var ClasseRoom = require('../../app/models/classroom');
 const request = require('request');
 const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
@@ -281,7 +281,7 @@ exports.webhookpost = function (req, res) {
 
     }
     function sendButtonMessageWithClass(recipientId,matiere_id,message) {
-        Classe.find(function (err, classes) {
+        ClasseRoom.find(function (err, classes) {
             var arrayClass = [];
             for (var i = 0; i < classes.length; i++) {
                 var buttonClasses = {

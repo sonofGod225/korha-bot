@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c00c2d59-e5ab-4a0b-afcc-f38131f54b35" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/classroom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/messengerController.js" afterPath="$PROJECT_DIR$/api/controllers/messengerController.js" />
     </list>
     <ignored path="ibot.iws" />
@@ -26,8 +28,8 @@
       <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="423" column="103" selection-start-line="423" selection-start-column="103" selection-end-line="423" selection-end-column="103" />
+            <state relative-caret-position="215">
+              <caret line="291" column="47" selection-start-line="291" selection-start-column="47" selection-end-line="291" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -36,8 +38,18 @@
       <file leaf-file-name="Classe.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Classe.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+            <state relative-caret-position="136">
+              <caret line="8" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="classroom.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/classroom.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -103,16 +115,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="googleMap.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/googleMap.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -156,6 +158,7 @@
         <option value="$PROJECT_DIR$/app/models/matiere.js" />
         <option value="$PROJECT_DIR$/app/models/Classe.js" />
         <option value="$PROJECT_DIR$/app/models/classe.js" />
+        <option value="$PROJECT_DIR$/app/models/classroom.js" />
         <option value="$PROJECT_DIR$/api/controllers/messengerController.js" />
       </list>
     </option>
@@ -472,12 +475,12 @@
       <workItem from="1472719795593" duration="1368000" />
       <workItem from="1472722157305" duration="15967000" />
       <workItem from="1473793388787" duration="8660000" />
-      <workItem from="1473966717285" duration="23478000" />
+      <workItem from="1473966717285" duration="24076000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49473000" />
+    <option name="totallyTimeSpent" value="50071000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -489,7 +492,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20294599" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36497545" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -869,14 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/matiere.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="86">
@@ -885,18 +880,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/matiere.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Classe.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+        <state relative-caret-position="136">
+          <caret line="8" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/classroom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="423" column="103" selection-start-line="423" selection-start-column="103" selection-end-line="423" selection-end-column="103" />
+        <state relative-caret-position="215">
+          <caret line="291" column="47" selection-start-line="291" selection-start-column="47" selection-end-line="291" selection-end-column="47" />
           <folding />
         </state>
       </provider>

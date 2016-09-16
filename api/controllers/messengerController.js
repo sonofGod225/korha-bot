@@ -7,7 +7,11 @@ const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
 const PAGE_ACCESS_TOKEN = config.facebookmessenger.pageAccessToken;
 const axios = require('axios');
 const delimiter = "_@@_";
-
+var objClass = new ClasseRoom({
+    name:"CP",
+    commantaireBot:"Cool les cours elementaires !"
+});
+objClass.save();
 exports.webhook = function (req, res) {
     if (req.query['hub.mode'] === 'subscribe' &&
         req.query['hub.verify_token'] === VALIDATION_TOKEN) {

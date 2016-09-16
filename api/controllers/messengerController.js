@@ -282,7 +282,6 @@ exports.webhookpost = function (req, res) {
     }
     function sendButtonMessageWithClass(recipientId,matiere_id,message) {
         Classe.find(function (err, classes) {
-            console.log(classes);
             var arrayClass = [];
             for (var i = 0; i < classes.length; i++) {
                 var buttonClasses = {
@@ -307,7 +306,6 @@ exports.webhookpost = function (req, res) {
                     }
                 }
             };
-            console.log(messageData);
             callSendAPI(messageData);
         })
     }
@@ -414,7 +412,7 @@ exports.webhookpost = function (req, res) {
              switch (stepPayload){
                  case 'choes_course' :{
                      const matiereId = arrayPayload[1];
-                     sendButtonMessageWithClass(senderID,matiereId,"En quelle classe es-tu déjà?")
+
                      // recuperation du commentaire bot de la matiere
                      Matiere.findOne({_id:matiereId},function(err,matiere){
                               if(err){
@@ -423,7 +421,7 @@ exports.webhookpost = function (req, res) {
                               }
                          //sendTypingOn(senderID);
                          //sendTextMessage(senderID,matiere.commentaireBot);
-
+                         sendButtonMessageWithClass(senderID,matiereId,"En quelle classe es-tu déjà?");
                          //sendTypingOff(senderID);
                      });
                      break;

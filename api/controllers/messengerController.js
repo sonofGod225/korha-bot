@@ -1,6 +1,7 @@
 var User = require('../../app/models/user');
 var Matiere = require('../../app/models/matiere');
 var Classeroom = require('../../app/models/classroom');
+var Thematique = require('../../app/models/thematique');
 const request = require('request');
 const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
@@ -283,7 +284,34 @@ exports.webhookpost = function (req, res) {
     }
 
     function sendButtonMessageWithThematique(recipientId, matiere_id, classe_id, message) {
+        Thematique.find({_id: matiere_id}, function (err, thematiques) {
 
+            var arrayThematique = [];
+            for (var i = 0; i < thematiques.length; i++) {
+                var buttonThematique = {
+                    type: "postback",
+                    title: classes[i].name,
+                    payload: 'choes_thematique' + delimiter + thematiques[i]._id + delimiter + matiere_id + delimiter + classe_id
+                }
+                arrayThematique.push(buttonThematique);
+            }
+            var messageData = {
+                recipient: {
+                    id: recipientId
+                },
+                message: {
+                    attachment: {
+                        type: "template",
+                        payload: {
+                            template_type: "button",
+                            text: message,
+                            buttons: arrayThematique
+                        }
+                    }
+                }
+            };
+            callSendAPI(messageData);
+        })
     }
 
     function sendButtonMessageWithClass(recipientId, matiere_id, message) {
@@ -440,7 +468,7 @@ exports.webhookpost = function (req, res) {
                 {
                     const classeId = arrayPayload[1];
                     const matiereId = arrayPayload[2];
-                    Classeroom.findOne({_id:classeId},function(err,classe){
+                    Classeroom.findOne({_id: classeId}, function (err, classe) {
                         sendTypingOn(senderID);
                         Matiere.findOne({_id: matiereId}, function (err, matiere) {
                             if (err) {
@@ -449,10 +477,26 @@ exports.webhookpost = function (req, res) {
                             }
                             sendTextMessage(senderID, classe.commentaireBot);
                             sendTypingOn(senderID);
-                            sendTextMessage(senderID,"Alors au menu en "+matiere.name+" pour "+ classe.name+" je te proposes: ");
+
+                            sendButtonMessageWithThematique(senderID, matiereId, classeId, "Alors au menu en " + matiere.name + " pour la " + classe.name + " je te proposes les thématiques suivantes: ")
+                            sendTypingOn(senderID);
+                            sendTextMessage(senderID, "Clique sur une thématique pour la choisir !");
+                            sendTypingOff(senderID);
 
                         });
                     });
+                    break;
+                }
+
+                case 'choes_thematique' :
+                {
+                    const thematiqueId = arrayPayload[1];
+                    const matiereId = arrayPayload[2];
+                    const classeId = arrayPayload[3];
+                    Thematique.findOne({_id:thematiqueId},function(err,themetique){
+                        sendTextMessage(senderID, themetique.name+" excellent choix !");
+                    });
+
                     break;
                 }
                 default:

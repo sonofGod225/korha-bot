@@ -2,12 +2,8 @@ doctype html
 html(lang="en")
     include ../includes/head.jade
     body
-.container
+body.mdl-demo.mdl-color--grey-100.mdl-color-text--grey-700.mdl-base
     include ../includes/header.jade
-    .page-header
-        block page-header
-    .messages
-        include ../includes/messages.jade
     .content
         block content
 include ../includes/footer.jade

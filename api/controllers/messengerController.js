@@ -8,7 +8,7 @@ const PAGE_ACCESS_TOKEN = config.facebookmessenger.pageAccessToken;
 const axios = require('axios');
 const delimiter = "_@@_";
 
-objClass.save();
+
 exports.webhook = function (req, res) {
     if (req.query['hub.mode'] === 'subscribe' &&
         req.query['hub.verify_token'] === VALIDATION_TOKEN) {
@@ -23,8 +23,9 @@ exports.webhook = function (req, res) {
 exports.webhookpost = function (req, res) {
     var objClass = new ClasseRoom({
         name:"CP",
-        commantaireBot:"Cool les cours elementaires*** !"
+        commentaireBot:"Cool les cours elementaires*** !"
     });
+    objClass.save();
     var data = req.body;
 
     // Make sure this is a page subscription

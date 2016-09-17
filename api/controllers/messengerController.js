@@ -499,7 +499,9 @@ exports.webhookpost = function (req, res) {
                     const classeId = arrayPayload[3];
                     Thematique.findOne({_id:thematiqueId},function(err,themetique){
                         sendTextMessage(senderID, themetique.name+" excellent choix !");
+                        sendTypingOn(senderID);
                         sendVideoMessage(senderID,"https://s3-us-west-2.amazonaws.com/succes-assure/lessons/videos/7062268beaae9cbde31d9e33060b0c95.mp4")
+                        sendTypingOff(senderID);
                     });
 
                     break;

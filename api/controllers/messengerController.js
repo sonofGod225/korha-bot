@@ -96,32 +96,35 @@ exports.webhookpost = function (req, res) {
                     break;
 
                 default:
-                    sendButtonMessageWithMatiere(senderID,"Bonjour ! je suis ton coach scolaire ! que veux tu reviser ?")
+                    sendButtonMessageWithMatiere(senderID, "Bonjour ! je suis ton coach scolaire ! que veux tu reviser ?")
             }
         } else if (messageAttachments) {
 
-            sendButtonMessageWithMatiere(senderID,"Bonjour ! je suis ton coach scolaire ! que veux tu reviser ?")
+            sendButtonMessageWithMatiere(senderID, "Bonjour ! je suis ton coach scolaire ! que veux tu reviser ?")
 
 
             //sendTextMessage(senderID, "Message with attachment received");
         }
     }
 
-    function sendTextMessage(recipientId, messageText) {
+    function sendTextMessage(recipientId, messageText,sender_action) {
+        if(!sender_action){
+            sender_action = 'typing_off';
+        }
         var messageData = {
             recipient: {
                 id: recipientId
             },
             message: {
                 text: messageText
-            }
+            },
+            sender_action:sender_action
         };
-
         callSendAPI(messageData);
     }
 
     function callSendAPI(messageData) {
-        return new Promise(function(resultPromise,rejectPomise){
+        return new Promise(function (resultPromise, rejectPomise) {
             request({
                 uri: 'https://graph.facebook.com/v2.6/me/messages',
                 qs: {access_token: PAGE_ACCESS_TOKEN},
@@ -503,10 +506,10 @@ exports.webhookpost = function (req, res) {
                     const thematiqueId = arrayPayload[1];
                     const matiereId = arrayPayload[2];
                     const classeId = arrayPayload[3];
-                    Thematique.findOne({_id:thematiqueId},function(err,themetique){
-                        sendTextMessage(senderID, themetique.name+" excellent choix !");
+                    Thematique.findOne({_id: thematiqueId}, function (err, themetique) {
+                        sendTextMessage(senderID, themetique.name + " excellent choix !");
 
-                        sendVideoMessage(senderID,"https://s3-us-west-2.amazonaws.com/succes-assure/lessons/videos/7062268beaae9cbde31d9e33060b0c95.mp4")
+                        sendVideoMessage(senderID, "https://s3-us-west-2.amazonaws.com/succes-assure/lessons/videos/7062268beaae9cbde31d9e33060b0c95.mp4")
 
                     });
 
@@ -555,7 +558,7 @@ exports.webhookpost = function (req, res) {
     }
 
 
-    function sendVideoMessage(recipientId,videoUrl) {
+    function sendVideoMessage(recipientId, videoUrl) {
         var messageData = {
             recipient: {
                 id: recipientId
@@ -567,11 +570,10 @@ exports.webhookpost = function (req, res) {
                         url: videoUrl
                     }
                 }
-            }
+            },
+            sender_action: 'typing_off'
         };
-        sendTypingOn(recipientId);
-        callSendAPI(messageData).then(function(){
-            sendTypingOff(recipientId)
-        });
+
+        callSendAPI(messageData)
     }
 }

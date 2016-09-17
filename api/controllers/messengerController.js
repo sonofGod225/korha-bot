@@ -57,7 +57,6 @@ exports.webhookpost = function (req, res) {
         res.sendStatus(200);
     }
 
-
     function receivedMessage(event) {
         var senderID = event.sender.id;
         var recipientID = event.recipient.id;
@@ -107,18 +106,15 @@ exports.webhookpost = function (req, res) {
         }
     }
 
-    function sendTextMessage(recipientId, messageText,sender_action) {
-        if(typeof sender_action ==="undefined"){
-            sender_action = 'typing_off';
-        }
+    function sendTextMessage(recipientId, messageText) {
+
         var messageData = {
             recipient: {
                 id: recipientId
             },
             message: {
                 text: messageText
-            },
-            sender_action:sender_action
+            }
         };
         callSendAPI(messageData);
     }
@@ -439,7 +435,6 @@ exports.webhookpost = function (req, res) {
         callSendAPI(messageData);
     }
 
-
     function receivedPostback(event) {
         var senderID = event.sender.id;
         var recipientID = event.recipient.id;
@@ -529,7 +524,6 @@ exports.webhookpost = function (req, res) {
 
     }
 
-
     function sendTypingOn(recipientId) {
         console.log("Turning typing indicator on");
 
@@ -556,7 +550,6 @@ exports.webhookpost = function (req, res) {
         callSendAPI(messageData);
     }
 
-
     function sendVideoMessage(recipientId, videoUrl) {
         var messageData = {
             recipient: {
@@ -569,10 +562,41 @@ exports.webhookpost = function (req, res) {
                         url: videoUrl
                     }
                 }
-            },
-            sender_action: 'typing_off'
+            }
         };
 
-        callSendAPI(messageData)
+        callSendAPI(messageData).then(function () {
+            sendButtonAfterCourse(recipientId);
+        })
+    }
+
+    function sendButtonAfterCourse(recipientId){
+        var messageData = {
+            recipient:{
+                id:recipientId
+            },
+            message:{
+                attachment: {
+                    type: "template",
+                    payload: {
+                        template_type: "button",
+                        text: "",
+                        buttons: [{
+                            type: "web_url",
+                            url: "https://www.oculus.com/en-us/rift/",
+                            title: "Open Web URL"
+                        }, {
+                            type: "postback",
+                            title: "Trigger Postback",
+                            payload: "DEVELOPED_DEFINED_PAYLOAD"
+                        }, {
+                            type: "phone_number",
+                            title: "Call Phone Number",
+                            payload: "+16505551234"
+                        }]
+                    }
+                }
+            }
+        }
     }
 }

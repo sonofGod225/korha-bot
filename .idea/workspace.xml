@@ -37,8 +37,8 @@
       <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="582" column="38" selection-start-line="582" selection-start-column="38" selection-end-line="582" selection-end-column="38" />
+            <state relative-caret-position="333">
+              <caret line="505" column="109" selection-start-line="505" selection-start-column="109" selection-end-line="505" selection-end-column="109" />
               <folding>
                 <element signature="e#1049#2228#0" expanded="false" />
                 <element signature="e#2266#3925#0" expanded="false" />
@@ -52,9 +52,8 @@
                 <element signature="e#13560#14515#0" expanded="false" />
                 <element signature="e#14714#15535#0" expanded="false" />
                 <element signature="e#15646#16227#0" expanded="false" />
-                <element signature="e#16266#20506#0" expanded="false" />
-                <element signature="e#20547#20792#0" expanded="false" />
-                <element signature="e#20834#21081#0" expanded="false" />
+                <element signature="e#20661#20906#0" expanded="false" />
+                <element signature="e#20948#21195#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -538,12 +537,12 @@
       <workItem from="1472722157305" duration="15967000" />
       <workItem from="1473793388787" duration="8660000" />
       <workItem from="1473966717285" duration="42937000" />
-      <workItem from="1474100179053" duration="5822000" />
+      <workItem from="1474100179053" duration="6989000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74754000" />
+    <option name="totallyTimeSpent" value="75921000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
@@ -555,7 +554,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10801964" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -936,8 +935,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="582" column="38" selection-start-line="582" selection-start-column="38" selection-end-line="582" selection-end-column="38" />
+        <state relative-caret-position="333">
+          <caret line="505" column="109" selection-start-line="505" selection-start-column="109" selection-end-line="505" selection-end-column="109" />
           <folding>
             <element signature="e#1049#2228#0" expanded="false" />
             <element signature="e#2266#3925#0" expanded="false" />
@@ -951,9 +950,8 @@
             <element signature="e#13560#14515#0" expanded="false" />
             <element signature="e#14714#15535#0" expanded="false" />
             <element signature="e#15646#16227#0" expanded="false" />
-            <element signature="e#16266#20506#0" expanded="false" />
-            <element signature="e#20547#20792#0" expanded="false" />
-            <element signature="e#20834#21081#0" expanded="false" />
+            <element signature="e#20661#20906#0" expanded="false" />
+            <element signature="e#20948#21195#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -503,6 +503,7 @@ exports.webhookpost = function (req, res) {
                     const classeId = arrayPayload[3];
                     Thematique.findOne({_id: thematiqueId}, function (err, themetique) {
                         sendTextMessage(senderID, themetique.name + " excellent choix !");
+                        sendTextMessage(senderID, "Un peu de patience , je prepare le contenu de ta revision !");
                         sendVideoMessage(senderID, "https://s3-us-west-2.amazonaws.com/succes-assure/lessons/videos/7062268beaae9cbde31d9e33060b0c95.mp4")
 
                     });
@@ -582,16 +583,12 @@ exports.webhookpost = function (req, res) {
                         template_type: "button",
                         text: "Options",
                         buttons: [{
-                            type: "web_url",
-                            url: "https://www.oculus.com/en-us/rift/",
-                            title: "Open Web URL"
-                        }, {
                             type: "postback",
-                            title: "Trigger Postback",
+                            title: "Autres  thématiques",
                             payload: "DEVELOPED_DEFINED_PAYLOAD"
                         }, {
-                            type: "phone_number",
-                            title: "Call Phone Number",
+                            type: "postback",
+                            title: "Terminer revision",
                             payload: "+16505551234"
                         }]
                     }

@@ -581,7 +581,7 @@ exports.webhookpost = function (req, res) {
                     type: "template",
                     payload: {
                         template_type: "button",
-                        text: "Options",
+                        text: "Options supplementaires.",
                         buttons: [{
                             type: "postback",
                             title: "Autres  thématiques",

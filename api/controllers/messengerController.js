@@ -598,5 +598,7 @@ exports.webhookpost = function (req, res) {
                 }
             }
         }
+
+        callSendAPI(messageData);
     }
 }

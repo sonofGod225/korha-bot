@@ -580,7 +580,7 @@ exports.webhookpost = function (req, res) {
                     type: "template",
                     payload: {
                         template_type: "button",
-                        text: "",
+                        text: "Options",
                         buttons: [{
                             type: "web_url",
                             url: "https://www.oculus.com/en-us/rift/",

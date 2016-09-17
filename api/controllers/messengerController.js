@@ -510,6 +510,15 @@ exports.webhookpost = function (req, res) {
 
                     break;
                 }
+
+                case 'end_revision' : {
+                    sendTextMessage(senderID,"Ravi d'avoir reviser avec toi ! n'hésite pas à m'envoyer <HELLO> pour reviser encore :-) ;-) ");
+                    break;
+                }
+                case 'choes_other_course' :{
+                    sendButtonMessageWithMatiere(senderID,"Fait le choix d'une autre matière de revision !")
+                    break;
+                }
                 default:
                 {
                     sendButtonMessageWithMatiere(senderID, "Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.");
@@ -585,11 +594,11 @@ exports.webhookpost = function (req, res) {
                         buttons: [{
                             type: "postback",
                             title: "Autres  thématiques",
-                            payload: "DEVELOPED_DEFINED_PAYLOAD"
+                            payload: "end_revision"+delimiter
                         }, {
                             type: "postback",
                             title: "Terminer revision",
-                            payload: "+16505551234"
+                            payload: "choes_other_course"+delimiter
                         }]
                     }
                 }

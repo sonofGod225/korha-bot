@@ -594,11 +594,12 @@ exports.webhookpost = function (req, res) {
                         buttons: [{
                             type: "postback",
                             title: "Autres  thématiques",
-                            payload: "end_revision"+delimiter
+                            payload: "choes_other_course"+delimiter
                         }, {
                             type: "postback",
                             title: "Terminer revision",
-                            payload: "choes_other_course"+delimiter
+                            payload: "end_revision"+delimiter
+
                         }]
                     }
                 }

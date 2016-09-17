@@ -499,6 +499,7 @@ exports.webhookpost = function (req, res) {
                     const classeId = arrayPayload[3];
                     Thematique.findOne({_id:thematiqueId},function(err,themetique){
                         sendTextMessage(senderID, themetique.name+" excellent choix !");
+                        sendVideoMessage(senderID,"https://s3-us-west-2.amazonaws.com/succes-assure/lessons/videos/7062268beaae9cbde31d9e33060b0c95.mp4")
                     });
 
                     break;
@@ -540,6 +541,25 @@ exports.webhookpost = function (req, res) {
                 id: recipientId
             },
             sender_action: "typing_off"
+        };
+
+        callSendAPI(messageData);
+    }
+
+
+    function sendVideoMessage(recipientId,videoUrl) {
+        var messageData = {
+            recipient: {
+                id: recipientId
+            },
+            message: {
+                attachment: {
+                    type: "video",
+                    payload: {
+                        url: videoUrl
+                    }
+                }
+            }
         };
 
         callSendAPI(messageData);

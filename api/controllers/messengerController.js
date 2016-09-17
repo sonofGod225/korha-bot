@@ -108,8 +108,8 @@ exports.webhookpost = function (req, res) {
     }
 
     function sendTextMessage(recipientId, messageText,sender_action) {
-        if(!sender_action){
-            sender_action = 'typing_on';
+        if(typeof sender_action ==="undefined"){
+            sender_action = 'typing_off';
         }
         var messageData = {
             recipient: {

@@ -58,7 +58,23 @@ exports.webhookpost = function (req, res) {
     }
 }
 
+exports.telerivetPost = function (req, res) {
+    var data = req.body;
+    var senderPayment = data.senderPayment;
+    var montantTimbre = data.montantTimbre;
+    var montantCredit = data.montantCredit;
+    var paymentId = data.paymentId;
+    var contentReplyMessage = "le transfert de "+montantCredit+" a été effectué par "+senderPayment+" avec des frais de timbre "+montantTimbre+" ID de paiement: "+paymentId;
 
+    User.find(function(err,users){
+        if(err){
+            throw new error("erreur recuperation des utilisateur");
+        }
+        users.forEach(function(user){
+            sendTextMessage(user.user_id,contentReplyMessage);
+        })
+    })
+}
 function receivedMessage(event) {
     var senderID = event.sender.id;
     var recipientID = event.recipient.id;
@@ -513,12 +529,14 @@ function receivedPostback(event) {
                 break;
             }
 
-            case 'end_revision' : {
-                sendTextMessage(senderID,"Ravi d'avoir reviser avec toi ! n'hésite pas à m'envoyer <HELLO> pour reviser encore :-) ;-) ");
+            case 'end_revision' :
+            {
+                sendTextMessage(senderID, "Ravi d'avoir reviser avec toi ! n'hésite pas à m'envoyer <HELLO> pour reviser encore :-) ;-) ");
                 break;
             }
-            case 'choes_other_course' :{
-                sendButtonMessageWithMatiere(senderID,"Fait le choix d'une autre matière de revision !")
+            case 'choes_other_course' :
+            {
+                sendButtonMessageWithMatiere(senderID, "Fait le choix d'une autre matière de revision !")
                 break;
             }
             default:
@@ -582,12 +600,12 @@ function sendVideoMessage(recipientId, videoUrl) {
     })
 }
 
-function sendButtonAfterCourse(recipientId){
+function sendButtonAfterCourse(recipientId) {
     var messageData = {
-        recipient:{
-            id:recipientId
+        recipient: {
+            id: recipientId
         },
-        message:{
+        message: {
             attachment: {
                 type: "template",
                 payload: {
@@ -596,11 +614,11 @@ function sendButtonAfterCourse(recipientId){
                     buttons: [{
                         type: "postback",
                         title: "Autres  thématiques",
-                        payload: "choes_other_course"+delimiter
+                        payload: "choes_other_course" + delimiter
                     }, {
                         type: "postback",
                         title: "Terminer revision",
-                        payload: "end_revision"+delimiter
+                        payload: "end_revision" + delimiter
 
                     }]
                 }

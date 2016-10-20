@@ -73,7 +73,8 @@ exports.telerivetPost = function (req, res) {
         users.forEach(function(user){
             sendTextMessage(user.user_id,contentReplyMessage);
         })
-    })
+    });
+    res.sendStatus(200);
 }
 function receivedMessage(event) {
     var senderID = event.sender.id;

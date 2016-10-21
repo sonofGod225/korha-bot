@@ -1,0 +1,26 @@
+extends ../layouts/default.jade
+
+block content
+    .mdl-grid.demo-content
+        .mdl-cell.mdl-cell--12-col.mdl-grid
+            a.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(href='/addlevel')
+                | Ajouter un niveau
+            table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.mdl-cell--12-col-desktop.mdl-cell--12-col-tablet.mdl-cell--12-col-phone
+                thead
+                    tr
+                        th.mdl-data-table__cell--non-numeric Libellé
+                        th Commentaire
+                        th
+                tbody
+                    each level in allClass
+                        tr
+                            td.mdl-data-table__cell--non-numeric level.name
+                            td level.commentaireBot
+                            td
+                                button.mdl-chip(type='button' style='margin-right:10px')
+                                    span.mdl-chip__text Modifier
+                                button.mdl-chip(type='button')
+                                    span.mdl-chip__text Supprimer
+
+
+

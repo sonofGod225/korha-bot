@@ -7,6 +7,7 @@
 const home = require('../app/controllers/home');
 const i    = require('../api/controllers/iController');
 const botMessenger = require('../api/controllers/messengerController');
+const levelController = require('../app/controllers/levelController')
 
 /**
  * Expose
@@ -18,6 +19,12 @@ module.exports = function (app, passport) {
   app.get('/webhook',botMessenger.webhook);
   app.post('/webhook',botMessenger.webhookpost);
   app.post('/telerivet',botMessenger.telerivetPost);
+
+  /**
+   * route level
+   */
+  app.get('/level',levelController.index);
+  app.get('/addlevel',levelController.add)
 
   /**
    * Error handling

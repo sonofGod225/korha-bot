@@ -1,0 +1,18 @@
+extends ../layouts/default
+
+block content
+    .mdl-grid.demo-content
+        .mdl-cell.mdl-grid.mdl-cell--12-col
+            .demo-card-wide.mdl-card.mdl-shadow--2dp.mdl-cell--6-col-desktop.mdl-cell--12-col-tablet.mdl-cell--12-col-phone
+                .mdl-card__title
+                    h2.mdl-card__title-text Welcome
+                .mdl-card__supporting-text
+                    form(action='#')
+                        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                            input#sample3.mdl-textfield__input(type='text')
+                            label.mdl-textfield__label(for='sample3') Text...
+                .mdl-card__actions.mdl-card--border
+                    a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(data-upgraded=',MaterialButton,MaterialRipple')
+                        | Get Started
+                        span.mdl-button__ripple-container
+                            span.mdl-ripple

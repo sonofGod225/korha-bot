@@ -2,7 +2,11 @@
 
 module.exports = function (sequelize, DataTypes) {
     var grades = sequelize.define("grades", {
-        id: DataTypes.INTEGER,
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
         name: DataTypes.STRING,
         slug: DataTypes.STRING,
         order: DataTypes.INTEGER

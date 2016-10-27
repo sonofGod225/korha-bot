@@ -8,7 +8,7 @@ console.log(JSON.stringify(config));
 if (process.env.DATABASE_URL) {
     var sequelize = new Sequelize(process.env.DATABASE_URL);
 } else {
-    var sequelize = new Sequelize(config.squelize.database, config.squelize.username, config.squelize.password, config);
+    var sequelize = new Sequelize(config.squelize.database, config.squelize.username, config.squelize.password, config.squelize);
 }
 var db        = {};
 

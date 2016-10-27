@@ -15,7 +15,7 @@ const config = require('./config');
 
 const models = join(__dirname, 'app/models');
 const port = process.env.PORT || 3001;
-
+console.log(process.env.NODE_ENV);
 const app = express();
 const connection = connect();
 

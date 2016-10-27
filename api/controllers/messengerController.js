@@ -320,6 +320,7 @@ function receivedAuthentication(event) {
          gender: body.gender
          });*/
         models.users.findOne({
+            attributes: ['name', 'slug','order'],
             where:{
                 facebook_id:user_id
             }
@@ -423,7 +424,9 @@ function sendButtonMessageWithClass(recipientId, matiere_id, message) {
 }
 
 function sendButtonMessageWithMatiere(recipientId, message) {
-    models.grades.findAll({}).then(function (grades) {
+    models.grades.findAll({
+        attributes: ['name', 'slug','order']
+    }).then(function (grades) {
         var arrayMatiere = [];
         for (var i = 0; i < grades.length; i++) {
             var buttonMatiere = {

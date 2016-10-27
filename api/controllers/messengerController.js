@@ -8,7 +8,6 @@ const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
 const PAGE_ACCESS_TOKEN = config.facebookmessenger.pageAccessToken;
 const axios = require('axios');
-const model = require('../../app/models-sqelize');
 const delimiter = "_@@_";
 const models = require('../../app/models-sqelize');
 
@@ -114,7 +113,6 @@ function receivedMessage(event) {
             case 'receipt':
                 sendReceiptMessage(senderID);
                 break;
-
             default:
                 sendButtonMessageWithMatiere(senderID, "Bonjour ! je suis ton coach scolaire ! que veux tu reviser ?")
         }
@@ -303,9 +301,40 @@ function receivedAuthentication(event) {
     //enregistrement de l'utilisateur dans la bd
     const urlUserProfil = "https://graph.facebook.com/v2.6/" + senderID + "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + PAGE_ACCESS_TOKEN;
     axios.get(urlUserProfil).then(function (response) {
+
         console.log(JSON.stringify(response.data))
         const body = response.data;
-        const user = new User({
+
+        const UserObj = {
+            facebook_id: user_id,
+            firstname: body.first_name,
+            lastname: body.last_name,
+            avatar: body.profile_pic,
+            gender: body.gender
+        };
+        /*const user = new User({
+         user_id: user_id,
+         first_name: body.first_name,
+         last_name: body.last_name,
+         profile_pic: body.profile_pic,
+         gender: body.gender
+         });*/
+        models.users.findOne({
+            where:{
+                facebook_id:user_id
+            }
+        }).then(function(user){
+            if (user) {
+                console.error('Account with this user_id already exists!');
+            }else{
+                models.users.create(UserObj);
+            }
+
+            sendButtonMessageWithMatiere(senderID, "Bonsoir " + body.first_name + " " + body.last_name + " Comment vas-tu? Que révisons-nous ce soir ? ");
+
+        });
+
+       /* const user = new User({
             user_id: senderID,
             first_name: body.first_name,
             last_name: body.last_name,
@@ -325,7 +354,7 @@ function receivedAuthentication(event) {
 
             sendButtonMessageWithMatiere(senderID, "Bonsoir " + body.first_name + " " + body.last_name + " Comment vas-tu? Que révisons-nous ce soir ? ");
 
-        })
+        })*/
     })
 
 
@@ -394,13 +423,13 @@ function sendButtonMessageWithClass(recipientId, matiere_id, message) {
 }
 
 function sendButtonMessageWithMatiere(recipientId, message) {
-    Matiere.find(function (err, matieres) {
+    models.grades.findAll({}).then(function (grades) {
         var arrayMatiere = [];
-        for (var i = 0; i < matieres.length; i++) {
+        for (var i = 0; i < grades.length; i++) {
             var buttonMatiere = {
                 type: "postback",
-                title: matieres[i].name,
-                payload: 'choes_course' + delimiter + matieres[i]._id
+                title: grades[i].name,
+                payload: 'choes_course' + delimiter + grades[i].id
             };
             arrayMatiere.push(buttonMatiere);
         }
@@ -419,7 +448,6 @@ function sendButtonMessageWithMatiere(recipientId, message) {
                 }
             }
         };
-
         callSendAPI(messageData);
     })
 }

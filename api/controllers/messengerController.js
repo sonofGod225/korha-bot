@@ -180,36 +180,36 @@ function saveUserDetail(user_id) {
                 gender: body.gender
             };
             /*const user = new User({
-                user_id: user_id,
-                first_name: body.first_name,
-                last_name: body.last_name,
-                profile_pic: body.profile_pic,
-                gender: body.gender
-            });*/
+             user_id: user_id,
+             first_name: body.first_name,
+             last_name: body.last_name,
+             profile_pic: body.profile_pic,
+             gender: body.gender
+             });*/
             models.users.findOne({
-                where:{
-                    facebook_id:user_id
+                where: {
+                    facebook_id: user_id
                 }
-            }).then(function(user){
+            }).then(function (user) {
                 if (user) {
                     console.error('Account with this user_id already exists!');
-                }else{
+                } else {
                     models.users.create(UserObj);
                 }
             });
             /*User.findOne({user_id: user_id}, (findErr, existingUser)=> {
-                if (existingUser) {
-                    console.error('Account with this user_id already exists!');
-                }
+             if (existingUser) {
+             console.error('Account with this user_id already exists!');
+             }
 
-                user.save((saveErr) => {
-                    if (saveErr) {
-                        console.error('une erreur est surveur pendant l\'enregistre de l\'utilisateur');
-                    }
-                    console.log("utilisateur enregistré avec succes !");
+             user.save((saveErr) => {
+             if (saveErr) {
+             console.error('une erreur est surveur pendant l\'enregistre de l\'utilisateur');
+             }
+             console.log("utilisateur enregistré avec succes !");
 
-                });
-            })*/
+             });
+             })*/
         }
     });
 }
@@ -320,42 +320,42 @@ function receivedAuthentication(event) {
          gender: body.gender
          });*/
         models.users.findOne({
-            attributes: ['id','name', 'slug','order'],
-            where:{
-                facebook_id:user_id
+            attributes: ['id', 'name', 'slug', 'order'],
+            where: {
+                facebook_id: user_id
             }
-        }).then(function(user){
+        }).then(function (user) {
             if (user) {
                 console.error('Account with this user_id already exists!');
-            }else{
+            } else {
                 models.users.create(UserObj);
             }
 
-            sendButtonMessageWithMatiere(senderID, "Bonsoir " + body.first_name + " " + body.last_name + " Comment vas-tu? Que révisons-nous ce soir ? ");
+            sendButtonMessageWithMatiere(senderID, "Hello  " + body.last_name + " je suis ton Coach \<succès assuré\> !\n je peux t'aider à reviser des cours de du primaire à la secondaire. \n choisi ta classe pour débuter !");
 
         });
 
-       /* const user = new User({
-            user_id: senderID,
-            first_name: body.first_name,
-            last_name: body.last_name,
-            profile_pic: body.profile_pic,
-            gender: body.gender
-        });
+        /* const user = new User({
+         user_id: senderID,
+         first_name: body.first_name,
+         last_name: body.last_name,
+         profile_pic: body.profile_pic,
+         gender: body.gender
+         });
 
-        User.findOne({user_id: senderID}, function (findErr, existingUser) {
-            if (!existingUser) {
-                user.save(function (saveErr) {
-                    if (saveErr) {
-                        throw new Error("une erreur est surveur pendant l'enregistre de l'utilisateur");
-                    }
-                    console.log("utilisateur enregistré avec succes !");
-                });
-            }
+         User.findOne({user_id: senderID}, function (findErr, existingUser) {
+         if (!existingUser) {
+         user.save(function (saveErr) {
+         if (saveErr) {
+         throw new Error("une erreur est surveur pendant l'enregistre de l'utilisateur");
+         }
+         console.log("utilisateur enregistré avec succes !");
+         });
+         }
 
-            sendButtonMessageWithMatiere(senderID, "Bonsoir " + body.first_name + " " + body.last_name + " Comment vas-tu? Que révisons-nous ce soir ? ");
+         sendButtonMessageWithMatiere(senderID, "Bonsoir " + body.first_name + " " + body.last_name + " Comment vas-tu? Que révisons-nous ce soir ? ");
 
-        })*/
+         })*/
     })
 
 
@@ -423,13 +423,14 @@ function sendButtonMessageWithClass(recipientId, matiere_id, message) {
     })
 }
 
-function sendButtonMessageWithMatiere(recipientId, message) {
+function sendMessageMatiere(recipientId) {
     models.grades.findAll({
-        attributes: ['id','name', 'slug','order']
+        attributes: ['id', 'name', 'slug', 'order']
     }).then(function (grades) {
         console.log(JSON.stringify(grades));
-        var arrayMatiere = [];
+        var messageMatiere = "";
         for (var i = 0; i < grades.length; i++) {
+
             var buttonMatiere = {
                 type: "postback",
                 title: grades[i].name,
@@ -437,17 +438,42 @@ function sendButtonMessageWithMatiere(recipientId, message) {
             };
             arrayMatiere.push(buttonMatiere);
         }
+
+        callSendAPI(messageData);
+    })
+}
+
+function sendButtonMessageWithMatiere(recipientId, message) {
+    models.grades.findAll({
+        attributes: ['id', 'name', 'slug', 'order']
+    }).then(function (grades) {
+        console.log(JSON.stringify(grades));
+
+        var elements = [];
+        for (var i = 0; i < grades.length; i++) {
+            var arrayMatiere = [];
+            var buttonMatiere = {
+                type: "postback",
+                title: grades[i].name,
+                payload: 'choes_course' + delimiter + grades[i].id
+            };
+            arrayMatiere.push(buttonMatiere);
+            var elements = {
+                title: grades[i].name,
+                image_url: "https://petersfancybrownhats.com/company_image.png",
+                buttons: arrayMatiere
+            }
+        }
         var messageData = {
             recipient: {
                 id: recipientId
             },
-            message: {
-                attachment: {
-                    type: "template",
-                    payload: {
-                        template_type: "button",
-                        text: message,
-                        buttons: arrayMatiere
+            "message": {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": elements
                     }
                 }
             }

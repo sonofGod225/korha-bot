@@ -427,6 +427,7 @@ function sendButtonMessageWithMatiere(recipientId, message) {
     models.grades.findAll({
         attributes: ['name', 'slug','order']
     }).then(function (grades) {
+        console.log(JSON.stringify(grades));
         var arrayMatiere = [];
         for (var i = 0; i < grades.length; i++) {
             var buttonMatiere = {

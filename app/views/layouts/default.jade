@@ -5,7 +5,7 @@ html(lang='')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='description', content='')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
-        title Web Starter Kit
+        title #{title} - Success assuré
         // Disable tap highlight on IE
         meta(name='msapplication-tap-highlight', content='no')
         // Web Application Manifest
@@ -38,14 +38,22 @@ html(lang='')
         // Material Design icons
         link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
         // Your styles
-        link(rel='stylesheet', href='styles/main.css')
-        link(rel='stylesheet', href='styles/custom.css')
+        link(rel='stylesheet', href='/styles/main.css')
+        link(rel='stylesheet', href='/styles/custom.css')
         script(src="/js/messengerbtn.js")
     body
         .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
             include ../includes/header.jade
             include ../includes/nav.jade
             main.mdl-layout__content.mdl-color--grey-100
+                if messages.errors
+                    .mdl-components__danger
+                        for error in messages.errors
+                            div= error.msg
+                if messages.success
+                    .mdl-components__success
+                        for success in messages.success
+                            div= success.msg
                 block content
         include ../includes/foot.jade
 

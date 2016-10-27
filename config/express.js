@@ -14,7 +14,8 @@ var methodOverride = require('method-override');
 var csrf = require('csurf');
 
 var mongoStore = require('connect-mongo')(session);
-var flash = require('connect-flash');
+//var flash = require('connect-flash');
+var flash = require('express-flash');
 var winston = require('winston');
 var helpers = require('view-helpers');
 var jade = require('jade');

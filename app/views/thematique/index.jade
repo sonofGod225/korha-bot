@@ -3,25 +3,27 @@ extends ../layouts/default.jade
 block content
     .mdl-grid.demo-content
         .mdl-cell.mdl-cell--12-col.mdl-grid
-            a.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(href='/addlevel')
-                | Ajouter un niveau
+            a.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(href='/addthematiques')
+                | Ajouter une thématique
             table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.mdl-cell--12-col-desktop.mdl-cell--12-col-tablet.mdl-cell--12-col-phone
                 thead
                     tr
                         th.mdl-data-table__cell--non-numeric Libellé
+                        th Matière
                         th Description
                         th Commentaire Bot
                         th
                 tbody
-                    each level in allClass
+                    each thematique in allThematiques
                         tr
-                            td.mdl-data-table__cell--non-numeric= level.name
-                            td= level.description
-                            td= level.commentaireBot
+                            td.mdl-data-table__cell--non-numeric= matiere.name
+                            td= thematique.matiere_id.name
+                            td= thematique.description
+                            td= thematique.commentaireBot
                             td
-                                a.mdl-chip(href='/level/'+level._id style='margin-right:10px')
+                                a.mdl-chip(href='/thematique/'+thematique._id style='margin-right:10px')
                                     span.mdl-chip__text Modifier
-                                a.mdl-chip.deletelevel(href='#' data-id=''+level._id)
+                                a.mdl-chip.deletethematique(href='#' data-id=''+thematique._id)
                                     span.mdl-chip__text Supprimer
 
 

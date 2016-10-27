@@ -5,6 +5,13 @@
 
 module.exports = {
   db: 'mongodb://localhost/your_project_test',
+  squelize: {
+    "username": "root",
+    "password": null,
+    "database": "sa",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
   facebook: {
     clientID: 'APP_ID',
     clientSecret: 'SECRET',

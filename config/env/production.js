@@ -4,6 +4,13 @@
 
 module.exports = {
     db: process.env.MONGODB_URI,
+    squelize: {
+        "username": "saroute",
+        "password": 'sXpe88&9',
+        "database": "sa",
+        "host": "de2869.ispfr.net",
+        "dialect": "mysql"
+    },
     facebook: {
         clientID: 'APP_ID',
         clientSecret: 'SECRET',

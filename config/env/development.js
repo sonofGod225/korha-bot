@@ -5,6 +5,13 @@
 
 module.exports = {
   db: 'mongodb://localhost/your_project_development',
+  squelize: {
+    "username": "root",
+    "password": null,
+    "database": "sa",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
   facebook: {
     clientID: 'APP_ID',
     clientSecret: 'SECRET',
@@ -27,7 +34,7 @@ module.exports = {
   },
   facebookmessenger: {
     appSecret:"6d741afeda0b64e47c43480b4b3d9073",
-    pageAccessToken: "EAAXkZCNDkRCwBAPnRbrZBXyc1lwUX3zQZAxOhBGVW0fc6aUggmOuRVnJTWakLQc4QdZBMtL7c0SW1xrnlLM5WfTKAHjliXp03ycJ7cDpZAGQ3hQiZAYn9ZC2ZBQ0g5KuxIsgXNDeWjTYZCgWlhNGzy2qFhAQXuQoW5jIQnTYOiJfrPQZDZD",
+    pageAccessToken: "EAAXkZCNDkRCwBAApJXSV0gBvVGZBA2XgiNnUGb0JLqFxYZC6olSe1Dd4DjEIWPatLNxhX0b9ZAcmJGKy7QAdZAVdxfqLSH7y1QOTlnQtheJl5jS77BoVe2ks2wIGdD1frugWuksqlXEUQrAUThXNg5WG0cOR3h3m7cZAGcLF8kygZDZD",
     validationToken: "mon_token_de_verification",
     serverURL: ""
   }

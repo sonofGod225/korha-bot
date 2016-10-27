@@ -3,3 +3,34 @@
         margin-left:200px
     }
 }
+
+
+.mdl-components__info {
+     width: 100%;
+     max-width: 640px;
+     margin: 0 auto;
+     background-color: #00b9d8;
+     padding: 16px;
+     border-radius: 2px;
+     color: #212121;
+ }
+
+.mdl-components__danger {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    background-color: #b94a48;
+    padding: 16px;
+    border-radius: 2px;
+    color: #212121;
+}
+
+.mdl-components__success {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    background-color: #00A000;
+    padding: 16px;
+    border-radius: 2px;
+    color: #212121;
+}

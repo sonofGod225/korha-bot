@@ -8,7 +8,9 @@ const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
 const PAGE_ACCESS_TOKEN = config.facebookmessenger.pageAccessToken;
 const axios = require('axios');
+const model = require('../../app/models-sqelize');
 const delimiter = "_@@_";
+const models = require('../../app/models-sqelize');
 
 
 exports.webhook = function (req, res) {
@@ -64,14 +66,14 @@ exports.telerivetPost = function (req, res) {
     var montantTimbre = data.montantTimbre;
     var montantCredit = data.montantCredit;
     var paymentId = data.paymentId;
-    var contentReplyMessage = "le transfert de "+montantCredit+" a été effectué par "+senderPayment+" avec des frais de timbre "+montantTimbre+" ID de paiement: "+paymentId;
+    var contentReplyMessage = "le transfert de " + montantCredit + " a été effectué par " + senderPayment + " avec des frais de timbre " + montantTimbre + " ID de paiement: " + paymentId;
 
-    User.find(function(err,users){
-        if(err){
+    User.find(function (err, users) {
+        if (err) {
             throw new error("erreur recuperation des utilisateur");
         }
-        users.forEach(function(user){
-            sendTextMessage(user.user_id,contentReplyMessage);
+        users.forEach(function (user) {
+            sendTextMessage(user.user_id, contentReplyMessage);
         })
     });
     res.sendStatus(200);
@@ -172,14 +174,32 @@ function saveUserDetail(user_id) {
         method: 'GET'
     }, (error, response, body)=> {
         if (!error && response.statusCode == 200) {
-            const user = new User({
+            const UserObj = {
+                facebook_id: user_id,
+                firstname: body.first_name,
+                lastname: body.last_name,
+                avatar: body.profile_pic,
+                gender: body.gender
+            };
+            /*const user = new User({
                 user_id: user_id,
                 first_name: body.first_name,
                 last_name: body.last_name,
                 profile_pic: body.profile_pic,
                 gender: body.gender
+            });*/
+            models.users.findOne({
+                where:{
+                    facebook_id:user_id
+                }
+            }).then(function(user){
+                if (user) {
+                    console.error('Account with this user_id already exists!');
+                }else{
+                    models.users.create(UserObj);
+                }
             });
-            User.findOne({user_id: user_id}, (findErr, existingUser)=> {
+            /*User.findOne({user_id: user_id}, (findErr, existingUser)=> {
                 if (existingUser) {
                     console.error('Account with this user_id already exists!');
                 }
@@ -191,7 +211,7 @@ function saveUserDetail(user_id) {
                     console.log("utilisateur enregistré avec succes !");
 
                 });
-            })
+            })*/
         }
     });
 }

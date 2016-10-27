@@ -458,11 +458,13 @@ function sendButtonMessageWithMatiere(recipientId, message) {
                 payload: 'choes_course' + delimiter + grades[i].id
             };
             arrayMatiere.push(buttonMatiere);
-            var elements = {
+            var elementSingle = {
                 title: grades[i].name,
                 image_url: "https://petersfancybrownhats.com/company_image.png",
                 buttons: arrayMatiere
             }
+
+            elements.push(elementSingle);
         }
         var messageData = {
             recipient: {

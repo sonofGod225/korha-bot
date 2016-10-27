@@ -320,7 +320,7 @@ function receivedAuthentication(event) {
          gender: body.gender
          });*/
         models.users.findOne({
-            attributes: ['name', 'slug','order'],
+            attributes: ['id','name', 'slug','order'],
             where:{
                 facebook_id:user_id
             }
@@ -425,7 +425,7 @@ function sendButtonMessageWithClass(recipientId, matiere_id, message) {
 
 function sendButtonMessageWithMatiere(recipientId, message) {
     models.grades.findAll({
-        attributes: ['name', 'slug','order']
+        attributes: ['id','name', 'slug','order']
     }).then(function (grades) {
         console.log(JSON.stringify(grades));
         var arrayMatiere = [];

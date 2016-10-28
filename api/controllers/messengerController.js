@@ -488,14 +488,14 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                     const buttonLessonText = {
                         type: "postback",
                         title: "Voir le cours",
-                        payload: 'choes_lesson_cours' + delimiter + lessons[i].id + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
+                        payload: 'choes_lesson_cours' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
                     };
                     arrayLessons.push(buttonLessonText);
                     if (quiz) {
                         var buttonLessonQuiz = {
                             type: "postback",
                             title: "Faire un le Quiz",
-                            payload: 'choes_lesson_quiz' + delimiter + lessons[i].id + delimiter + gradeid + delimiter + courseid + delimiter + chapterid + delimiter + quiz.id
+                            payload: 'choes_lesson_quiz' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid + delimiter + quiz.id
                         };
                         arrayLessons.push(buttonLessonQuiz);
                     }

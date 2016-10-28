@@ -470,6 +470,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
         }).then(function (lessons) {
             var elements = [];
             for (var i = 0; i < lessons.length; i++) {
+                console.log(JSON.stringify(lessons[i]));
                 var arrayLessons = [];
                 models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
                     replacements: {
@@ -508,7 +509,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
 
             }
 
-            console.log(JSON.stringify(elements));
+
             var messageData = {
                 recipient: {
                     id: recipientId

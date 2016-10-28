@@ -494,7 +494,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                     };
                     arrayLessons.push(buttonLessonText);
                     if (quiz) {
-                        const buttonLessonQuiz = {
+                        let buttonLessonQuiz = {
                             type: "postback",
                             title: "Faire un le Quiz",
                             payload: 'choes_lesson_quiz' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid + delimiter + quiz.id
@@ -507,12 +507,13 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         image_url: "http://under30ceo.com/wp-content/uploads/2011/12/lessons-learned-e1324389749537.jpg",
                         buttons: arrayLessons
                     }
+                    console.log('elemt_dexter'+JSON.stringify(elementSingle));
                     elements.push(elementSingle);
                 });
 
             }
 
-            console.log('elemt_dexter'+JSON.stringify(elements));
+
             let messageData = {
                 recipient: {
                     id: recipientId

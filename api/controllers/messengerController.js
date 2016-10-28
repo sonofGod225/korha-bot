@@ -459,6 +459,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
     return new Promise(function (fulfill, rejected) {
 
         models.lessons.findAll({
+            limit: 10,
             where: {
                 chapter_id: chapterid
             },
@@ -479,10 +480,10 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                 models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
                     replacements: {
                         lesson_id: lessonId,
-                        type:  models.sequelize.QueryTypes.SELECT
+                        type: models.sequelize.QueryTypes.SELECT
                     }
                 }).then(function (quiz) {
-                    console.log('elemt_dexterquiz'+JSON.stringify(quiz));
+                    console.log('elemt_dexterquiz' + JSON.stringify(quiz));
                     let buttonLessonVideo = {
                         type: "postback",
                         title: "Voir la video du cours",
@@ -495,8 +496,8 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         payload: 'choes_lesson_cours' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
                     };
                     arrayLessons.push(buttonLessonText);
-                    if (typeof quiz.id !=='undefined') {
-                        console.log('elemt_dexter_quiz'+JSON.stringify(quiz));
+                    if (typeof quiz.id !== 'undefined') {
+                        console.log('elemt_dexter_quiz' + JSON.stringify(quiz));
                         let buttonLessonQuiz = {
                             type: "postback",
                             title: "Faire un le Quiz",
@@ -510,11 +511,11 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         image_url: lessonThumbnail,
                         buttons: arrayLessons
                     }
-                    console.log('elemt_dexter'+JSON.stringify(elementSingle));
+                    console.log('elemt_dexter' + JSON.stringify(elementSingle));
                     elementsLesson.push(elementSingle);
 
-                    if(i==(lessons.length-1)){
-                        console.log('elemt_dexter_elements'+JSON.stringify(elementsLesson));
+                    if (i == (lessons.length - 1)) {
+                        console.log('elemt_dexter_elements' + JSON.stringify(elementsLesson));
                         let messageData = {
                             recipient: {
                                 id: recipientId
@@ -810,18 +811,24 @@ function receivedPostback(event) {
                 break;
             }
 
-            case 'choes_thematique' :
+            case 'choes_lesson_video' :
             {
-                const thematiqueId = arrayPayload[1];
-                const matiereId = arrayPayload[2];
-                const classeId = arrayPayload[3];
-                Thematique.findOne({_id: thematiqueId}, function (err, themetique) {
-                    sendTextMessage(senderID, themetique.name + " excellent choix !");
-                    sendTextMessage(senderID, "Un peu de patience , je prepare le contenu de ta revision !");
-                    sendVideoMessage(senderID, "https://s3-us-west-2.amazonaws.com/succes-assure/lessons/videos/7062268beaae9cbde31d9e33060b0c95.mp4")
+                const lessonId = arrayPayload[1];
+                const gradeId = arrayPayload[2];
+                const courseId = arrayPayload[3];
+                const chapterId = arrayPayload[4];
 
+                sendTypingOn(senderID).then(function () {
+                    //recuperation de l'url de la video
+                    models.lessons.findOne({
+                        attributes: ['id', 'video'],
+                        where:{id:lessonId}
+                    }).then(function (lesson) {
+                        sendTypingOn(senderID).then(function () {
+                            sendVideoMessage(senderID, lesson.video,lessonId, gradeId, courseId, chapterId);
+                        });
+                    });
                 });
-
                 break;
             }
 
@@ -883,7 +890,7 @@ function sendTypingOff(recipientId) {
 
 }
 
-function sendVideoMessage(recipientId, videoUrl) {
+function sendVideoMessage(recipientId, videoUrl,lessonId, gradeId, courseId, chapterId) {
     var messageData = {
         recipient: {
             id: recipientId
@@ -916,9 +923,14 @@ function sendButtonAfterCourse(recipientId) {
                     text: "Options supplementaires.",
                     buttons: [{
                         type: "postback",
-                        title: "Autres  thématiques",
+                        title: "Autres  léçons",
                         payload: "choes_other_course" + delimiter
-                    }, {
+                    },
+                        {
+                            type: "postback",
+                            title: "Faire un Quiz",
+                            payload: "choes_other_course" + delimiter
+                        },{
                         type: "postback",
                         title: "Terminer revision",
                         payload: "end_revision" + delimiter

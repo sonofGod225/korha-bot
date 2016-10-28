@@ -494,6 +494,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                     };
                     arrayLessons.push(buttonLessonText);
                     if (quiz) {
+                        console.log('elemt_dexter_quiz'+JSON.stringify(quiz));
                         let buttonLessonQuiz = {
                             type: "postback",
                             title: "Faire un le Quiz",

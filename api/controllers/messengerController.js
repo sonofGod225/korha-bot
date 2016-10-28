@@ -632,7 +632,7 @@ function receivedPostback(event) {
                         id: gradeId
                     }
                 }).then(function (grade) {
-                    const commentaireBotGrade = grade.commentaire_bot;
+                    const commentaireBotGrade = grade.comment_bot;
                     sendTypingOn(senderID).then(function () {
                         sendTextMessage(senderID, commentaireBotGrade).then(function () {
                             sendTypingOn(senderID).then(function () {

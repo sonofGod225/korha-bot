@@ -470,7 +470,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
         }).then(function (lessons) {
             var elements = [];
             for (var i = 0; i < lessons.length; i++) {
-                console.log(JSON.stringify(lessons[i]));
+
                 var arrayLessons = [];
                 const lessonId = lessons[i].id;
                 const lessonName = lessons[i].name;
@@ -512,7 +512,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
 
             }
 
-
+            console.log(JSON.stringify(elements));
             var messageData = {
                 recipient: {
                     id: recipientId

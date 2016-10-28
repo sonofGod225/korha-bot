@@ -473,6 +473,8 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                 console.log(JSON.stringify(lessons[i]));
                 var arrayLessons = [];
                 const lessonId = lessons[i].id;
+                const lessonName = lessons[i].name;
+                const lessonShort = lessons[i].short;
                 models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
                     replacements: {
                         lesson_id: lessonId,
@@ -500,8 +502,8 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         arrayLessons.push(buttonLessonQuiz);
                     }
                     const elementSingle = {
-                        title: lessons[i].name,
-                        subtitle: lessons[i].short,
+                        title: lessonName,
+                        subtitle: lessonShort,
                         image_url: "http://under30ceo.com/wp-content/uploads/2011/12/lessons-learned-e1324389749537.jpg",
                         buttons: arrayLessons
                     }

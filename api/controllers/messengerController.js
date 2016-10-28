@@ -462,7 +462,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid,chapterid) {
             where: {
                 chapter_id: chapterid
             },
-            attributes: ['id', 'name', 'slug','chort','video','thumbnail','preview', 'order'],
+            attributes: ['id', 'name', 'slug','short','video','thumbnail','preview', 'order'],
             order: [
                 ['id', 'ASC']
             ]

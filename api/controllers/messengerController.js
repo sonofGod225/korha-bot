@@ -491,7 +491,9 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         type: "web_url",
                         title: "Voir le cours",
                         url:PAGE_WEB_VIEW+"/bot/lesson/"+lessonId,
-                        webview_height_ratio: "compact"
+                        webview_height_ratio: "full",
+                        messenger_extensions: true,
+                        fallback_url: PAGE_WEB_VIEW+"/bot/lesson/"+lessonId
                     };
                     arrayLessons.push(buttonLessonText);
                     if (typeof quiz.id !== 'undefined') {

@@ -456,13 +456,13 @@ function sendMessageMatiere(recipientId) {
     })
 }
 
-function sendButtonMessageWithLesson(recipientId, gradeid, courseid,chapterid) {
+function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) {
     return new Promise(function (fulfill, rejected) {
         models.lessons.findAll({
             where: {
                 chapter_id: chapterid
             },
-            attributes: ['id', 'name', 'slug','short','video','thumbnail','preview', 'order'],
+            attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order'],
             order: [
                 ['id', 'ASC']
             ]
@@ -471,33 +471,33 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid,chapterid) {
             var elements = [];
             for (var i = 0; i < lessons.length; i++) {
                 var arrayLessons = [];
-                models.quiz.findOne({
-                    attributes: ['id', 'timer', 'lesson_id'],
-                    where:{
-                        lesson_id:lessons[i].id
+                models.sequelize.query('SELECT id,time,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
+                    replacements: {
+                        lesson_id: lessons[i].id,
+                        type: sequelize.QueryTypes.SELECT
                     }
                 }).then(function (quiz) {
-                    var buttonLessonVideo = {
+                    const buttonLessonVideo = {
                         type: "postback",
                         title: "Voir la video du cours",
-                        payload: 'choes_lesson_video' + delimiter + lessons[i].id + delimiter + gradeid + delimiter + courseid+delimiter+chapterid
+                        payload: 'choes_lesson_video' + delimiter + lessons[i].id + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
                     };
                     arrayLessons.push(buttonLessonVideo);
-                    var buttonLessonText = {
+                    const buttonLessonText = {
                         type: "postback",
                         title: "Voir le cours",
-                        payload: 'choes_lesson_cours' + delimiter + lessons[i].id + delimiter + gradeid + delimiter + courseid+delimiter+chapterid
+                        payload: 'choes_lesson_cours' + delimiter + lessons[i].id + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
                     };
                     arrayLessons.push(buttonLessonText);
-                    if(quiz){
+                    if (quiz) {
                         var buttonLessonQuiz = {
                             type: "postback",
                             title: "Faire un le Quiz",
-                            payload: 'choes_lesson_quiz' + delimiter + lessons[i].id + delimiter + gradeid + delimiter + courseid+delimiter+chapterid+delimiter+quiz.id
+                            payload: 'choes_lesson_quiz' + delimiter + lessons[i].id + delimiter + gradeid + delimiter + courseid + delimiter + chapterid + delimiter + quiz.id
                         };
                         arrayLessons.push(buttonLessonQuiz);
                     }
-                    var elementSingle = {
+                    const elementSingle = {
                         title: lessons[i].name,
                         subtitle: lessons[i].short,
                         image_url: "http://under30ceo.com/wp-content/uploads/2011/12/lessons-learned-e1324389749537.jpg",
@@ -505,6 +505,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid,chapterid) {
                     }
                     elements.push(elementSingle);
                 });
+
             }
 
             console.log(JSON.stringify(elements));
@@ -790,7 +791,7 @@ function receivedPostback(event) {
                 sendTypingOn(senderID).then(function () {
                     sendTextMessage(senderID, commentaireBotChpter).then(function () {
                         sendTypingOn(senderID).then(function () {
-                            sendButtonMessageWithLesson(senderID, gradeId, courseId,chapterId)
+                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId)
                         });
                     });
                 });

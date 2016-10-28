@@ -467,10 +467,10 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
             ]
 
         }).then(function (lessons) {
-            var elements = [];
+            const elements = [];
             for (var i = 0; i < lessons.length; i++) {
 
-                var arrayLessons = [];
+                const arrayLessons = [];
                 const lessonId = lessons[i].id;
                 const lessonName = lessons[i].name;
                 const lessonShort = lessons[i].short;
@@ -493,7 +493,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                     };
                     arrayLessons.push(buttonLessonText);
                     if (quiz) {
-                        var buttonLessonQuiz = {
+                        const buttonLessonQuiz = {
                             type: "postback",
                             title: "Faire un le Quiz",
                             payload: 'choes_lesson_quiz' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid + delimiter + quiz.id
@@ -512,7 +512,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
             }
 
             console.log(JSON.stringify(elements));
-            var messageData = {
+            const messageData = {
                 recipient: {
                     id: recipientId
                 },

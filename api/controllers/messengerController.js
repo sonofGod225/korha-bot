@@ -471,7 +471,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
             var elements = [];
             for (var i = 0; i < lessons.length; i++) {
                 var arrayLessons = [];
-                models.sequelize.query('SELECT id,time,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
+                models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
                     replacements: {
                         lesson_id: lessons[i].id,
                         type:  models.sequelize.QueryTypes.SELECT

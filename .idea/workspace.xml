@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c00c2d59-e5ab-4a0b-afcc-f38131f54b35" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/messengerController.js" afterPath="$PROJECT_DIR$/api/controllers/messengerController.js" />
     </list>
     <ignored path="ibot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +27,8 @@
       <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="517" column="31" selection-start-line="517" selection-start-column="31" selection-end-line="517" selection-end-column="31" />
+            <state relative-caret-position="356">
+              <caret line="532" column="12" selection-start-line="532" selection-start-column="12" selection-end-line="532" selection-end-column="12" />
               <folding>
                 <element signature="e#5043#5197#0" expanded="false" />
                 <element signature="e#7387#7848#0" expanded="false" />
@@ -40,7 +41,7 @@
                 <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithGrade#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-                <element signature="e#24465#25210#0" expanded="false" />
+                <element signature="e#24479#25224#0" expanded="false" />
                 <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
                 <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonAfterCourse#0" expanded="false" />
@@ -431,12 +432,12 @@
       <workItem from="1477385734794" duration="28000" />
       <workItem from="1477385836230" duration="26148000" />
       <workItem from="1477475959487" duration="26919000" />
-      <workItem from="1477645789967" duration="22766000" />
+      <workItem from="1477645789967" duration="22912000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184571000" />
+    <option name="totallyTimeSpent" value="184717000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -857,8 +858,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="517" column="31" selection-start-line="517" selection-start-column="31" selection-end-line="517" selection-end-column="31" />
+        <state relative-caret-position="356">
+          <caret line="532" column="12" selection-start-line="532" selection-start-column="12" selection-end-line="532" selection-end-column="12" />
           <folding>
             <element signature="e#5043#5197#0" expanded="false" />
             <element signature="e#7387#7848#0" expanded="false" />
@@ -871,7 +872,7 @@
             <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithGrade#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-            <element signature="e#24465#25210#0" expanded="false" />
+            <element signature="e#24479#25224#0" expanded="false" />
             <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
             <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonAfterCourse#0" expanded="false" />

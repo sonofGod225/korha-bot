@@ -529,6 +529,8 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                     }
                 }
             };
+
+            
             callSendAPI(messageData).then(function () {
                 fulfill();
             });

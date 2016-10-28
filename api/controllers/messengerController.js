@@ -498,10 +498,10 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid,chapterid) {
                         arrayLessons.push(buttonLessonQuiz);
                     }
                     var elementSingle = {
-                        title: chapters[i].name,
-                        subtitle: chapters[i].short,
+                        title: lessons[i].name,
+                        subtitle: lessons[i].short,
                         image_url: "http://under30ceo.com/wp-content/uploads/2011/12/lessons-learned-e1324389749537.jpg",
-                        buttons: arrayChapters
+                        buttons: arrayLessons
                     }
                     elements.push(elementSingle);
                 });

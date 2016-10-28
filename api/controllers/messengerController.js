@@ -474,7 +474,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                 models.sequelize.query('SELECT id,time,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
                     replacements: {
                         lesson_id: lessons[i].id,
-                        type: sequelize.QueryTypes.SELECT
+                        type:  models.sequelize.QueryTypes.SELECT
                     }
                 }).then(function (quiz) {
                     const buttonLessonVideo = {

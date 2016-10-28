@@ -27,8 +27,8 @@
       <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="484" column="56" selection-start-line="484" selection-start-column="56" selection-end-line="484" selection-end-column="56" />
+            <state relative-caret-position="255">
+              <caret line="470" column="30" selection-start-line="470" selection-start-column="30" selection-end-line="470" selection-end-column="30" />
               <folding>
                 <element signature="e#5043#5197#0" expanded="false" />
                 <element signature="e#7401#7862#0" expanded="false" />
@@ -39,14 +39,13 @@
                 <element signature="e#11684#11894#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
-                <element signature="e#16673#16804#0" expanded="false" />
-                <element signature="e#16893#17166#0" expanded="false" />
-                <element signature="e#17271#17535#0" expanded="false" />
-                <element signature="e#17624#18061#0" expanded="false" />
-                <element signature="e#18104#18395#0" expanded="false" />
+                <element signature="e#16901#17174#0" expanded="false" />
+                <element signature="e#17279#17543#0" expanded="false" />
+                <element signature="e#17632#18069#0" expanded="false" />
+                <element signature="e#18112#18403#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithGrade#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-                <element signature="e#24149#24894#0" expanded="false" />
+                <element signature="e#24157#24902#0" expanded="false" />
                 <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
                 <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonAfterCourse#0" expanded="false" />
@@ -437,12 +436,12 @@
       <workItem from="1477385734794" duration="28000" />
       <workItem from="1477385836230" duration="26148000" />
       <workItem from="1477475959487" duration="26919000" />
-      <workItem from="1477645789967" duration="18980000" />
+      <workItem from="1477645789967" duration="19198000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180785000" />
+    <option name="totallyTimeSpent" value="181003000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -863,8 +862,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="484" column="56" selection-start-line="484" selection-start-column="56" selection-end-line="484" selection-end-column="56" />
+        <state relative-caret-position="255">
+          <caret line="470" column="30" selection-start-line="470" selection-start-column="30" selection-end-line="470" selection-end-column="30" />
           <folding>
             <element signature="e#5043#5197#0" expanded="false" />
             <element signature="e#7401#7862#0" expanded="false" />
@@ -875,14 +874,13 @@
             <element signature="e#11684#11894#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
-            <element signature="e#16673#16804#0" expanded="false" />
-            <element signature="e#16893#17166#0" expanded="false" />
-            <element signature="e#17271#17535#0" expanded="false" />
-            <element signature="e#17624#18061#0" expanded="false" />
-            <element signature="e#18104#18395#0" expanded="false" />
+            <element signature="e#16901#17174#0" expanded="false" />
+            <element signature="e#17279#17543#0" expanded="false" />
+            <element signature="e#17632#18069#0" expanded="false" />
+            <element signature="e#18112#18403#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithGrade#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-            <element signature="e#24149#24894#0" expanded="false" />
+            <element signature="e#24157#24902#0" expanded="false" />
             <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
             <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonAfterCourse#0" expanded="false" />

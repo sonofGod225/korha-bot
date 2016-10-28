@@ -114,12 +114,18 @@ function receivedMessage(event) {
                 sendReceiptMessage(senderID);
                 break;
             default:
-                sendButtonMessageWithMatiere(senderID, "Bonjour ! je suis ton coach scolaire ! que veux tu reviser ?")
+                sendTextMessage(senderID,"Hello je suis ton Coach 'succès assuré' \n  je peux t'aider à reviser des cours de du primaire au secondaire. \n choisi ta classe pour débuter !")
+                    .then(function () {
+                        sendButtonMessageWithMatiere(senderID, " ");
+                    })
         }
     } else if (messageAttachments) {
 
-        sendButtonMessageWithMatiere(senderID, "Bonjour ! je suis ton coach scolaire ! que veux tu reviser ?")
 
+        sendTextMessage(senderID,"Hello je suis ton Coach 'succès assuré' \n  je peux t'aider à reviser des cours de du primaire au secondaire. \n choisi ta classe pour débuter !")
+            .then(function () {
+                sendButtonMessageWithMatiere(senderID, " ");
+            })
 
         //sendTextMessage(senderID, "Message with attachment received");
     }
@@ -334,7 +340,7 @@ function receivedAuthentication(event) {
             } else {
                 models.users.create(UserObj);
             }
-            sendTextMessage("Hello  " + body.last_name + " je suis ton Coach \<succès assuré\> !\n je peux t'aider à reviser des cours de du primaire à la secondaire. \n choisi ta classe pour débuter !")
+            sendTextMessage(senderID,"Hello  " + body.last_name + " je suis ton Coach 'succès assuré' ! \n je peux t'aider à reviser des cours de du primaire au secondaire. \n choisi ta classe pour débuter !")
                 .then(function () {
                 sendButtonMessageWithMatiere(senderID, " ");
             })

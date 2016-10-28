@@ -468,7 +468,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
             ]
 
         }).then(function (lessons) {
-            var elements = [];
+            var elementsLesson = [];
             for (let i = 0; i < lessons.length; i++) {
 
                 let arrayLessons = [];
@@ -509,12 +509,12 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         buttons: arrayLessons
                     }
                     console.log('elemt_dexter'+JSON.stringify(elementSingle));
-                    elements.push(elementSingle);
+                    elementsLesson.push(elementSingle);
                 });
 
             }
 
-            console.log('elemt_dexter_elements'+JSON.stringify(elements));
+            console.log('elemt_dexter_elements'+JSON.stringify(elementsLesson));
             let messageData = {
                 recipient: {
                     id: recipientId
@@ -524,7 +524,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         "type": "template",
                         "payload": {
                             "template_type": "generic",
-                            "elements": elements
+                            "elements": elementsLesson
                         }
                     }
                 }

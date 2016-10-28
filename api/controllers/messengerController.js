@@ -465,7 +465,7 @@ function sendButtonMessageWithMatiere(recipientId,gradeid) {
             },
             attributes: ['id', 'name', 'slug', 'order'],
             order: [
-                ['order', 'ASC']
+                ['id', 'ASC']
             ]
 
         }).then(function (courses) {
@@ -481,7 +481,7 @@ function sendButtonMessageWithMatiere(recipientId,gradeid) {
                 };
                 arrayCourses.push(buttonCourse);
                 var elementSingle = {
-                    title: grades[i].name,
+                    title: courses[i].name,
                     image_url: "http://teacherhomestay.com/img/img-cours.png",
                     buttons: arrayCourses
                 }

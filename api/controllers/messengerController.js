@@ -114,7 +114,7 @@ function receivedMessage(event) {
                 sendReceiptMessage(senderID);
                 break;
             default:
-                sendTextMessage(senderID,"Hello je suis ton Coach 'succès assuré' \n  je peux t'aider à reviser des cours de du primaire au secondaire. \n choisi ta classe pour débuter !")
+                sendTextMessage(senderID,"Hello je suis ton Coach 'succès assuré' \nje peux t'aider à reviser des cours du primaire au secondaire. \nChoisi ta classe pour débuter !")
                     .then(function () {
                         sendButtonMessageWithMatiere(senderID, " ");
                     })
@@ -122,7 +122,7 @@ function receivedMessage(event) {
     } else if (messageAttachments) {
 
 
-        sendTextMessage(senderID,"Hello je suis ton Coach 'succès assuré' \n  je peux t'aider à reviser des cours de du primaire au secondaire. \n choisi ta classe pour débuter !")
+        sendTextMessage(senderID,"Hello je suis ton Coach 'succès assuré' \nje peux t'aider à reviser des cours  du primaire au secondaire. \nChoisi ta classe pour débuter !")
             .then(function () {
                 sendButtonMessageWithMatiere(senderID, " ");
             })
@@ -340,7 +340,7 @@ function receivedAuthentication(event) {
             } else {
                 models.users.create(UserObj);
             }
-            sendTextMessage(senderID,"Hello  " + body.last_name + " je suis ton Coach 'succès assuré' ! \n je peux t'aider à reviser des cours de du primaire au secondaire. \n choisi ta classe pour débuter !")
+            sendTextMessage(senderID,"Hello  " + body.last_name + " je suis ton Coach 'succès assuré' ! \nje peux t'aider à reviser des cours du primaire au secondaire. \n Choisi ta classe pour débuter !")
                 .then(function () {
                 sendButtonMessageWithMatiere(senderID, " ");
             })

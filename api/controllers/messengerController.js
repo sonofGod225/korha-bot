@@ -464,7 +464,7 @@ function sendButtonMessageWithMatiere(recipientId, message) {
             arrayMatiere.push(buttonMatiere);
             var elementSingle = {
                 title: grades[i].name,
-                image_url: "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=&url=http%3A%2F%2Fwww.diplomea.fr%2F2016%2F08%2F20%2Fbac-pro-2-lecons%2F&bvm=bv.136811127,d.d2s&psig=AFQjCNHGvmm5sQFBQX0JDdO-tWA2hUQSxA&ust=1477733823815622",
+                image_url: "http://accesetudesquebec.ca/images/sections/medium/3-diploma-3-opti.jpg",
                 buttons: arrayMatiere
             }
 

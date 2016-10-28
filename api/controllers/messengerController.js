@@ -472,16 +472,17 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
             for (var i = 0; i < lessons.length; i++) {
                 console.log(JSON.stringify(lessons[i]));
                 var arrayLessons = [];
+                const lessonId = lessons[i].id;
                 models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
                     replacements: {
-                        lesson_id: lessons[i].id,
+                        lesson_id: lessonId,
                         type:  models.sequelize.QueryTypes.SELECT
                     }
                 }).then(function (quiz) {
                     const buttonLessonVideo = {
                         type: "postback",
                         title: "Voir la video du cours",
-                        payload: 'choes_lesson_video' + delimiter + lessons[i].id + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
+                        payload: 'choes_lesson_video' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
                     };
                     arrayLessons.push(buttonLessonVideo);
                     const buttonLessonText = {

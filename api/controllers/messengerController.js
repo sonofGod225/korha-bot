@@ -456,9 +456,57 @@ function sendMessageMatiere(recipientId) {
     })
 }
 
-function sendButtonMessageWithMatiere(recipientId,gradeid) {
-  return new Promise(function(fulfill,rejected)
-    {
+function sendButtonMessageWithChapter(recipientId, gradeid, courseid) {
+    return new Promise(function (fulfill, rejected) {
+        models.chapters.findAll({
+            where: {
+                course_id: courseid
+            },
+            attributes: ['id', 'name', 'slug', 'order'],
+            order: [
+                ['id', 'ASC']
+            ]
+
+        }).then(function (chapters) {
+            var elements = [];
+            for (var i = 0; i < chapters.length; i++) {
+                var arrayChapters = [];
+                var buttonChapter = {
+                    type: "postback",
+                    title: "Voir les cours",
+                    payload: 'choes_chapter' + delimiter + chapters[i].id+delimiter+gradeid+delimiter+courseid
+                };
+                arrayChapters.push(buttonChapter);
+                var elementSingle = {
+                    title: chapters[i].name,
+                    image_url: "http://previews.123rf.com/images/petovarga/petovarga1509/petovarga150900003/45314478-Illustration-de-cat-gories-de-d-chets-avec-organique-papier-plastique-verre-m-tal-textile-d-chets-da-Banque-d'images.jpg",
+                    buttons: arrayChapters
+                }
+
+                elements.push(elementSingle);
+            }
+            var messageData = {
+                recipient: {
+                    id: recipientId
+                },
+                "message": {
+                    "attachment": {
+                        "type": "template",
+                        "payload": {
+                            "template_type": "generic",
+                            "elements": elements
+                        }
+                    }
+                }
+            };
+            callSendAPI(messageData).then(function () {
+                fulfill();
+            });
+        })
+    });
+}
+function sendButtonMessageWithMatiere(recipientId, gradeid) {
+    return new Promise(function (fulfill, rejected) {
         models.courses.findAll({
             where: {
                 grade_id: gradeid
@@ -476,8 +524,8 @@ function sendButtonMessageWithMatiere(recipientId,gradeid) {
                 var arrayCourses = [];
                 var buttonCourse = {
                     type: "postback",
-                    title: "Voir les cours",
-                    payload: 'choes_course' + delimiter + courses[i].id
+                    title: "Voir les thématiques",
+                    payload: 'choes_course' + delimiter + courses[i].id + delimiter + gradeid
                 };
                 arrayCourses.push(buttonCourse);
                 var elementSingle = {
@@ -627,7 +675,7 @@ function receivedPostback(event) {
                 const gradeId = arrayPayload[1];
                 // recuperation du detail du grade
                 models.grades.findOne({
-                    attributes: ['id', 'name', 'slug','comment_bot','order'],
+                    attributes: ['id', 'name', 'slug', 'comment_bot', 'order'],
                     where: {
                         id: gradeId
                     }
@@ -636,24 +684,28 @@ function receivedPostback(event) {
                     sendTypingOn(senderID).then(function () {
                         sendTextMessage(senderID, commentaireBotGrade).then(function () {
                             sendTypingOn(senderID).then(function () {
-                                sendButtonMessageWithMatiere(senderID,gradeId)
+                                sendButtonMessageWithMatiere(senderID, gradeId)
                             });
                         });
                     });
                 });
 
-                // recuperation du commentaire bot de la matiere
-                /*modelscourses.findAll({_id: matiereId}, function (err, matiere) {
-                 if (err) {
-                 sendButtonMessageWithMatiere(senderID, "Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.")
-                 throw new error("matiere introuvable dans la base de donnée")
-                 }
-                 sendTypingOn(senderID);
-                 sendTextMessage(senderID, matiere.commentaireBot);
-                 sendTypingOn(senderID);
-                 sendButtonMessageWithClass(senderID, matiere._id, "En quelle classe es-tu déjà?");
-                 sendTypingOff(senderID);
-                 });*/
+                break;
+            }
+            case 'choes_course' :
+            {
+                const courseId = arrayPayload[1];
+                const gradeId = arrayPayload[2];
+                const commentaireBotCourse = "Choisi maintenant une thématique !";
+                sendTypingOn(senderID).then(function () {
+                    sendTextMessage(senderID, commentaireBotGrade).then(function () {
+                        sendTypingOn(senderID).then(function () {
+                            sendButtonMessageWithChapter(senderID, gradeId, courseId)
+                        });
+                    });
+                });
+
+
                 break;
             }
             case 'choes_classes' :

@@ -529,8 +529,6 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                     }
                 }
             };
-
-
             callSendAPI(messageData).then(function () {
                 fulfill();
             });
@@ -563,26 +561,28 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid) {
                     image_url: "http://previews.123rf.com/images/petovarga/petovarga1509/petovarga150900003/45314478-Illustration-de-cat-gories-de-d-chets-avec-organique-papier-plastique-verre-m-tal-textile-d-chets-da-Banque-d'images.jpg",
                     buttons: arrayChapters
                 }
-
                 elements.push(elementSingle);
-            }
-            var messageData = {
-                recipient: {
-                    id: recipientId
-                },
-                "message": {
-                    "attachment": {
-                        "type": "template",
-                        "payload": {
-                            "template_type": "generic",
-                            "elements": elements
+                if(i==(chapters.length-1)){
+                    const messageData = {
+                        recipient: {
+                            id: recipientId
+                        },
+                        "message": {
+                            "attachment": {
+                                "type": "template",
+                                "payload": {
+                                    "template_type": "generic",
+                                    "elements": elements
+                                }
+                            }
                         }
-                    }
+                    };
+                    callSendAPI(messageData).then(function () {
+                        fulfill();
+                    });
                 }
-            };
-            callSendAPI(messageData).then(function () {
-                fulfill();
-            });
+            }
+
         })
     });
 }

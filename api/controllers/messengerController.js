@@ -445,7 +445,11 @@ function sendMessageMatiere(recipientId) {
 
 function sendButtonMessageWithMatiere(recipientId, message) {
     models.grades.findAll({
-        attributes: ['id', 'name', 'slug', 'order']
+        attributes: ['id', 'name', 'slug', 'order'],
+        order:[
+            ['order','ASC']
+        ]
+
     }).then(function (grades) {
         console.log(JSON.stringify(grades));
 

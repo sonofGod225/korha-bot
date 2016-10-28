@@ -475,6 +475,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                 let lessonId = lessons[i].id;
                 let lessonName = lessons[i].name;
                 let lessonShort = lessons[i].short;
+                let lessonThumbnail = lessons[i].thumbnail;
                 models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
                     replacements: {
                         lesson_id: lessonId,
@@ -505,7 +506,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                     let elementSingle = {
                         title: lessonName,
                         subtitle: lessonShort,
-                        image_url: "http://under30ceo.com/wp-content/uploads/2011/12/lessons-learned-e1324389749537.jpg",
+                        image_url: lessonThumbnail,
                         buttons: arrayLessons
                     }
                     console.log('elemt_dexter'+JSON.stringify(elementSingle));

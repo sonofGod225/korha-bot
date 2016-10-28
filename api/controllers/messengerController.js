@@ -457,7 +457,7 @@ function sendMessageMatiere(recipientId) {
 
 function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) {
     return new Promise(function (fulfill, rejected) {
-        let elements = [];
+
         models.lessons.findAll({
             where: {
                 chapter_id: chapterid
@@ -468,7 +468,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
             ]
 
         }).then(function (lessons) {
-
+            let elements = [];
             for (let i = 0; i < lessons.length; i++) {
 
                 let arrayLessons = [];
@@ -493,7 +493,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         payload: 'choes_lesson_cours' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
                     };
                     arrayLessons.push(buttonLessonText);
-                    if (quiz) {
+                    if (typeof quiz.id !=='undefined') {
                         console.log('elemt_dexter_quiz'+JSON.stringify(quiz));
                         let buttonLessonQuiz = {
                             type: "postback",
@@ -514,7 +514,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
 
             }
 
-
+            console.log('elemt_dexter_elements'+JSON.stringify(elements));
             let messageData = {
                 recipient: {
                     id: recipientId

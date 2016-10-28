@@ -458,7 +458,7 @@ function sendButtonMessageWithMatiere(recipientId, message) {
             var arrayMatiere = [];
             var buttonMatiere = {
                 type: "postback",
-                title: grades[i].name,
+                title: "Voir les matières",
                 payload: 'choes_course' + delimiter + grades[i].id
             };
             arrayMatiere.push(buttonMatiere);

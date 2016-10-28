@@ -457,10 +457,11 @@ function sendMessageMatiere(recipientId) {
 }
 
 function sendButtonMessageWithMatiere(recipientId,gradeid) {
-  return new Promise(fulfill,rejected){
+  return new Promise(function(fulfill,rejected)
+    {
         models.courses.findAll({
-            where:{
-                grade_id:gradeid
+            where: {
+                grade_id: gradeid
             },
             attributes: ['id', 'name', 'slug', 'order'],
             order: [
@@ -505,8 +506,7 @@ function sendButtonMessageWithMatiere(recipientId,gradeid) {
                 fulfill();
             });
         })
-    }
-
+    });
 }
 function sendButtonMessageWithGrade(recipientId, message) {
     models.grades.findAll({

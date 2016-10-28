@@ -456,6 +456,76 @@ function sendMessageMatiere(recipientId) {
     })
 }
 
+function sendButtonMessageWithLesson(recipientId, gradeid, courseid,chapterid) {
+    return new Promise(function (fulfill, rejected) {
+        models.lessons.findAll({
+            where: {
+                chapter_id: chapterid
+            },
+            attributes: ['id', 'name', 'slug','chort','video','thumbnail','preview', 'order'],
+            order: [
+                ['id', 'ASC']
+            ]
+
+        }).then(function (lessons) {
+            var elements = [];
+            for (var i = 0; i < lessons.length; i++) {
+                var arrayLessons = [];
+                models.quiz.findOne({
+                    attributes: ['id', 'timer', 'lesson_id'],
+                    where:{
+                        lesson_id:lessons[i].id
+                    }
+                }).then(function (quiz) {
+                    var buttonLessonVideo = {
+                        type: "postback",
+                        title: "Voir la video du cours",
+                        payload: 'choes_lesson_video' + delimiter + lessons[i].id + delimiter + gradeid + delimiter + courseid+delimiter+chapterid
+                    };
+                    arrayLessons.push(buttonLessonVideo);
+                    var buttonLessonText = {
+                        type: "postback",
+                        title: "Voir le cours",
+                        payload: 'choes_lesson_cours' + delimiter + lessons[i].id + delimiter + gradeid + delimiter + courseid+delimiter+chapterid
+                    };
+                    arrayLessons.push(buttonLessonText);
+                    if(quiz){
+                        var buttonLessonQuiz = {
+                            type: "postback",
+                            title: "Faire un le Quiz",
+                            payload: 'choes_lesson_quiz' + delimiter + lessons[i].id + delimiter + gradeid + delimiter + courseid+delimiter+chapterid+delimiter+quiz.id
+                        };
+                        arrayLessons.push(buttonLessonQuiz);
+                    }
+                    var elementSingle = {
+                        title: chapters[i].name,
+                        subtitle: chapters[i].short,
+                        image_url: "http://under30ceo.com/wp-content/uploads/2011/12/lessons-learned-e1324389749537.jpg",
+                        buttons: arrayChapters
+                    }
+                    elements.push(elementSingle);
+                });
+            }
+            var messageData = {
+                recipient: {
+                    id: recipientId
+                },
+                "message": {
+                    "attachment": {
+                        "type": "template",
+                        "payload": {
+                            "template_type": "generic",
+                            "elements": elements
+                        }
+                    }
+                }
+            };
+            callSendAPI(messageData).then(function () {
+                fulfill();
+            });
+        })
+    });
+}
 function sendButtonMessageWithChapter(recipientId, gradeid, courseid) {
     return new Promise(function (fulfill, rejected) {
         models.chapters.findAll({
@@ -474,7 +544,7 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid) {
                 var buttonChapter = {
                     type: "postback",
                     title: "Voir les cours",
-                    payload: 'choes_chapter' + delimiter + chapters[i].id+delimiter+gradeid+delimiter+courseid
+                    payload: 'choes_chapter' + delimiter + chapters[i].id + delimiter + gradeid + delimiter + courseid
                 };
                 arrayChapters.push(buttonChapter);
                 var elementSingle = {
@@ -708,25 +778,18 @@ function receivedPostback(event) {
 
                 break;
             }
-            case 'choes_classes' :
+            case 'choes_chapter' :
             {
-                const classeId = arrayPayload[1];
-                const matiereId = arrayPayload[2];
-                Classeroom.findOne({_id: classeId}, function (err, classe) {
-                    sendTypingOn(senderID);
-                    Matiere.findOne({_id: matiereId}, function (err, matiere) {
-                        if (err) {
-                            sendButtonMessageWithMatiere(senderID, "Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.")
-                            throw new error("matiere introuvable dans la base de donnée")
-                        }
-                        sendTextMessage(senderID, classe.commentaireBot);
-                        sendTypingOn(senderID);
+                const chapterId = arrayPayload[1];
+                const gradeId = arrayPayload[2];
+                const courseId = arrayPayload[3];
 
-                        sendButtonMessageWithThematique(senderID, matiereId, classeId, "Alors au menu en " + matiere.name + " pour la " + classe.name + " je te proposes les thématiques suivantes: ")
-                        sendTypingOn(senderID);
-                        sendTextMessage(senderID, "Clique sur une thématique pour la choisir !");
-                        sendTypingOff(senderID);
-
+                const commentaireBotChpter = "Choisi maintenant la leçon à reviser !";
+                sendTypingOn(senderID).then(function () {
+                    sendTextMessage(senderID, commentaireBotChpter).then(function () {
+                        sendTypingOn(senderID).then(function () {
+                            sendButtonMessageWithLesson(senderID, gradeId, courseId,chapterId)
+                        });
                     });
                 });
                 break;

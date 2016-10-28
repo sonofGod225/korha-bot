@@ -10,6 +10,7 @@ const botMessenger = require('../api/controllers/messengerController');
 const levelController = require('../app/controllers/levelController');
 const matiereController = require('../app/controllers/matiereController');
 const thematiqueController = require('../app/controllers/matiereController');
+const botController = require('../app/controllers/botController');
 
 /**
  * Expose
@@ -55,8 +56,12 @@ module.exports = function (app, passport) {
     app.post('/addthematique', thematiqueController.addPost);
     app.get('/thematique/:thematique_id', thematiqueController.edit);
     app.post('/thematique/:thematique_id', thematiqueController.editPost);
-    app.get('/deletethematique/:thematique_id', thematiqueController.delete)
+    app.get('/deletethematique/:thematique_id', thematiqueController.delete);
 
+    /**
+     * route du bot facebook
+     */
+     app.get('/bot/lesson/:lessonId',botController.cours)
     /**
      * Error handling
      */

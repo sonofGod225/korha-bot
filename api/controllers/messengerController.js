@@ -506,6 +506,8 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid,chapterid) {
                     elements.push(elementSingle);
                 });
             }
+
+            console.log(JSON.stringify(elements));
             var messageData = {
                 recipient: {
                     id: recipientId

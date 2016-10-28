@@ -491,7 +491,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         type: "web_url",
                         title: "Voir le cours",
                         url:PAGE_WEB_VIEW+"/bot/lesson/"+lessonId,
-                        webview_height_ratio: "full",
+                        webview_height_ratio: "tall",
                         messenger_extensions: true,
                         fallback_url: PAGE_WEB_VIEW+"/bot/lesson/"+lessonId
                     };

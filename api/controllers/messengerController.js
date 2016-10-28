@@ -464,7 +464,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
             where: {
                 chapter_id: chapterid
             },
-            attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order','body'],
+            attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order'],
         }).then(function (lessons) {
             var elementsLesson = [];
             for (let i = 0; i < lessons.length; i++) {

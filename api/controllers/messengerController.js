@@ -160,13 +160,12 @@ function callSendAPI(messageData) {
             if (!error && response.statusCode == 200) {
                 var recipientId = body.recipient_id;
                 var messageId = body.message_id;
-                console.log("Successfully sent generic message with id %s to recipient %s",
-                    messageId, recipientId);
+                //console.log("Successfully sent generic message with id %s to recipient %s", messageId, recipientId);
                 resultPromise();
 
             } else {
-                console.error("Unable to send message.");
-                console.error(response);
+                //console.error("Unable to send message.");
+                //console.error(response);
                 console.error(error);
                 rejectPomise()
             }

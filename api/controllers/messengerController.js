@@ -468,7 +468,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
             ]
 
         }).then(function (lessons) {
-            let elements = [];
+            var elements = [];
             for (let i = 0; i < lessons.length; i++) {
 
                 let arrayLessons = [];
@@ -530,7 +530,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                 }
             };
 
-            
+
             callSendAPI(messageData).then(function () {
                 fulfill();
             });

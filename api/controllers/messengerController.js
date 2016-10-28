@@ -479,7 +479,7 @@ function sendButtonMessageWithMatiere(recipientId,gradeid) {
                     title: "Voir les cours",
                     payload: 'choes_course' + delimiter + courses[i].id
                 };
-                arrayCourses.push(buttonMatiere);
+                arrayCourses.push(buttonCourse);
                 var elementSingle = {
                     title: grades[i].name,
                     image_url: "http://teacherhomestay.com/img/img-cours.png",

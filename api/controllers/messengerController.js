@@ -114,17 +114,17 @@ function receivedMessage(event) {
                 sendReceiptMessage(senderID);
                 break;
             default:
-                sendTextMessage(senderID,"Hello je suis ton Coach 'succès assuré' \nje peux t'aider à reviser des cours du primaire au secondaire. \nChoisi ta classe pour débuter !")
+                sendTextMessage(senderID, "Hello je suis ton Coach 'succès assuré' \nje peux t'aider à reviser des cours du primaire au secondaire. \nChoisi ta classe pour débuter !")
                     .then(function () {
-                        sendButtonMessageWithMatiere(senderID, " ");
+                        sendButtonMessageWithGrade(senderID, " ");
                     })
         }
     } else if (messageAttachments) {
 
 
-        sendTextMessage(senderID,"Hello je suis ton Coach 'succès assuré' \nje peux t'aider à reviser des cours  du primaire au secondaire. \nChoisi ta classe pour débuter !")
+        sendTextMessage(senderID, "Hello je suis ton Coach 'succès assuré' \nje peux t'aider à reviser des cours  du primaire au secondaire. \nChoisi ta classe pour débuter !")
             .then(function () {
-                sendButtonMessageWithMatiere(senderID, " ");
+                sendButtonMessageWithGrade(senderID, " ");
             })
 
         //sendTextMessage(senderID, "Message with attachment received");
@@ -132,19 +132,19 @@ function receivedMessage(event) {
 }
 
 function sendTextMessage(recipientId, messageText) {
-   return new Promise(function (fulfill,reject) {
-       var messageData = {
-           recipient: {
-               id: recipientId
-           },
-           message: {
-               text: messageText
-           }
-       };
-       callSendAPI(messageData).then(function () {
-           fulfill()
-       });
-   })
+    return new Promise(function (fulfill, reject) {
+        var messageData = {
+            recipient: {
+                id: recipientId
+            },
+            message: {
+                text: messageText
+            }
+        };
+        callSendAPI(messageData).then(function () {
+            fulfill()
+        });
+    })
 
 }
 
@@ -340,10 +340,10 @@ function receivedAuthentication(event) {
             } else {
                 models.users.create(UserObj);
             }
-            sendTextMessage(senderID,"Hello  " + body.last_name + " je suis ton Coach 'succès assuré' ! \nje peux t'aider à reviser des cours du primaire au secondaire. \n Choisi ta classe pour débuter !")
+            sendTextMessage(senderID, "Hello  " + body.last_name + " je suis ton Coach 'succès assuré' ! \nje peux t'aider à reviser des cours du primaire au secondaire. \n Choisi ta classe pour débuter !")
                 .then(function () {
-                sendButtonMessageWithMatiere(senderID, " ");
-            })
+                    sendButtonMessageWithGrade(senderID, " ");
+                })
 
 
         });
@@ -456,11 +456,63 @@ function sendMessageMatiere(recipientId) {
     })
 }
 
-function sendButtonMessageWithMatiere(recipientId, message) {
+function sendButtonMessageWithMatiere(recipientId,gradeid) {
+  return new Promise(fulfill,rejected){
+        models.courses.findAll({
+            where:{
+                grade_id:gradeid
+            },
+            attributes: ['id', 'name', 'slug', 'order'],
+            order: [
+                ['order', 'ASC']
+            ]
+
+        }).then(function (courses) {
+            console.log(JSON.stringify(courses));
+
+            var elements = [];
+            for (var i = 0; i < courses.length; i++) {
+                var arrayCourses = [];
+                var buttonCourse = {
+                    type: "postback",
+                    title: "Voir les cours",
+                    payload: 'choes_course' + delimiter + courses[i].id
+                };
+                arrayCourses.push(buttonMatiere);
+                var elementSingle = {
+                    title: grades[i].name,
+                    image_url: "http://teacherhomestay.com/img/img-cours.png",
+                    buttons: arrayCourses
+                }
+
+                elements.push(elementSingle);
+            }
+            var messageData = {
+                recipient: {
+                    id: recipientId
+                },
+                "message": {
+                    "attachment": {
+                        "type": "template",
+                        "payload": {
+                            "template_type": "generic",
+                            "elements": elements
+                        }
+                    }
+                }
+            };
+            callSendAPI(messageData).then(function () {
+                fulfill();
+            });
+        })
+    }
+
+}
+function sendButtonMessageWithGrade(recipientId, message) {
     models.grades.findAll({
         attributes: ['id', 'name', 'slug', 'order'],
-        order:[
-            ['order','ASC']
+        order: [
+            ['order', 'ASC']
         ]
 
     }).then(function (grades) {
@@ -573,26 +625,34 @@ function receivedPostback(event) {
             case 'choes_grade' :
             {
                 const gradeId = arrayPayload[1];
-                modelscourses.findAll({
-                    where:{
-                        grade_id:gradeId
+                // recuperation du detail du grade
+                models.grades.findOne({
+                    where: {
+                        id: gradeId
                     }
-                }).then(function(courses){
-
+                }).then(function (grade) {
+                    const commentaireBotGrade = grade.commentaire_bot;
+                    sendTypingOn(senderID).then(function () {
+                        sendTextMessage(senderID, commentaireBotGrade).then(function () {
+                            sendTypingOn(senderID).then(function () {
+                                sendButtonMessageWithMatiere(senderID,gradeId)
+                            });
+                        });
+                    });
                 });
 
                 // recuperation du commentaire bot de la matiere
                 /*modelscourses.findAll({_id: matiereId}, function (err, matiere) {
-                    if (err) {
-                        sendButtonMessageWithMatiere(senderID, "Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.")
-                        throw new error("matiere introuvable dans la base de donnée")
-                    }
-                    sendTypingOn(senderID);
-                    sendTextMessage(senderID, matiere.commentaireBot);
-                    sendTypingOn(senderID);
-                    sendButtonMessageWithClass(senderID, matiere._id, "En quelle classe es-tu déjà?");
-                    sendTypingOff(senderID);
-                });*/
+                 if (err) {
+                 sendButtonMessageWithMatiere(senderID, "Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.")
+                 throw new error("matiere introuvable dans la base de donnée")
+                 }
+                 sendTypingOn(senderID);
+                 sendTextMessage(senderID, matiere.commentaireBot);
+                 sendTypingOn(senderID);
+                 sendButtonMessageWithClass(senderID, matiere._id, "En quelle classe es-tu déjà?");
+                 sendTypingOff(senderID);
+                 });*/
                 break;
             }
             case 'choes_classes' :
@@ -660,29 +720,36 @@ function receivedPostback(event) {
 }
 
 function sendTypingOn(recipientId) {
-    console.log("Turning typing indicator on");
+    return new Promise(function (fulfill, rejected) {
+        var messageData = {
+            recipient: {
+                id: recipientId
+            },
+            sender_action: "typing_on"
+        };
 
-    var messageData = {
-        recipient: {
-            id: recipientId
-        },
-        sender_action: "typing_on"
-    };
+        callSendAPI(messageData).then(function () {
+            fulfill();
+        });
+    })
 
-    callSendAPI(messageData);
 }
 
 function sendTypingOff(recipientId) {
     console.log("Turning typing indicator off");
+    return new Promise(function (fulfill, rejected) {
+        var messageData = {
+            recipient: {
+                id: recipientId
+            },
+            sender_action: "typing_off"
+        };
 
-    var messageData = {
-        recipient: {
-            id: recipientId
-        },
-        sender_action: "typing_off"
-    };
+        callSendAPI(messageData).then(function () {
+            fulfill()
+        });
+    })
 
-    callSendAPI(messageData);
 }
 
 function sendVideoMessage(recipientId, videoUrl) {

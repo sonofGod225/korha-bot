@@ -7,6 +7,7 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true,
             autoIncrement: true
         },
+        commentaire_bot:DataTypes.STRING,
         name: DataTypes.STRING,
         slug: DataTypes.STRING,
         order: DataTypes.INTEGER

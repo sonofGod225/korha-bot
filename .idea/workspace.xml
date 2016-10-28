@@ -4,6 +4,8 @@
     <list default="true" id="c00c2d59-e5ab-4a0b-afcc-f38131f54b35" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/messengerController.js" afterPath="$PROJECT_DIR$/api/controllers/messengerController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models-sqelize/courses.js" afterPath="$PROJECT_DIR$/app/models-sqelize/courses.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models-sqelize/grade.js" afterPath="$PROJECT_DIR$/app/models-sqelize/grade.js" />
     </list>
     <ignored path="ibot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,23 +29,22 @@
       <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="881">
-              <caret line="116" column="150" selection-start-line="116" selection-start-column="150" selection-end-line="116" selection-end-column="150" />
+            <state relative-caret-position="174">
+              <caret line="641" column="19" selection-start-line="641" selection-start-column="19" selection-end-line="641" selection-end-column="19" />
               <folding>
-                <element signature="e#5042#5189#0" expanded="false" />
-                <element signature="e#7389#7850#0" expanded="false" />
+                <element signature="e#5043#5197#0" expanded="false" />
+                <element signature="e#7401#7862#0" expanded="false" />
                 <element signature="n#!!block;n#sendGenericMessage#0" expanded="false" />
                 <element signature="n#!!block;n#receivedDeliveryConfirmation#0" expanded="false" />
-                <element signature="e#10398#10476#0" expanded="false" />
-                <element signature="e#10953#11031#0" expanded="false" />
-                <element signature="e#11672#11882#0" expanded="false" />
+                <element signature="e#10410#10488#0" expanded="false" />
+                <element signature="e#10965#11043#0" expanded="false" />
+                <element signature="e#11684#11894#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
+                <element signature="e#16092#16297#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-                <element signature="e#17453#18198#0" expanded="false" />
+                <element signature="e#19122#19867#0" expanded="false" />
                 <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
-                <element signature="n#!!block;n#sendTypingOn#0" expanded="false" />
-                <element signature="n#!!block;n#sendTypingOff#0" expanded="false" />
                 <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonAfterCourse#0" expanded="false" />
               </folding>
@@ -64,8 +65,8 @@
       <file leaf-file-name="grade.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models-sqelize/grade.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="82" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="82" />
+            <state relative-caret-position="136">
+              <caret line="8" column="10" selection-start-line="4" selection-start-column="7" selection-end-line="8" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -74,8 +75,8 @@
       <file leaf-file-name="courses.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models-sqelize/courses.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+            <state relative-caret-position="136">
+              <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -421,23 +422,23 @@
       <workItem from="1477385734794" duration="28000" />
       <workItem from="1477385836230" duration="26148000" />
       <workItem from="1477475959487" duration="26919000" />
-      <workItem from="1477645789967" duration="4126000" />
+      <workItem from="1477645789967" duration="6145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165931000" />
+    <option name="totallyTimeSpent" value="167950000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17642643" sideWeight="0.35151514" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17642643" sideWeight="0.83838385" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17642643" sideWeight="0.6484848" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17642643" sideWeight="0.16161616" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1898527" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -828,39 +829,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models-sqelize/grade.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="82" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="82" />
+        <state relative-caret-position="136">
+          <caret line="8" column="10" selection-start-line="4" selection-start-column="7" selection-end-line="8" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models-sqelize/courses.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        <state relative-caret-position="136">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="881">
-          <caret line="116" column="150" selection-start-line="116" selection-start-column="150" selection-end-line="116" selection-end-column="150" />
+        <state relative-caret-position="174">
+          <caret line="641" column="19" selection-start-line="641" selection-start-column="19" selection-end-line="641" selection-end-column="19" />
           <folding>
-            <element signature="e#5042#5189#0" expanded="false" />
-            <element signature="e#7389#7850#0" expanded="false" />
+            <element signature="e#5043#5197#0" expanded="false" />
+            <element signature="e#7401#7862#0" expanded="false" />
             <element signature="n#!!block;n#sendGenericMessage#0" expanded="false" />
             <element signature="n#!!block;n#receivedDeliveryConfirmation#0" expanded="false" />
-            <element signature="e#10398#10476#0" expanded="false" />
-            <element signature="e#10953#11031#0" expanded="false" />
-            <element signature="e#11672#11882#0" expanded="false" />
+            <element signature="e#10410#10488#0" expanded="false" />
+            <element signature="e#10965#11043#0" expanded="false" />
+            <element signature="e#11684#11894#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
+            <element signature="e#16092#16297#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-            <element signature="e#17453#18198#0" expanded="false" />
+            <element signature="e#19122#19867#0" expanded="false" />
             <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
-            <element signature="n#!!block;n#sendTypingOn#0" expanded="false" />
-            <element signature="n#!!block;n#sendTypingOff#0" expanded="false" />
             <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonAfterCourse#0" expanded="false" />
           </folding>

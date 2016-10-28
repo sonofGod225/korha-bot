@@ -627,6 +627,7 @@ function receivedPostback(event) {
                 const gradeId = arrayPayload[1];
                 // recuperation du detail du grade
                 models.grades.findOne({
+                    attributes: ['id', 'name', 'slug','comment_bot','order'],
                     where: {
                         id: gradeId
                     }

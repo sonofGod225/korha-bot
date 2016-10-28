@@ -126,16 +126,20 @@ function receivedMessage(event) {
 }
 
 function sendTextMessage(recipientId, messageText) {
+   return new Promise(function (fulfill,reject) {
+       var messageData = {
+           recipient: {
+               id: recipientId
+           },
+           message: {
+               text: messageText
+           }
+       };
+       callSendAPI(messageData).then(function () {
+           fulfill()
+       });
+   })
 
-    var messageData = {
-        recipient: {
-            id: recipientId
-        },
-        message: {
-            text: messageText
-        }
-    };
-    callSendAPI(messageData);
 }
 
 function callSendAPI(messageData) {
@@ -330,8 +334,11 @@ function receivedAuthentication(event) {
             } else {
                 models.users.create(UserObj);
             }
+            sendTextMessage("Hello  " + body.last_name + " je suis ton Coach \<succès assuré\> !\n je peux t'aider à reviser des cours de du primaire à la secondaire. \n choisi ta classe pour débuter !")
+                .then(function () {
+                sendButtonMessageWithMatiere(senderID, " ");
+            })
 
-            sendButtonMessageWithMatiere(senderID, "Hello  " + body.last_name + " je suis ton Coach \<succès assuré\> !\n je peux t'aider à reviser des cours de du primaire à la secondaire. \n choisi ta classe pour débuter !");
 
         });
 
@@ -459,7 +466,7 @@ function sendButtonMessageWithMatiere(recipientId, message) {
             var buttonMatiere = {
                 type: "postback",
                 title: "Voir les matières",
-                payload: 'choes_course' + delimiter + grades[i].id
+                payload: 'choes_grade' + delimiter + grades[i].id
             };
             arrayMatiere.push(buttonMatiere);
             var elementSingle = {
@@ -557,12 +564,19 @@ function receivedPostback(event) {
     if (arrayPayload[0]) {
         const stepPayload = arrayPayload[0];
         switch (stepPayload) {
-            case 'choes_course' :
+            case 'choes_grade' :
             {
-                const matiereId = arrayPayload[1];
+                const gradeId = arrayPayload[1];
+                modelscourses.findAll({
+                    where:{
+                        grade_id:gradeId
+                    }
+                }).then(function(courses){
+
+                });
 
                 // recuperation du commentaire bot de la matiere
-                Matiere.findOne({_id: matiereId}, function (err, matiere) {
+                /*modelscourses.findAll({_id: matiereId}, function (err, matiere) {
                     if (err) {
                         sendButtonMessageWithMatiere(senderID, "Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.")
                         throw new error("matiere introuvable dans la base de donnée")
@@ -572,7 +586,7 @@ function receivedPostback(event) {
                     sendTypingOn(senderID);
                     sendButtonMessageWithClass(senderID, matiere._id, "En quelle classe es-tu déjà?");
                     sendTypingOff(senderID);
-                });
+                });*/
                 break;
             }
             case 'choes_classes' :

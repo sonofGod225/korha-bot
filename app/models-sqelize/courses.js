@@ -4,7 +4,8 @@ module.exports = function (sequelize, DataTypes) {
     var courses = sequelize.define("courses", {
         name: DataTypes.STRING,
         slug: DataTypes.STRING,
-        order: DataTypes.INTEGER,
+        grade_id:DataTypes.INTEGER,
+        order: DataTypes.INTEGER
     });
     return courses;
 };

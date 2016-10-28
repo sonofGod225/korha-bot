@@ -467,26 +467,26 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
             ]
 
         }).then(function (lessons) {
-            const elements = [];
-            for (var i = 0; i < lessons.length; i++) {
+            let elements = [];
+            for (let i = 0; i < lessons.length; i++) {
 
-                const arrayLessons = [];
-                const lessonId = lessons[i].id;
-                const lessonName = lessons[i].name;
-                const lessonShort = lessons[i].short;
+                let arrayLessons = [];
+                let lessonId = lessons[i].id;
+                let lessonName = lessons[i].name;
+                let lessonShort = lessons[i].short;
                 models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
                     replacements: {
                         lesson_id: lessonId,
                         type:  models.sequelize.QueryTypes.SELECT
                     }
                 }).then(function (quiz) {
-                    const buttonLessonVideo = {
+                    let buttonLessonVideo = {
                         type: "postback",
                         title: "Voir la video du cours",
                         payload: 'choes_lesson_video' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
                     };
                     arrayLessons.push(buttonLessonVideo);
-                    const buttonLessonText = {
+                    let buttonLessonText = {
                         type: "postback",
                         title: "Voir le cours",
                         payload: 'choes_lesson_cours' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
@@ -500,7 +500,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         };
                         arrayLessons.push(buttonLessonQuiz);
                     }
-                    const elementSingle = {
+                    let elementSingle = {
                         title: lessonName,
                         subtitle: lessonShort,
                         image_url: "http://under30ceo.com/wp-content/uploads/2011/12/lessons-learned-e1324389749537.jpg",
@@ -512,7 +512,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
             }
 
             console.log('elemt_dexter'+JSON.stringify(elements));
-            const messageData = {
+            let messageData = {
                 recipient: {
                     id: recipientId
                 },

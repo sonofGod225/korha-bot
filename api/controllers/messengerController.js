@@ -457,6 +457,7 @@ function sendMessageMatiere(recipientId) {
 
 function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) {
     return new Promise(function (fulfill, rejected) {
+        let elements = [];
         models.lessons.findAll({
             where: {
                 chapter_id: chapterid
@@ -467,7 +468,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
             ]
 
         }).then(function (lessons) {
-            let elements = [];
+
             for (let i = 0; i < lessons.length; i++) {
 
                 let arrayLessons = [];

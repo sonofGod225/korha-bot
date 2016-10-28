@@ -482,6 +482,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         type:  models.sequelize.QueryTypes.SELECT
                     }
                 }).then(function (quiz) {
+                    console.log('elemt_dexterquiz'+JSON.stringify(quiz));
                     let buttonLessonVideo = {
                         type: "postback",
                         title: "Voir la video du cours",

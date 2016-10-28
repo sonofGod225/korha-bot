@@ -510,28 +510,32 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                     }
                     console.log('elemt_dexter'+JSON.stringify(elementSingle));
                     elementsLesson.push(elementSingle);
+
+                    if(i==(lessons.length-1)){
+                        console.log('elemt_dexter_elements'+JSON.stringify(elementsLesson));
+                        let messageData = {
+                            recipient: {
+                                id: recipientId
+                            },
+                            "message": {
+                                "attachment": {
+                                    "type": "template",
+                                    "payload": {
+                                        "template_type": "generic",
+                                        "elements": elementsLesson
+                                    }
+                                }
+                            }
+                        };
+                        callSendAPI(messageData).then(function () {
+                            fulfill();
+                        });
+                    }
                 });
 
             }
 
-            console.log('elemt_dexter_elements'+JSON.stringify(elementsLesson));
-            let messageData = {
-                recipient: {
-                    id: recipientId
-                },
-                "message": {
-                    "attachment": {
-                        "type": "template",
-                        "payload": {
-                            "template_type": "generic",
-                            "elements": elementsLesson
-                        }
-                    }
-                }
-            };
-            callSendAPI(messageData).then(function () {
-                fulfill();
-            });
+
         })
     });
 }
@@ -561,28 +565,26 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid) {
                     image_url: "http://previews.123rf.com/images/petovarga/petovarga1509/petovarga150900003/45314478-Illustration-de-cat-gories-de-d-chets-avec-organique-papier-plastique-verre-m-tal-textile-d-chets-da-Banque-d'images.jpg",
                     buttons: arrayChapters
                 }
-                elements.push(elementSingle);
-                if(i==(chapters.length-1)){
-                    const messageData = {
-                        recipient: {
-                            id: recipientId
-                        },
-                        "message": {
-                            "attachment": {
-                                "type": "template",
-                                "payload": {
-                                    "template_type": "generic",
-                                    "elements": elements
-                                }
-                            }
-                        }
-                    };
-                    callSendAPI(messageData).then(function () {
-                        fulfill();
-                    });
-                }
-            }
 
+                elements.push(elementSingle);
+            }
+            var messageData = {
+                recipient: {
+                    id: recipientId
+                },
+                "message": {
+                    "attachment": {
+                        "type": "template",
+                        "payload": {
+                            "template_type": "generic",
+                            "elements": elements
+                        }
+                    }
+                }
+            };
+            callSendAPI(messageData).then(function () {
+                fulfill();
+            });
         })
     });
 }

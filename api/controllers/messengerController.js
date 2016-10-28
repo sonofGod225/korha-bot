@@ -698,7 +698,7 @@ function receivedPostback(event) {
                 const gradeId = arrayPayload[2];
                 const commentaireBotCourse = "Choisi maintenant une thématique !";
                 sendTypingOn(senderID).then(function () {
-                    sendTextMessage(senderID, commentaireBotGrade).then(function () {
+                    sendTextMessage(senderID, commentaireBotCourse).then(function () {
                         sendTypingOn(senderID).then(function () {
                             sendButtonMessageWithChapter(senderID, gradeId, courseId)
                         });

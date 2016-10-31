@@ -456,15 +456,25 @@ function sendMessageMatiere(recipientId) {
     })
 }
 
-function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) {
+function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,oldLessonId) {
     return new Promise(function (fulfill, rejected) {
-
+        let whereObj;
+        if(oldLessonId){
+            whereObj = {
+                chapter_id: chapterid,
+                id:{
+                    $ne:oldLessonId
+                }
+            }
+        }else{
+            whereObj = {
+                chapter_id: chapterid
+            }
+        }
         models.lessons.findAll({
             limit: 10,
-            where: {
-                chapter_id: chapterid
-            },
-            attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order'],
+            where: whereObj,
+            attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body'],
         }).then(function (lessons) {
             var elementsLesson = [];
             for (let i = 0; i < lessons.length; i++) {
@@ -473,6 +483,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                 let lessonId = lessons[i].id;
                 let lessonName = lessons[i].name;
                 let lessonShort = lessons[i].short;
+                let lessonBody = lessons[i].body;
                 let lessonThumbnail = lessons[i].thumbnail;
                 models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
                     replacements: {
@@ -480,21 +491,24 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         type: models.sequelize.QueryTypes.SELECT
                     }
                 }).then(function (quiz) {
-                    console.log('elemt_dexterquiz' + JSON.stringify(quiz));
+
                     let buttonLessonVideo = {
                         type: "postback",
                         title: "Voir la video du cours",
                         payload: 'choes_lesson_video' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
                     };
                     arrayLessons.push(buttonLessonVideo);
-                    let buttonLessonText = {
-                        type: "web_url",
-                        title: "Voir le cours",
-                        url:PAGE_WEB_VIEW+"/bot/lesson/"+lessonId,
-                        webview_height_ratio: "tall",
-                        messenger_extensions: true,
-                        fallback_url: PAGE_WEB_VIEW+"/bot/lesson/"+lessonId
-                    };
+                    if (lessonBody != '') {
+                        let buttonLessonText = {
+                            type: "web_url",
+                            title: "Voir le cours",
+                            url: PAGE_WEB_VIEW + "/bot/lesson/" + lessonId,
+                            webview_height_ratio: "tall",
+                            messenger_extensions: true,
+                            fallback_url: PAGE_WEB_VIEW + "/bot/lesson/" + lessonId
+                        };
+                    }
+
                     arrayLessons.push(buttonLessonText);
                     if (typeof quiz.id !== 'undefined') {
                         console.log('elemt_dexter_quiz' + JSON.stringify(quiz));
@@ -822,13 +836,22 @@ function receivedPostback(event) {
                     //recuperation de l'url de la video
                     models.lessons.findOne({
                         attributes: ['id', 'video'],
-                        where:{id:lessonId}
+                        where: {id: lessonId}
                     }).then(function (lesson) {
                         sendTypingOn(senderID).then(function () {
-                            sendVideoMessage(senderID, lesson.video,lessonId, gradeId, courseId, chapterId);
+                            sendVideoMessage(senderID, lesson.video, lessonId, gradeId, courseId, chapterId);
                         });
                     });
                 });
+                break;
+            }
+
+            case 'choes_other_lessons' :
+            {
+                const lessonId = arrayPayload[1];
+                const gradeId = arrayPayload[2];
+                const courseId = arrayPayload[3];
+                const chapterId = arrayPayload[4];
                 break;
             }
 
@@ -890,7 +913,7 @@ function sendTypingOff(recipientId) {
 
 }
 
-function sendVideoMessage(recipientId, videoUrl,lessonId, gradeId, courseId, chapterId) {
+function sendVideoMessage(recipientId, videoUrl, lessonId, gradeId, courseId, chapterId) {
     var messageData = {
         recipient: {
             id: recipientId
@@ -906,11 +929,11 @@ function sendVideoMessage(recipientId, videoUrl,lessonId, gradeId, courseId, cha
     };
 
     callSendAPI(messageData).then(function () {
-        sendButtonAfterCourse(recipientId);
+        sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapterId);
     })
 }
 
-function sendButtonAfterCourse(recipientId) {
+function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapterId) {
     var messageData = {
         recipient: {
             id: recipientId
@@ -924,18 +947,18 @@ function sendButtonAfterCourse(recipientId) {
                     buttons: [{
                         type: "postback",
                         title: "Autres  léçons",
-                        payload: "choes_other_course" + delimiter
+                        payload: "choes_other_lessons" + delimiter + lessonId + delimiter + gradeId + delimiter + courseId + delimiter + chapterId
                     },
                         {
                             type: "postback",
                             title: "Faire un Quiz",
-                            payload: "choes_other_course" + delimiter
-                        },{
-                        type: "postback",
-                        title: "Terminer revision",
-                        payload: "end_revision" + delimiter
+                            payload: "choes_make_quiz" + delimiter + lessonId + delimiter + gradeId + delimiter + courseId + delimiter + chapterId
+                        }, {
+                            type: "postback",
+                            title: "Terminer revision",
+                            payload: "end_revision" + delimiter
 
-                    }]
+                        }]
                 }
             }
         }

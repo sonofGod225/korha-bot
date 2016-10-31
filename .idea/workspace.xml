@@ -27,8 +27,8 @@
       <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="518" column="169" selection-start-line="518" selection-start-column="169" selection-end-line="518" selection-end-column="169" />
+            <state relative-caret-position="784">
+              <caret line="521" column="21" selection-start-line="521" selection-start-column="21" selection-end-line="521" selection-end-column="21" />
               <folding>
                 <element signature="e#5102#5256#0" expanded="false" />
                 <element signature="e#7446#7907#0" expanded="false" />
@@ -41,7 +41,7 @@
                 <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithGrade#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-                <element signature="e#25406#26151#0" expanded="false" />
+                <element signature="e#25389#26134#0" expanded="false" />
                 <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
               </folding>
             </state>
@@ -682,12 +682,12 @@
       <workItem from="1477475959487" duration="26919000" />
       <workItem from="1477645789967" duration="30997000" />
       <workItem from="1477693652891" duration="98000" />
-      <workItem from="1477899994202" duration="5272000" />
+      <workItem from="1477899994202" duration="5861000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198172000" />
+    <option name="totallyTimeSpent" value="198761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1104,8 +1104,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="518" column="169" selection-start-line="518" selection-start-column="169" selection-end-line="518" selection-end-column="169" />
+        <state relative-caret-position="784">
+          <caret line="521" column="21" selection-start-line="521" selection-start-column="21" selection-end-line="521" selection-end-column="21" />
           <folding>
             <element signature="e#5102#5256#0" expanded="false" />
             <element signature="e#7446#7907#0" expanded="false" />
@@ -1118,7 +1118,7 @@
             <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithGrade#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-            <element signature="e#25406#26151#0" expanded="false" />
+            <element signature="e#25389#26134#0" expanded="false" />
             <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
           </folding>
         </state>

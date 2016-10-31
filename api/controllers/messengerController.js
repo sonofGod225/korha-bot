@@ -491,7 +491,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,o
                         type: models.sequelize.QueryTypes.SELECT
                     }
                 }).then(function (quiz) {
-                    console.log("le quiz"+JSON.stringify(quiz));
+                    console.log("le quiz"+JSON.stringify(quiz[0]));
                     let buttonLessonVideo = {
                         type: "postback",
                         title: "Voir la video du cours",
@@ -511,8 +511,8 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,o
                     }
 
 
-                    if (typeof quiz[0].id !== 'undefined') {
-                        console.log('elemt_dexter_quiz' + JSON.stringify(quiz));
+                    if (quiz[0].id) {
+                        console.log('elemt_dexter_quiz' + JSON.stringify(quiz[0]));
                         let buttonLessonQuiz = {
                             type: "postback",
                             title: "Faire un le Quiz",

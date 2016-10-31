@@ -988,7 +988,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
             };
             buttonArray.push(btnEnd);
 
-            console.log('btnEnd'+JSON.stringify(btnEnd));
+            console.log('btnEnd'+JSON.stringify(buttonArray));
             let messageData = {
                 recipient: {
                     id: recipientId
@@ -999,7 +999,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
                         payload: {
                             template_type: "button",
                             text: "Options",
-                            buttons:btnEnd
+                            buttons:buttonArray
                         }
                     }
                 }

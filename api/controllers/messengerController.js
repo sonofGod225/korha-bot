@@ -971,7 +971,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
             }
         }).then(function (quiz) {
 
-            if (quiz[0].id !== 'undefined' && quiz[0].id !== '') {
+            if (quiz[0].id !== 'undefined' && quiz[0].id !== null) {
                 let btnQuizLesson = {
                     type: "postback",
                     title: "Quiz",

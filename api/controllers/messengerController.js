@@ -456,21 +456,12 @@ function sendMessageMatiere(recipientId) {
     })
 }
 
-function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, oldLessonId) {
+function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) {
     return new Promise(function (fulfill, rejected) {
-        let whereObj;
-        if (oldLessonId != '') {
-            whereObj = {
-                chapter_id: chapterid,
-                id: {
-                    $ne: oldLessonId
-                }
-            }
-        } else {
-            whereObj = {
+        let  whereObj = {
                 chapter_id: chapterid
-            }
-        }
+            };
+
         models.lessons.findAll({
             limit: 10,
             where: whereObj,
@@ -562,12 +553,23 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
         })
     });
 }
-function sendButtonMessageWithChapter(recipientId, gradeid, courseid) {
+function sendButtonMessageWithChapter(recipientId, gradeid, courseid,oldChapterId) {
     return new Promise(function (fulfill, rejected) {
-        models.chapters.findAll({
-            where: {
+        let whereObj;
+        if (oldChapterId != '') {
+            whereObj = {
+                course_id: courseid,
+                id: {
+                    $ne: oldChapterId
+                }
+            }
+        } else {
+            whereObj = {
                 course_id: courseid
-            },
+            }
+        }
+        models.chapters.findAll({
+            where: whereObj,
             attributes: ['id', 'name', 'slug', 'order'],
             order: [
                 ['id', 'ASC']
@@ -802,11 +804,12 @@ function receivedPostback(event) {
             {
                 const courseId = arrayPayload[1];
                 const gradeId = arrayPayload[2];
+                let chapterId = arrayPayload[3] ? arrayPayload[3] : '';
                 const commentaireBotCourse = "Choisi maintenant une thématique !";
                 sendTypingOn(senderID).then(function () {
                     sendTextMessage(senderID, commentaireBotCourse).then(function () {
                         sendTypingOn(senderID).then(function () {
-                            sendButtonMessageWithChapter(senderID, gradeId, courseId)
+                            sendButtonMessageWithChapter(senderID, gradeId, courseId,chapterId)
                         });
                     });
                 });
@@ -819,14 +822,14 @@ function receivedPostback(event) {
                 const chapterId = arrayPayload[1];
                 const gradeId = arrayPayload[2];
                 const courseId = arrayPayload[3];
-                let lessonId = arrayPayload[4] ? arrayPayload[4] : '';
+
 
 
                 const commentaireBotChpter = "Choisi maintenant la leçon à reviser !";
                 sendTypingOn(senderID).then(function () {
                     sendTextMessage(senderID, commentaireBotChpter).then(function () {
                         sendTypingOn(senderID).then(function () {
-                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId, lessonId)
+                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId)
                         });
                     });
                 });
@@ -944,11 +947,11 @@ function sendVideoMessage(recipientId, videoUrl, lessonId, gradeId, courseId, ch
 function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapterId) {
 
     // recuperation des autres lesson de la thematique
-    models.lessons.findAll({
+    models.chapters.findAll({
         where: {
-            chapter_id: chapterId,
+            course_id: courseid,
             id: {
-                $ne: lessonId
+                $ne: oldChapterId
             }
         },
         attributes: ['id']
@@ -959,7 +962,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
             let btnOtherLesson = {
                 type: "postback",
                 title: "Autres léçons",
-                payload: "choes_chapter" + delimiter + chapterId + delimiter + gradeId + delimiter + courseId + delimiter + lessonId
+                payload: 'choes_course' + delimiter + courseId + delimiter + gradeId+delimiter+chapterId
             }
             buttonArray.push(btnOtherLesson);
         }

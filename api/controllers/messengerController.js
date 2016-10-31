@@ -494,14 +494,14 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,o
                     console.log("le quiz"+JSON.stringify(quiz[0]));
                     let buttonLessonVideo = {
                         type: "postback",
-                        title: "Voir la video du cours",
+                        title: "Video",
                         payload: 'choes_lesson_video' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
                     };
                     arrayLessons.push(buttonLessonVideo);
                     if (lessonBody != '') {
                         let buttonLessonText = {
                             type: "web_url",
-                            title: "Voir le cours",
+                            title: "Cours",
                             url: PAGE_WEB_VIEW + "/bot/lesson/" + lessonId,
                             webview_height_ratio: "tall",
                             messenger_extensions: true,
@@ -515,7 +515,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,o
                         console.log('elemt_dexter_quiz' + JSON.stringify(quiz[0]));
                         let buttonLessonQuiz = {
                             type: "postback",
-                            title: "Faire le Quiz",
+                            title: "Quiz",
                             payload: 'choes_lesson_quiz' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid + delimiter + quiz[0].id
                         };
                         arrayLessons.push(buttonLessonQuiz);

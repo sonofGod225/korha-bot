@@ -515,7 +515,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,o
                         console.log('elemt_dexter_quiz' + JSON.stringify(quiz[0]));
                         let buttonLessonQuiz = {
                             type: "postback",
-                            title: "Faire un le Quiz",
+                            title: "Faire le Quiz",
                             payload: 'choes_lesson_quiz' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid + delimiter + quiz[0].id
                         };
                         arrayLessons.push(buttonLessonQuiz);

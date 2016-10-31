@@ -955,7 +955,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
     }).then(function (lessons) {
         console.log("CallBack video");
         let buttonArray = [];
-        if (lesson.length) {
+        if (lessons.length) {
             let btnOtherLesson = {
                 type: "postback",
                 title: "Autres léçons",

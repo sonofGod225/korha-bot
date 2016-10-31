@@ -961,7 +961,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
         if (chapter.length) {
             let btnOtherChapter = {
                 type: "postback",
-                title: "Autres léçons",
+                title: "Autres thématiques",
                 payload: 'choes_course' + delimiter + courseId + delimiter + gradeId+delimiter+chapterId
             }
             buttonArray.push(btnOtherChapter);

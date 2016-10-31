@@ -946,10 +946,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
     // recuperation des autres lesson de la thematique
     models.lessons.findAll({
         where: {
-            chapter_id: chapterid,
-            id: {
-                $ne: lessonId
-            }
+            chapter_id: chapterid
         },
         attributes: ['id']
     }).then(function (lessons) {

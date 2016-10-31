@@ -955,7 +955,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
     }).then(function (lessons) {
         console.log("nombre autre lesson" + lessons.length);
 
-        var messageData = {
+        let messageData = {
             recipient: {
                 id: recipientId
             },
@@ -987,7 +987,6 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
 
         callSendAPI(messageData);
     });
-
 
 
 }

@@ -484,6 +484,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                 let lessonName = lessons[i].name;
                 let lessonShort = lessons[i].short;
                 let lessonBody = lessons[i].body;
+                let lessonVideo = lesson[i].video;
                 let lessonThumbnail = lessons[i].thumbnail;
                 models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
                     replacements: {
@@ -492,12 +493,15 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                     }
                 }).then(function (quiz) {
                     console.log("le quiz" + JSON.stringify(quiz[0]));
-                    let buttonLessonVideo = {
-                        type: "postback",
-                        title: "Video",
-                        payload: 'choes_lesson_video' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
-                    };
-                    arrayLessons.push(buttonLessonVideo);
+                    if(lessonVideo !=''){
+                        let buttonLessonVideo = {
+                            type: "postback",
+                            title: "Video",
+                            payload: 'choes_lesson_video' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
+                        };
+                        arrayLessons.push(buttonLessonVideo);
+                    }
+
                     if (lessonBody != '') {
                         let buttonLessonText = {
                             type: "web_url",

@@ -944,49 +944,50 @@ function sendVideoMessage(recipientId, videoUrl, lessonId, gradeId, courseId, ch
 function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapterId) {
 
     // recuperation des autres lesson de la thematique
-     models.lessons.findAll({
-     limit: 10,
-     where: {
-     chapter_id: chapterid,
-     id: {
-     $ne: lessonId
-     }
-     },
-     attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body']
-     }).then(function (lessons) {
-     console.log("nombre autre lesson"+lessons.length);
-     });
-
-
-    var messageData = {
-        recipient: {
-            id: recipientId
+    models.lessons.findAll({
+        where: {
+            chapter_id: chapterid,
+            id: {
+                $ne: lessonId
+            }
         },
-        message: {
-            attachment: {
-                type: "template",
-                payload: {
-                    template_type: "button",
-                    text: "Options supplementaires.",
-                    buttons: [{
-                        type: "postback",
-                        title: "Autres léçons",
-                        payload: "choes_chapter" + delimiter + chapterId + delimiter + gradeId + delimiter + courseId + delimiter + lessonId
-                    },
-                        {
-                            type: "postback",
-                            title: "Quiz",
-                            payload: "choes_make_quiz" + delimiter + lessonId + delimiter + gradeId + delimiter + courseId + delimiter + chapterId
-                        }, {
-                            type: "postback",
-                            title: "Terminer",
-                            payload: "end_revision" + delimiter
+        attributes: ['id']
+    }).then(function (lessons) {
+        console.log("nombre autre lesson" + lessons.length);
 
-                        }]
+        var messageData = {
+            recipient: {
+                id: recipientId
+            },
+            message: {
+                attachment: {
+                    type: "template",
+                    payload: {
+                        template_type: "button",
+                        text: "Options supplementaires.",
+                        buttons: [{
+                            type: "postback",
+                            title: "Autres léçons",
+                            payload: "choes_chapter" + delimiter + chapterId + delimiter + gradeId + delimiter + courseId + delimiter + lessonId
+                        },
+                            {
+                                type: "postback",
+                                title: "Quiz",
+                                payload: "choes_make_quiz" + delimiter + lessonId + delimiter + gradeId + delimiter + courseId + delimiter + chapterId
+                            }, {
+                                type: "postback",
+                                title: "Terminer",
+                                payload: "end_revision" + delimiter
+
+                            }]
+                    }
                 }
             }
         }
-    }
 
-    callSendAPI(messageData);
+        callSendAPI(messageData);
+    });
+
+
+
 }

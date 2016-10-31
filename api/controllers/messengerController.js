@@ -456,17 +456,17 @@ function sendMessageMatiere(recipientId) {
     })
 }
 
-function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,oldLessonId) {
+function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, oldLessonId) {
     return new Promise(function (fulfill, rejected) {
         let whereObj;
-        if(oldLessonId !=''){
+        if (oldLessonId != '') {
             whereObj = {
                 chapter_id: chapterid,
-                id:{
-                    $ne:oldLessonId
+                id: {
+                    $ne: oldLessonId
                 }
             }
-        }else{
+        } else {
             whereObj = {
                 chapter_id: chapterid
             }
@@ -491,7 +491,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,o
                         type: models.sequelize.QueryTypes.SELECT
                     }
                 }).then(function (quiz) {
-                    console.log("le quiz"+JSON.stringify(quiz[0]));
+                    console.log("le quiz" + JSON.stringify(quiz[0]));
                     let buttonLessonVideo = {
                         type: "postback",
                         title: "Video",
@@ -814,14 +814,14 @@ function receivedPostback(event) {
                 const chapterId = arrayPayload[1];
                 const gradeId = arrayPayload[2];
                 const courseId = arrayPayload[3];
-                let lessonId =arrayPayload[4]?arrayPayload[4]:'';
+                let lessonId = arrayPayload[4] ? arrayPayload[4] : '';
 
 
                 const commentaireBotChpter = "Choisi maintenant la leçon à reviser !";
                 sendTypingOn(senderID).then(function () {
                     sendTextMessage(senderID, commentaireBotChpter).then(function () {
                         sendTypingOn(senderID).then(function () {
-                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId,lessonId)
+                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId, lessonId)
                         });
                     });
                 });
@@ -939,7 +939,18 @@ function sendVideoMessage(recipientId, videoUrl, lessonId, gradeId, courseId, ch
 function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapterId) {
 
     // recuperation des autres lesson de la thematique
-
+    models.lessons.findAll({
+        limit: 10,
+        where: {
+            chapter_id: chapterid,
+            id: {
+                $ne: lessonId
+            }
+        },
+        attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body']
+    }).then(function (lessons) {
+     console.log("nombre autre lesson"+lessons.length);
+    });
 
 
     var messageData = {

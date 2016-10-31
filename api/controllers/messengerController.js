@@ -492,9 +492,9 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                         type: models.sequelize.QueryTypes.SELECT
                     }
                 }).then(function (quiz) {
-                    console.log("le quiz" + JSON.stringify(quiz[0]));
-                    if(lessonVideo !=''){
-                        console.log("video link" + lessonVideo);
+
+                    if (lessonVideo !== 'null') {
+                        console.log("video link_" + lessonVideo);
                         let buttonLessonVideo = {
                             type: "postback",
                             title: "Video",
@@ -944,18 +944,18 @@ function sendVideoMessage(recipientId, videoUrl, lessonId, gradeId, courseId, ch
 function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapterId) {
 
     // recuperation des autres lesson de la thematique
-   /* models.lessons.findAll({
-        limit: 10,
-        where: {
-            chapter_id: chapterid,
-            id: {
-                $ne: lessonId
-            }
-        },
-        attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body']
-    }).then(function (lessons) {
+    /* models.lessons.findAll({
+     limit: 10,
+     where: {
+     chapter_id: chapterid,
+     id: {
+     $ne: lessonId
+     }
+     },
+     attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body']
+     }).then(function (lessons) {
      console.log("nombre autre lesson"+lessons.length);
-    });*/
+     });*/
 
 
     var messageData = {

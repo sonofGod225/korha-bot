@@ -949,7 +949,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
     // recuperation des autres lesson de la thematique
     models.chapters.findAll({
         where: {
-            course_id: courseid,
+            course_id: courseId,
             id: {
                 $ne: oldChapterId
             }

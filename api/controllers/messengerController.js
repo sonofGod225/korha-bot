@@ -954,39 +954,57 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
         attributes: ['id']
     }).then(function (lessons) {
         console.log("CallBack video");
+        let buttonArray = [];
+        if (lesson.length) {
+            let btnOtherLesson = {
+                type: "postback",
+                title: "Autres léçons",
+                payload: "choes_chapter" + delimiter + chapterId + delimiter + gradeId + delimiter + courseId + delimiter + lessonId
+            }
+            buttonArray.push(btnOtherLesson);
+        }
 
+        models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
+            replacements: {
+                lesson_id: lessonId,
+                type: models.sequelize.QueryTypes.SELECT
+            }
+        }).then(function (quiz) {
+            if (quiz[0].id !== 'undefined' && quiz[0].id !== '') {
+                let btnQuizLesson = {
+                    type: "postback",
+                    title: "Quiz",
+                    payload: "choes_make_quiz" + delimiter + lessonId + delimiter + gradeId + delimiter + courseId + delimiter + chapterId
+                }
+                buttonArray.push(btnQuizLesson);
+            }
 
-        let messageData = {
-            recipient: {
-                id: recipientId
-            },
-            message: {
-                attachment: {
-                    type: "template",
-                    payload: {
-                        template_type: "button",
-                        text: "Options supplementaires.",
-                        buttons: [{
-                            type: "postback",
-                            title: "Autres léçons",
-                            payload: "choes_chapter" + delimiter + chapterId + delimiter + gradeId + delimiter + courseId + delimiter + lessonId
-                        },
-                            {
-                                type: "postback",
-                                title: "Quiz",
-                                payload: "choes_make_quiz" + delimiter + lessonId + delimiter + gradeId + delimiter + courseId + delimiter + chapterId
-                            }, {
-                                type: "postback",
-                                title: "Terminer",
-                                payload: "end_revision" + delimiter
+            let btnEnd = {
+                type: "postback",
+                title: "Terminer",
+                payload: "end_revision" + delimiter
 
-                            }]
+            };
+            buttonArray.push(btnEnd);
+            let messageData = {
+                recipient: {
+                    id: recipientId
+                },
+                message: {
+                    attachment: {
+                        type: "template",
+                        payload: {
+                            template_type: "button",
+                            text: "Options",
+                            buttons:btnEnd
+                        }
                     }
                 }
             }
-        }
 
-        callSendAPI(messageData);
+            callSendAPI(messageData);
+        });
+
     });
 
 

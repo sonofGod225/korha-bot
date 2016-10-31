@@ -459,7 +459,7 @@ function sendMessageMatiere(recipientId) {
 function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,oldLessonId) {
     return new Promise(function (fulfill, rejected) {
         let whereObj;
-        if(oldLessonId){
+        if(oldLessonId !=''){
             whereObj = {
                 chapter_id: chapterid,
                 id:{
@@ -814,12 +814,14 @@ function receivedPostback(event) {
                 const chapterId = arrayPayload[1];
                 const gradeId = arrayPayload[2];
                 const courseId = arrayPayload[3];
+                let lessonId =arrayPayload[4]?arrayPayload[4]:'';
+
 
                 const commentaireBotChpter = "Choisi maintenant la leçon à reviser !";
                 sendTypingOn(senderID).then(function () {
                     sendTextMessage(senderID, commentaireBotChpter).then(function () {
                         sendTypingOn(senderID).then(function () {
-                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId)
+                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId,lessonId)
                         });
                     });
                 });
@@ -935,6 +937,11 @@ function sendVideoMessage(recipientId, videoUrl, lessonId, gradeId, courseId, ch
 }
 
 function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapterId) {
+
+    // recuperation des autres lesson de la thematique
+
+
+
     var messageData = {
         recipient: {
             id: recipientId
@@ -947,16 +954,16 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
                     text: "Options supplementaires.",
                     buttons: [{
                         type: "postback",
-                        title: "Autres  léçons",
-                        payload: "choes_other_lessons" + delimiter + lessonId + delimiter + gradeId + delimiter + courseId + delimiter + chapterId
+                        title: "Autres léçons",
+                        payload: "choes_chapter" + delimiter + chapterId + delimiter + gradeId + delimiter + courseId + delimiter + lessonId
                     },
                         {
                             type: "postback",
-                            title: "Faire un Quiz",
+                            title: "Quiz",
                             payload: "choes_make_quiz" + delimiter + lessonId + delimiter + gradeId + delimiter + courseId + delimiter + chapterId
                         }, {
                             type: "postback",
-                            title: "Terminer revision",
+                            title: "Terminer",
                             payload: "end_revision" + delimiter
 
                         }]

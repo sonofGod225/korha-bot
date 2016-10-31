@@ -511,12 +511,12 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,o
                     }
 
 
-                    if (typeof quiz.id !== 'undefined') {
+                    if (typeof quiz[0].id !== 'undefined') {
                         console.log('elemt_dexter_quiz' + JSON.stringify(quiz));
                         let buttonLessonQuiz = {
                             type: "postback",
                             title: "Faire un le Quiz",
-                            payload: 'choes_lesson_quiz' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid + delimiter + quiz.id
+                            payload: 'choes_lesson_quiz' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid + delimiter + quiz[0].id
                         };
                         arrayLessons.push(buttonLessonQuiz);
                     }

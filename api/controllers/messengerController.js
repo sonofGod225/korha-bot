@@ -951,20 +951,20 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
         where: {
             course_id: courseId,
             id: {
-                $ne: oldChapterId
+                $ne: chapterId
             }
         },
         attributes: ['id']
-    }).then(function (lessons) {
+    }).then(function (chapter) {
         console.log("CallBack video");
         let buttonArray = [];
-        if (lessons.length) {
-            let btnOtherLesson = {
+        if (chapter.length) {
+            let btnOtherChapter = {
                 type: "postback",
                 title: "Autres léçons",
                 payload: 'choes_course' + delimiter + courseId + delimiter + gradeId+delimiter+chapterId
             }
-            buttonArray.push(btnOtherLesson);
+            buttonArray.push(btnOtherChapter);
         }
 
         models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {

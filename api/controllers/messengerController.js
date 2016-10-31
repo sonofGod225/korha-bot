@@ -511,7 +511,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,o
                     }
 
 
-                    if (quiz[0].id) {
+                    if (quiz[0].length) {
                         console.log('elemt_dexter_quiz' + JSON.stringify(quiz[0]));
                         let buttonLessonQuiz = {
                             type: "postback",

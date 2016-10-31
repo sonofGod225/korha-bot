@@ -942,7 +942,7 @@ function sendVideoMessage(recipientId, videoUrl, lessonId, gradeId, courseId, ch
 }
 
 function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapterId) {
-
+    console.log("CallBack video");
     // recuperation des autres lesson de la thematique
     models.lessons.findAll({
         where: {
@@ -953,7 +953,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
         },
         attributes: ['id']
     }).then(function (lessons) {
-        console.log("nombre autre lesson" + lessons.length);
+
 
         let messageData = {
             recipient: {

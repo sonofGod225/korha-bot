@@ -975,7 +975,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
                     type: "postback",
                     title: "Quiz",
                     payload: "choes_make_quiz" + delimiter + lessonId + delimiter + gradeId + delimiter + courseId + delimiter + chapterId
-                }
+                };
                 buttonArray.push(btnQuizLesson);
             }
 

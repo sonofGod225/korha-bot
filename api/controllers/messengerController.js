@@ -491,7 +491,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,o
                         type: models.sequelize.QueryTypes.SELECT
                     }
                 }).then(function (quiz) {
-                    console.log(JSON.stringify(quiz));
+                    console.log("le quiz"+JSON.stringify(quiz));
                     let buttonLessonVideo = {
                         type: "postback",
                         title: "Voir la video du cours",

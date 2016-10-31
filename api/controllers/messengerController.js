@@ -484,7 +484,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                 let lessonName = lessons[i].name;
                 let lessonShort = lessons[i].short;
                 let lessonBody = lessons[i].body;
-                let lessonVideo = lesson[i].video;
+                let lessonVideo = lessons[i].video;
                 let lessonThumbnail = lessons[i].thumbnail;
                 models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
                     replacements: {

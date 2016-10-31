@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c00c2d59-e5ab-4a0b-afcc-f38131f54b35" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/messengerController.js" afterPath="$PROJECT_DIR$/api/controllers/messengerController.js" />
     </list>
     <ignored path="ibot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +26,8 @@
       <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="495" column="23" selection-start-line="495" selection-start-column="23" selection-end-line="495" selection-end-column="23" />
+            <state relative-caret-position="221">
+              <caret line="493" column="41" selection-start-line="493" selection-start-column="41" selection-end-line="493" selection-end-column="41" />
               <folding>
                 <element signature="e#5102#5256#0" expanded="false" />
                 <element signature="e#7446#7907#0" expanded="false" />
@@ -449,15 +448,15 @@
       <workItem from="1477475959487" duration="26919000" />
       <workItem from="1477645789967" duration="30997000" />
       <workItem from="1477693652891" duration="98000" />
-      <workItem from="1477899994202" duration="13520000" />
+      <workItem from="1477899994202" duration="13863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206420000" />
+    <option name="totallyTimeSpent" value="206763000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1748512" sideWeight="0.8384755" order="0" side_tool="false" content_ui="combo" />
@@ -871,8 +870,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="495" column="23" selection-start-line="495" selection-start-column="23" selection-end-line="495" selection-end-column="23" />
+        <state relative-caret-position="221">
+          <caret line="493" column="41" selection-start-line="493" selection-start-column="41" selection-end-line="493" selection-end-column="41" />
           <folding>
             <element signature="e#5102#5256#0" expanded="false" />
             <element signature="e#7446#7907#0" expanded="false" />

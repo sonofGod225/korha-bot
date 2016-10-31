@@ -507,9 +507,10 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,o
                             messenger_extensions: true,
                             fallback_url: PAGE_WEB_VIEW + "/bot/lesson/" + lessonId
                         };
+                        arrayLessons.push(buttonLessonText);
                     }
 
-                    arrayLessons.push(buttonLessonText);
+
                     if (typeof quiz.id !== 'undefined') {
                         console.log('elemt_dexter_quiz' + JSON.stringify(quiz));
                         let buttonLessonQuiz = {

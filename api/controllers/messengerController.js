@@ -939,7 +939,7 @@ function sendVideoMessage(recipientId, videoUrl, lessonId, gradeId, courseId, ch
 function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapterId) {
 
     // recuperation des autres lesson de la thematique
-    models.lessons.findAll({
+   /* models.lessons.findAll({
         limit: 10,
         where: {
             chapter_id: chapterid,
@@ -950,7 +950,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
         attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body']
     }).then(function (lessons) {
      console.log("nombre autre lesson"+lessons.length);
-    });
+    });*/
 
 
     var messageData = {

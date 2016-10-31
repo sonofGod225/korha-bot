@@ -493,7 +493,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                     }
                 }).then(function (quiz) {
                     console.log("le quiz" + JSON.stringify(quiz[0]));
-                    if(lessonVideo !=''){
+                    if(lessonVideo !='null' && lessonVideo !=''){
                         console.log("video link" + lessonVideo);
                         let buttonLessonVideo = {
                             type: "postback",

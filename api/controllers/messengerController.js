@@ -970,7 +970,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
                 type: models.sequelize.QueryTypes.SELECT
             }
         }).then(function (quiz) {
-            console.log(JSON.stringify(quiz));
+
             if (quiz[0].id !== 'undefined' && quiz[0].id !== '') {
                 let btnQuizLesson = {
                     type: "postback",
@@ -987,6 +987,8 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
 
             };
             buttonArray.push(btnEnd);
+
+            console.log('btnEnd'+JSON.stringify(btnEnd));
             let messageData = {
                 recipient: {
                     id: recipientId

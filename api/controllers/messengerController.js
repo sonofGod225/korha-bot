@@ -500,10 +500,10 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         let buttonLessonText = {
                             type: "web_url",
                             title: "Cours",
-                            url: PAGE_WEB_VIEW + "/bot/lesson/" + lessonId,
+                            url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId,
                             webview_height_ratio: "tall",
                             messenger_extensions: true,
-                            fallback_url: PAGE_WEB_VIEW + "/bot/lesson/" + lessonId
+                            fallback_url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId
                         };
                         arrayLessons.push(buttonLessonText);
                     }

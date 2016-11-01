@@ -496,7 +496,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         arrayLessons.push(buttonLessonVideo);
                     }
 
-                    /*if (lessonBody != '') {
+                    if (lessonBody != '') {
                         let buttonLessonText = {
                             type: "web_url",
                             title: "Cours",
@@ -506,10 +506,10 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                             fallback_url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId
                         };
                         arrayLessons.push(buttonLessonText);
-                    }*/
+                    }
 
 
-                    if (quiz[0].length) {
+                  /*  if (quiz[0].length) {
                         console.log('elemt_dexter_quiz' + JSON.stringify(quiz[0]));
                         let buttonLessonQuiz = {
                             type: "web_url",
@@ -520,7 +520,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                             fallback_url: PAGE_WEB_VIEW_SUCCESS_ASSURE + "cours/quiz-bot/" + lessonSlug
                         };
                         arrayLessons.push(buttonLessonQuiz);
-                    }
+                    }*/
                     let elementSingle = {
                         title: lessonName,
                         subtitle: lessonShort,

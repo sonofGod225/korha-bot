@@ -509,18 +509,18 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                     }
 
 
-                  /*  if (quiz[0].length) {
+                    if (quiz[0].length) {
                         console.log('elemt_dexter_quiz' + JSON.stringify(quiz[0]));
                         let buttonLessonQuiz = {
                             type: "web_url",
                             title: "Quiz",
-                            url: PAGE_WEB_VIEW_SUCCESS_ASSURE + "cours/quiz-bot/" + lessonSlug,
+                            url: PAGE_WEB_VIEW_SUCCESS_ASSURE + "cours/quiz-bot/",
                             webview_height_ratio: "tall",
                             messenger_extensions: true,
-                            fallback_url: PAGE_WEB_VIEW_SUCCESS_ASSURE + "cours/quiz-bot/" + lessonSlug
+                            fallback_url: PAGE_WEB_VIEW_SUCCESS_ASSURE + "cours/quiz-bot/"
                         };
                         arrayLessons.push(buttonLessonQuiz);
-                    }*/
+                    }
                     let elementSingle = {
                         title: lessonName,
                         subtitle: lessonShort,

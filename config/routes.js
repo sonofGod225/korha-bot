@@ -62,6 +62,7 @@ module.exports = function (app, passport) {
      * route du bot facebook
      */
      app.get('/bot/lesson/:lessonId',botController.cours)
+     app.get('/cours/quiz-bot/:slug',botController.quiz)
     /**
      * Error handling
      */

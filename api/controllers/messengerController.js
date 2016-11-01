@@ -514,10 +514,10 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         let buttonLessonQuiz = {
                             type: "web_url",
                             title: "Quiz",
-                            url: PAGE_WEB_VIEW_SUCCESS_ASSURE + "cours/quiz-bot/" + lessonSlug,
+                            url: PAGE_WEB_VIEW + "cours/quiz-bot/" + lessonSlug,
                             webview_height_ratio: "tall",
                             messenger_extensions: true,
-                            fallback_url: PAGE_WEB_VIEW_SUCCESS_ASSURE + "cours/quiz-bot/" + lessonSlug
+                            fallback_url: PAGE_WEB_VIEW + "cours/quiz-bot/" + lessonSlug
                         };
                         arrayLessons.push(buttonLessonQuiz);
                     }

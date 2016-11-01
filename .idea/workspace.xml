@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c00c2d59-e5ab-4a0b-afcc-f38131f54b35" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/bot/slug.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/messengerController.js" afterPath="$PROJECT_DIR$/api/controllers/messengerController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/botController.js" afterPath="$PROJECT_DIR$/app/controllers/botController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.js" afterPath="$PROJECT_DIR$/config/routes.js" />
     </list>
     <ignored path="ibot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,7 +24,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="283">
@@ -114,18 +111,18 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="64" column="29" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="29" />
+            <state relative-caret-position="277">
+              <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="botController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="botController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/botController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+            <state relative-caret-position="306">
+              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -208,10 +205,10 @@
         <option value="$PROJECT_DIR$/app/views/bot/lessons.jade" />
         <option value="$PROJECT_DIR$/app/models-sqelize/lessons.js" />
         <option value="$PROJECT_DIR$/config/routes.js" />
-        <option value="$PROJECT_DIR$/app/controllers/botController.js" />
         <option value="$PROJECT_DIR$/app/views/bot/slug.html" />
         <option value="$PROJECT_DIR$/app/views/bot/slug.jade" />
         <option value="$PROJECT_DIR$/api/controllers/messengerController.js" />
+        <option value="$PROJECT_DIR$/app/controllers/botController.js" />
       </list>
     </option>
   </component>
@@ -635,12 +632,12 @@
       <workItem from="1477645789967" duration="30997000" />
       <workItem from="1477693652891" duration="98000" />
       <workItem from="1477899994202" duration="29263000" />
-      <workItem from="1477996618334" duration="7485000" />
+      <workItem from="1477996618334" duration="7721000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229648000" />
+    <option name="totallyTimeSpent" value="229884000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1006,22 +1003,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="64" column="29" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/botController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/matiere/index.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1065,6 +1046,22 @@
             <element signature="e#25810#26555#0" expanded="false" />
             <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/botController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

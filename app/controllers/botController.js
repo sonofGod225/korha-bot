@@ -16,7 +16,7 @@ exports.cours = function (req, res) {
 
 exports.quiz = function(req,res){
     const slug = req.params.slug;
-    res.render('cours/quiz-bot',{
+    res.render('bot/slug',{
         slug:slug
     });
 }

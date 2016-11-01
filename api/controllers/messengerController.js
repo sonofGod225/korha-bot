@@ -8,6 +8,7 @@ const config = require('../../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
 const PAGE_ACCESS_TOKEN = config.facebookmessenger.pageAccessToken;
 const PAGE_WEB_VIEW = config.facebookmessenger.webViewURL;
+const PAGE_WEB_VIEW_SUCCESS_ASSURE = 'http://www.succes-assure.com/';
 const axios = require('axios');
 const delimiter = "_@@_";
 const models = require('../../app/models-sqelize');
@@ -474,6 +475,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                 let lessonId = lessons[i].id;
                 let lessonName = lessons[i].name;
                 let lessonShort = lessons[i].short;
+                let lessonSlug = lessons[i].slug;
                 let lessonBody = lessons[i].body;
                 let lessonVideo = lessons[i].video;
                 let lessonThumbnail = lessons[i].thumbnail;
@@ -498,7 +500,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                         let buttonLessonText = {
                             type: "web_url",
                             title: "Cours",
-                            url: PAGE_WEB_VIEW + "/bot/lesson/" + lessonId,
+                            url: PAGE_WEB_ + "/bot/lesson/" + lessonId,
                             webview_height_ratio: "tall",
                             messenger_extensions: true,
                             fallback_url: PAGE_WEB_VIEW + "/bot/lesson/" + lessonId
@@ -510,10 +512,14 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) 
                     if (quiz[0].length) {
                         console.log('elemt_dexter_quiz' + JSON.stringify(quiz[0]));
                         let buttonLessonQuiz = {
-                            type: "postback",
+                            type: "web_url",
                             title: "Quiz",
-                            payload: 'choes_lesson_quiz' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid + delimiter + quiz[0].id
+                            url: PAGE_WEB_VIEW_SUCCESS_ASSURE + "cours/quiz-bot/" + lessonSlug,
+                            webview_height_ratio: "tall",
+                            messenger_extensions: true,
+                            fallback_url: PAGE_WEB_VIEW_SUCCESS_ASSURE + "cours/quiz-bot/" + lessonSlug
                         };
+
                         arrayLessons.push(buttonLessonQuiz);
                     }
                     let elementSingle = {

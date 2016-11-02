@@ -27,8 +27,8 @@
       <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="464" column="31" selection-start-line="464" selection-start-column="31" selection-end-line="464" selection-end-column="31" />
+            <state relative-caret-position="422">
+              <caret line="468" column="51" selection-start-line="468" selection-start-column="51" selection-end-line="468" selection-end-column="51" />
               <folding>
                 <element signature="e#5172#5326#0" expanded="false" />
                 <element signature="e#7516#7977#0" expanded="false" />
@@ -39,9 +39,11 @@
                 <element signature="e#11799#12009#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
+                <element signature="e#16604#16824#0" expanded="false" />
+                <element signature="e#16950#21100#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithGrade#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-                <element signature="e#25952#26697#0" expanded="false" />
+                <element signature="e#26512#27257#0" expanded="false" />
                 <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
               </folding>
             </state>
@@ -508,12 +510,12 @@
       <workItem from="1477693652891" duration="98000" />
       <workItem from="1477899994202" duration="29263000" />
       <workItem from="1477996618334" duration="7873000" />
-      <workItem from="1478078271524" duration="5359000" />
+      <workItem from="1478078271524" duration="6758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235395000" />
+    <option name="totallyTimeSpent" value="236794000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -525,7 +527,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1748512" sideWeight="0.1615245" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.04418985" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07692308" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -918,8 +920,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="464" column="31" selection-start-line="464" selection-start-column="31" selection-end-line="464" selection-end-column="31" />
+        <state relative-caret-position="422">
+          <caret line="468" column="51" selection-start-line="468" selection-start-column="51" selection-end-line="468" selection-end-column="51" />
           <folding>
             <element signature="e#5172#5326#0" expanded="false" />
             <element signature="e#7516#7977#0" expanded="false" />
@@ -930,9 +932,11 @@
             <element signature="e#11799#12009#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
+            <element signature="e#16604#16824#0" expanded="false" />
+            <element signature="e#16950#21100#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithGrade#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-            <element signature="e#25952#26697#0" expanded="false" />
+            <element signature="e#26512#27257#0" expanded="false" />
             <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
           </folding>
         </state>

@@ -456,8 +456,8 @@ function sendMessageMatiere(recipientId) {
         callSendAPI(messageData);
     })
 }
-function sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, offset){
-    return new Promise(function(fulfill,rejected){
+function sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, offset) {
+    return new Promise(function (fulfill, rejected) {
         let messageData = {
             recipient: {
                 id: recipientId
@@ -493,7 +493,15 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
         }).then(function (lessons) {
             let nbrLesson = lessons.length;
             var elementsLesson = [];
-            for (var i = 0; i < step; i++) {
+            let stopLopp;
+            // determination de la variable d'arret de la boucle
+            if(nbrLesson>step){
+                stopLopp=step-1;
+            }else{
+                stopLopp = nbrLesson-1;
+            }
+
+            for (var i = 0; i < lessons.length; i++) {
 
                 let arrayLessons = [];
                 let lessonId = lessons[i].id;
@@ -554,7 +562,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                     console.log('elemt_dexter' + JSON.stringify(elementSingle));
                     elementsLesson.push(elementSingle);
 
-                    if (i == (step-1)) {
+                    if (i == stopLopp) {
                         console.log('elemt_dexter_elements' + JSON.stringify(elementsLesson));
                         let messageData = {
                             recipient: {
@@ -573,14 +581,14 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                         callSendAPI(messageData).then(function () {
                             fulfill();
                             /*if(nbrLesson>step){
-                                // afficher un putton voir encore
-                                console.log('reponse rapide '+nbrLesson+" "+step);
-                                sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, limit).then(function () {
-                                    fulfill();
-                                })
-                            }else{
-                                fulfill();
-                            }*/
+                             // afficher un putton voir encore
+                             console.log('reponse rapide '+nbrLesson+" "+step);
+                             sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, limit).then(function () {
+                             fulfill();
+                             })
+                             }else{
+                             fulfill();
+                             }*/
 
                         });
                     }

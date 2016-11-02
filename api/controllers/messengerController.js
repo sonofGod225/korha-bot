@@ -47,6 +47,8 @@ exports.webhookpost = function (req, res) {
                     receivedDeliveryConfirmation(messagingEvent);
                 } else if (messagingEvent.postback) {
                     receivedPostback(messagingEvent);
+                }else if(messagingEvent.quick_reply){
+                    console.log("quick_reply");
                 } else {
                     console.log("Webhook received unknown messagingEvent: ", messagingEvent);
                 }
@@ -102,9 +104,6 @@ function receivedMessage(event) {
         switch (messageText) {
             case 'image':
                 sendImageMessage(senderID);
-                break;
-            case 'quick_replies':
-               console.log('quick_replies')
                 break;
             case 'button':
                 sendButtonMessage(senderID);

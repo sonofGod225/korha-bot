@@ -493,7 +493,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
         }).then(function (lessons) {
             let nbrLesson = lessons.length;
             var elementsLesson = [];
-            for (let i = 1; i < step; i++) {
+            for (let i = 0; i < step-1; i++) {
 
                 let arrayLessons = [];
                 let lessonId = lessons[i].id;
@@ -554,7 +554,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                     console.log('elemt_dexter' + JSON.stringify(elementSingle));
                     elementsLesson.push(elementSingle);
 
-                    if (i == step) {
+                    if (i == (step-1)) {
                         console.log('elemt_dexter_elements' + JSON.stringify(elementsLesson));
                         let messageData = {
                             recipient: {

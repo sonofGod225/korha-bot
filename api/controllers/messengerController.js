@@ -96,28 +96,31 @@ function receivedMessage(event) {
     if (message.quick_reply) {
         console.log("quik_reply_ok");
         var payload = message.quick_reply.payload;
-        const arrayPayload = payload.split(delimiter);
-        switch (arrayPayload[0]) {
+        if(payload !=null){
+            const arrayPayload = payload.split(delimiter);
+            switch (arrayPayload[0]) {
 
-            case 'choes_chapter' :
-            {
-                const chapterId = arrayPayload[1];
-                const gradeId = arrayPayload[2];
-                const courseId = arrayPayload[3];
-                const offset = arrayPayload[4];
+                case 'choes_chapter' :
+                {
+                    const chapterId = arrayPayload[1];
+                    const gradeId = arrayPayload[2];
+                    const courseId = arrayPayload[3];
+                    const offset = arrayPayload[4];
 
 
-                const commentaireBotChpter = "Choisi maintenant la leçon à reviser !";
-                sendTypingOn(senderID).then(function () {
-                    sendTextMessage(senderID, commentaireBotChpter).then(function () {
-                        sendTypingOn(senderID).then(function () {
-                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId, offset)
+                    const commentaireBotChpter = "Choisi maintenant la leçon à reviser !";
+                    sendTypingOn(senderID).then(function () {
+                        sendTextMessage(senderID, commentaireBotChpter).then(function () {
+                            sendTypingOn(senderID).then(function () {
+                                sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId, offset)
+                            });
                         });
                     });
-                });
-                break;
+                    break;
+                }
             }
         }
+
     }
 
     // You may get a text or attachment but not both

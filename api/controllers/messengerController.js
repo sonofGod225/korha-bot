@@ -47,7 +47,7 @@ exports.webhookpost = function (req, res) {
                     receivedDeliveryConfirmation(messagingEvent);
                 } else if (messagingEvent.postback) {
                     receivedPostback(messagingEvent);
-                }else if(messagingEvent.quick_reply){
+                } else if (messagingEvent.quick_reply) {
                     console.log("quick_reply");
                 } else {
                     console.log("Webhook received unknown messagingEvent: ", messagingEvent);
@@ -91,6 +91,32 @@ function receivedMessage(event) {
     console.log(JSON.stringify(message));
 
     var messageId = message.mid;
+    var payload = message.quick_reply.payload;
+
+    if (payload) {
+        const arrayPayload = payload.split(delimiter);
+        switch (arrayPayload[0]) {
+
+            case 'choes_chapter' :
+            {
+                const chapterId = arrayPayload[1];
+                const gradeId = arrayPayload[2];
+                const courseId = arrayPayload[3];
+                const offset = arrayPayload[4];
+
+
+                const commentaireBotChpter = "Choisi maintenant la leçon à reviser !";
+                sendTypingOn(senderID).then(function () {
+                    sendTextMessage(senderID, commentaireBotChpter).then(function () {
+                        sendTypingOn(senderID).then(function () {
+                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId, offset)
+                        });
+                    });
+                });
+                break;
+            }
+        }
+    }
 
     // You may get a text or attachment but not both
     var messageText = message.text;

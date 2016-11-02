@@ -86,18 +86,30 @@ function receivedMessage(event) {
     var recipientID = event.recipient.id;
     var timeOfMessage = event.timestamp;
     var message = event.message;
+    var isEcho = message.is_echo;
+    var appId = message.app_id;
+    var metadata = message.metadata;
+    var quickReply = message.quick_reply;
+
     console.log("Received message for user %d and page %d at %d with message:",
         senderID, recipientID, timeOfMessage);
     console.log(JSON.stringify(message));
 
     var messageId = message.mid;
 
+    if (isEcho) {
+        // Just logging message echoes to console
+        console.log("Received echo for message %s and app %d with metadata %s",
+            messageId, appId, metadata);
+        return;
+    } else if (quickReply) {
+        var quickReplyPayload = quickReply.payload;
+        console.log("Quick reply for message %s with payload %s",
+            messageId, quickReplyPayload);
 
-    if (message.quick_reply) {
         console.log("quik_reply_ok");
-        var payload = message.quick_reply.payload;
-        if(payload !=null){
-            const arrayPayload = payload.split(delimiter);
+
+            const arrayPayload = quickReplyPayload.split(delimiter);
             switch (arrayPayload[0]) {
 
                 case 'choes_chapter' :
@@ -119,9 +131,10 @@ function receivedMessage(event) {
                     break;
                 }
             }
-        }
 
+        return;
     }
+
 
     // You may get a text or attachment but not both
     var messageText = message.text;

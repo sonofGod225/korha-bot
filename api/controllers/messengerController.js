@@ -485,7 +485,6 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
         offset = parseInt(offset);
         let step = 2;
         let limit = step + 1;
-        console.log(JSON.stringify(nbrLesson));
         models.lessons.findAll({
             offset: offset,
             limit: limit,

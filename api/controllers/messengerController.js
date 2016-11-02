@@ -464,7 +464,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,o
             };
 
         models.lessons.findAll({
-            offset:offset,
+            offset:parseInt(offset),
             limit: 10,
             where: whereObj,
             attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body'],

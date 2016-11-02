@@ -631,7 +631,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                             if (nbrLesson > step) {
                                 // afficher un putton voir encore
                                 console.log('reponse rapide ' + nbrLesson + " " + step);
-                                sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, limit).then(function () {
+                                sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, (limit-1)).then(function () {
                                     fulfill();
                                 })
                             } else {

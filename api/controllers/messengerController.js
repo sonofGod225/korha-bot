@@ -583,7 +583,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                         };
                         callSendAPI(messageData).then(function () {
                             fulfill();
-                            /*if(nbrLesson>step){
+                            if(nbrLesson>step){
                              // afficher un putton voir encore
                              console.log('reponse rapide '+nbrLesson+" "+step);
                              sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, limit).then(function () {
@@ -591,7 +591,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                              })
                              }else{
                              fulfill();
-                             }*/
+                             }
 
                         });
                     }

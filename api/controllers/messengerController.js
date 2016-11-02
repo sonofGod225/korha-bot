@@ -503,7 +503,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
             }
 
             for (var i = 0; i < lessons.length; i++) {
-
+                let compter = i;
                 let arrayLessons = [];
                 let lessonId = lessons[i].id;
                 let lessonName = lessons[i].name;
@@ -563,9 +563,9 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                     }
                     console.log('elemt_dexter' + JSON.stringify(elementSingle));
                     elementsLesson.push(elementSingle);
-                    console.log("le compteur i " + i);
-                    console.log("le compteur stopLopp " +stopLopp+" "+ (i == stopLopp));
-                    if (i == stopLopp) {
+                    console.log("le compteur i " + compter);
+                    console.log("le compteur stopLopp " +stopLopp+" "+ (compter == stopLopp));
+                    if (compter == stopLopp) {
                         console.log('elemt_dexter_elements' + JSON.stringify(elementsLesson));
                         let messageData = {
                             recipient: {

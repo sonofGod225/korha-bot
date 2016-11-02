@@ -457,13 +457,14 @@ function sendMessageMatiere(recipientId) {
     })
 }
 
-function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid) {
+function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,offset) {
     return new Promise(function (fulfill, rejected) {
         let  whereObj = {
                 chapter_id: chapterid
             };
 
         models.lessons.findAll({
+            offset:offset,
             limit: 10,
             where: whereObj,
             attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body'],
@@ -582,12 +583,13 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid,oldChapterI
 
         }).then(function (chapters) {
             var elements = [];
+            let offset =0;
             for (var i = 0; i < chapters.length; i++) {
                 var arrayChapters = [];
                 var buttonChapter = {
                     type: "postback",
                     title: "Voir les cours",
-                    payload: 'choes_chapter' + delimiter + chapters[i].id + delimiter + gradeid + delimiter + courseid
+                    payload: 'choes_chapter' + delimiter + chapters[i].id + delimiter + gradeid + delimiter + courseid+delimiter+offset
                 };
                 arrayChapters.push(buttonChapter);
                 var elementSingle = {
@@ -827,6 +829,7 @@ function receivedPostback(event) {
                 const chapterId = arrayPayload[1];
                 const gradeId = arrayPayload[2];
                 const courseId = arrayPayload[3];
+                const offset   = arrayPayload[4];
 
 
 
@@ -834,7 +837,7 @@ function receivedPostback(event) {
                 sendTypingOn(senderID).then(function () {
                     sendTextMessage(senderID, commentaireBotChpter).then(function () {
                         sendTypingOn(senderID).then(function () {
-                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId)
+                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId,offset)
                         });
                     });
                 });

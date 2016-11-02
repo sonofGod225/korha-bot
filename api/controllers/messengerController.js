@@ -459,13 +459,13 @@ function sendMessageMatiere(recipientId) {
 
 function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,offset) {
     return new Promise(function (fulfill, rejected) {
-        let  whereObj = {
-                chapter_id: chapterid
-            };
-
+        let  whereObj = { chapter_id: chapterid };
+        offset = parseInt(offset);
+        let step = 10;
+        let limit =offset+step;
         models.lessons.findAll({
-            offset:parseInt(offset),
-            limit: 10,
+            offset:offset,
+            limit: limit,
             where: whereObj,
             attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body'],
         }).then(function (lessons) {

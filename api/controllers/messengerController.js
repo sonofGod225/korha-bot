@@ -564,8 +564,8 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                     console.log('elemt_dexter' + JSON.stringify(elementSingle));
                     elementsLesson.push(elementSingle);
 
-                    console.log("le compteur stopLopp" + (i === stopLopp));
-                    if (i === stopLopp) {
+                    console.log("le compteur stopLopp " +stopLopp+" "+ (i == stopLopp));
+                    if (i == stopLopp) {
                         console.log('elemt_dexter_elements' + JSON.stringify(elementsLesson));
                         let messageData = {
                             recipient: {

@@ -91,9 +91,11 @@ function receivedMessage(event) {
     console.log(JSON.stringify(message));
 
     var messageId = message.mid;
-    var payload = message.quick_reply.payload;
 
-    if (payload) {
+
+    if (message.quick_reply) {
+        console.log("quik_reply_ok");
+        var payload = message.quick_reply.payload;
         const arrayPayload = payload.split(delimiter);
         switch (arrayPayload[0]) {
 

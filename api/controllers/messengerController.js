@@ -456,114 +456,141 @@ function sendMessageMatiere(recipientId) {
         callSendAPI(messageData);
     })
 }
+function sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, offset){
+    return new Promise(function(fulfill,rejected){
+        let messageData = {
+            recipient: {
+                id: recipientId
+            },
+            "message": {
+                "text": "Veux tu voir d'autres lécons?",
+                "quick_replies": [
+                    {
+                        "content_type": "text",
+                        "title": "Voir plus...",
+                        "payload": 'choes_chapter' + delimiter + chapterid + delimiter + gradeid + delimiter + courseid + delimiter + offset
+                    }
+                ]
+            }
+        };
 
-function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,offset) {
+        callSendAPI(messageData).then(function () {
+            fulfill();
+        })
+    })
+}
+function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, offset) {
     return new Promise(function (fulfill, rejected) {
-        let  whereObj = { chapter_id: chapterid };
+        let whereObj = {chapter_id: chapterid};
         offset = parseInt(offset);
-        let step = 10;
-        let limit =offset+step;
+        let step = 2;
+        let limit = step + 1;
+        console.log(JSON.stringify(nbrLesson));
         models.lessons.findAll({
-            attributes: ['id',[sequelize.fn('COUNT', sequelize.col('id')), 'no_lessons']],
-        }).then(function (nbrLesson) {
-            console.log(JSON.stringify(nbrLesson));
-            models.lessons.findAll({
-                offset:offset,
-                limit: limit,
-                where: whereObj,
-                attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body'],
-            }).then(function (lessons) {
-                var elementsLesson = [];
-                for (let i = 0; i < lessons.length; i++) {
+            offset: offset,
+            limit: limit,
+            where: whereObj,
+            attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body'],
+        }).then(function (lessons) {
+            let nbrLesson = lessons.length;
+            var elementsLesson = [];
+            for (let i = 1; i < step; i++) {
 
-                    let arrayLessons = [];
-                    let lessonId = lessons[i].id;
-                    let lessonName = lessons[i].name;
-                    let lessonShort = lessons[i].short;
-                    let lessonSlug = lessons[i].slug;
-                    let lessonBody = lessons[i].body;
-                    let lessonVideo = lessons[i].video;
-                    let lessonThumbnail = lessons[i].thumbnail;
-                    models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
-                        replacements: {
-                            lesson_id: lessonId,
-                            type: models.sequelize.QueryTypes.SELECT
-                        }
-                    }).then(function (quiz) {
+                let arrayLessons = [];
+                let lessonId = lessons[i].id;
+                let lessonName = lessons[i].name;
+                let lessonShort = lessons[i].short;
+                let lessonSlug = lessons[i].slug;
+                let lessonBody = lessons[i].body;
+                let lessonVideo = lessons[i].video;
+                let lessonThumbnail = lessons[i].thumbnail;
+                models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
+                    replacements: {
+                        lesson_id: lessonId,
+                        type: models.sequelize.QueryTypes.SELECT
+                    }
+                }).then(function (quiz) {
 
-                        if ((lessonVideo !== undefined) && (lessonVideo !== null)) {
-                            console.log("video link_" + lessonVideo);
-                            let buttonLessonVideo = {
-                                type: "postback",
-                                title: "Video",
-                                payload: 'choes_lesson_video' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
-                            };
-                            arrayLessons.push(buttonLessonVideo);
-                        }
+                    if ((lessonVideo !== undefined) && (lessonVideo !== null)) {
+                        console.log("video link_" + lessonVideo);
+                        let buttonLessonVideo = {
+                            type: "postback",
+                            title: "Video",
+                            payload: 'choes_lesson_video' + delimiter + lessonId + delimiter + gradeid + delimiter + courseid + delimiter + chapterid
+                        };
+                        arrayLessons.push(buttonLessonVideo);
+                    }
 
-                        if (lessonBody != '') {
-                            let buttonLessonText = {
-                                type: "web_url",
-                                title: "Cours",
-                                url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId,
-                                webview_height_ratio: "tall",
-                                messenger_extensions: true,
-                                fallback_url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId
-                            };
-                            arrayLessons.push(buttonLessonText);
-                        }
+                    if (lessonBody != '') {
+                        let buttonLessonText = {
+                            type: "web_url",
+                            title: "Cours",
+                            url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId,
+                            webview_height_ratio: "tall",
+                            messenger_extensions: true,
+                            fallback_url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId
+                        };
+                        arrayLessons.push(buttonLessonText);
+                    }
 
 
-                        if (quiz[0].length) {
-                            console.log('elemt_dexter_quiz' + JSON.stringify(quiz[0]));
-                            let buttonLessonQuiz = {
-                                type: "web_url",
-                                title: "Quiz",
-                                url: PAGE_WEB_VIEW + "cours/quiz-bot/" + lessonSlug,
-                                webview_height_ratio: "tall",
-                                messenger_extensions: true,
-                                fallback_url: PAGE_WEB_VIEW + "cours/quiz-bot/" + lessonSlug
-                            };
-                            arrayLessons.push(buttonLessonQuiz);
-                        }
-                        let elementSingle = {
-                            title: lessonName,
-                            subtitle: lessonShort,
-                            image_url: lessonThumbnail,
-                            buttons: arrayLessons
-                        }
-                        console.log('elemt_dexter' + JSON.stringify(elementSingle));
-                        elementsLesson.push(elementSingle);
+                    if (quiz[0].length) {
+                        console.log('elemt_dexter_quiz' + JSON.stringify(quiz[0]));
+                        let buttonLessonQuiz = {
+                            type: "web_url",
+                            title: "Quiz",
+                            url: PAGE_WEB_VIEW + "cours/quiz-bot/" + lessonSlug,
+                            webview_height_ratio: "tall",
+                            messenger_extensions: true,
+                            fallback_url: PAGE_WEB_VIEW + "cours/quiz-bot/" + lessonSlug
+                        };
+                        arrayLessons.push(buttonLessonQuiz);
+                    }
+                    let elementSingle = {
+                        title: lessonName,
+                        subtitle: lessonShort,
+                        image_url: lessonThumbnail,
+                        buttons: arrayLessons
+                    }
+                    console.log('elemt_dexter' + JSON.stringify(elementSingle));
+                    elementsLesson.push(elementSingle);
 
-                        if (i == (lessons.length - 1)) {
-                            console.log('elemt_dexter_elements' + JSON.stringify(elementsLesson));
-                            let messageData = {
-                                recipient: {
-                                    id: recipientId
-                                },
-                                "message": {
-                                    "attachment": {
-                                        "type": "template",
-                                        "payload": {
-                                            "template_type": "generic",
-                                            "elements": elementsLesson
-                                        }
+                    if (i == step) {
+                        console.log('elemt_dexter_elements' + JSON.stringify(elementsLesson));
+                        let messageData = {
+                            recipient: {
+                                id: recipientId
+                            },
+                            "message": {
+                                "attachment": {
+                                    "type": "template",
+                                    "payload": {
+                                        "template_type": "generic",
+                                        "elements": elementsLesson
                                     }
                                 }
-                            };
-                            callSendAPI(messageData).then(function () {
+                            }
+                        };
+                        callSendAPI(messageData).then(function () {
+                            if(nbrLesson>step){
+                                // afficher un putton voir encore
+                                sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, limit).then(function () {
+                                    fulfill();
+                                })
+                            }else{
                                 fulfill();
-                            });
-                        }
-                    });
+                            }
 
-                }
-            })
+                        });
+                    }
+                });
+
+            }
         })
 
     });
 }
-function sendButtonMessageWithChapter(recipientId, gradeid, courseid,oldChapterId) {
+function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapterId) {
     return new Promise(function (fulfill, rejected) {
         let whereObj;
         if (oldChapterId != '') {
@@ -587,13 +614,13 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid,oldChapterI
 
         }).then(function (chapters) {
             var elements = [];
-            let offset =0;
+            let offset = 0;
             for (var i = 0; i < chapters.length; i++) {
                 var arrayChapters = [];
                 var buttonChapter = {
                     type: "postback",
                     title: "Voir les cours",
-                    payload: 'choes_chapter' + delimiter + chapters[i].id + delimiter + gradeid + delimiter + courseid+delimiter+offset
+                    payload: 'choes_chapter' + delimiter + chapters[i].id + delimiter + gradeid + delimiter + courseid + delimiter + offset
                 };
                 arrayChapters.push(buttonChapter);
                 var elementSingle = {
@@ -820,7 +847,7 @@ function receivedPostback(event) {
                 sendTypingOn(senderID).then(function () {
                     sendTextMessage(senderID, commentaireBotCourse).then(function () {
                         sendTypingOn(senderID).then(function () {
-                            sendButtonMessageWithChapter(senderID, gradeId, courseId,chapterId)
+                            sendButtonMessageWithChapter(senderID, gradeId, courseId, chapterId)
                         });
                     });
                 });
@@ -833,15 +860,14 @@ function receivedPostback(event) {
                 const chapterId = arrayPayload[1];
                 const gradeId = arrayPayload[2];
                 const courseId = arrayPayload[3];
-                const offset   = arrayPayload[4];
-
+                const offset = arrayPayload[4];
 
 
                 const commentaireBotChpter = "Choisi maintenant la leçon à reviser !";
                 sendTypingOn(senderID).then(function () {
                     sendTextMessage(senderID, commentaireBotChpter).then(function () {
                         sendTypingOn(senderID).then(function () {
-                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId,offset)
+                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId, offset)
                         });
                     });
                 });
@@ -974,7 +1000,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
             let btnOtherChapter = {
                 type: "postback",
                 title: "Autres thématiques",
-                payload: 'choes_course' + delimiter + courseId + delimiter + gradeId+delimiter+chapterId
+                payload: 'choes_course' + delimiter + courseId + delimiter + gradeId + delimiter + chapterId
             }
             buttonArray.push(btnOtherChapter);
         }
@@ -1003,7 +1029,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
             };
             buttonArray.push(btnEnd);
 
-            console.log('btnEnd'+JSON.stringify(buttonArray));
+            console.log('btnEnd' + JSON.stringify(buttonArray));
             let messageData = {
                 recipient: {
                     id: recipientId
@@ -1014,7 +1040,7 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
                         payload: {
                             template_type: "button",
                             text: "Options",
-                            buttons:buttonArray
+                            buttons: buttonArray
                         }
                     }
                 }

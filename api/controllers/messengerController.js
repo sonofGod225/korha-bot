@@ -504,7 +504,6 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
 
             for (var i = 0; i < lessons.length; i++) {
                 console.log("le compteur i" + i);
-                break;
                 let arrayLessons = [];
                 let lessonId = lessons[i].id;
                 let lessonName = lessons[i].name;

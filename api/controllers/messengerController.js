@@ -491,14 +491,15 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
             where: whereObj,
             attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body'],
         }).then(function (lessons) {
+            console.log('elemt_dexter_quiz' + JSON.stringify(lessons));
             let nbrLesson = lessons.length;
             var elementsLesson = [];
-            let stopLopp;
+            var stopLopp;
             // determination de la variable d'arret de la boucle
-            if(nbrLesson>step){
-                stopLopp=step-1;
-            }else{
-                stopLopp = nbrLesson-1;
+            if (nbrLesson > step) {
+                stopLopp = step - 1;
+            } else {
+                stopLopp = nbrLesson - 1;
             }
 
             for (var i = 0; i < lessons.length; i++) {
@@ -511,6 +512,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                 let lessonBody = lessons[i].body;
                 let lessonVideo = lessons[i].video;
                 let lessonThumbnail = lessons[i].thumbnail;
+
                 models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
                     replacements: {
                         lesson_id: lessonId,
@@ -561,8 +563,8 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                     }
                     console.log('elemt_dexter' + JSON.stringify(elementSingle));
                     elementsLesson.push(elementSingle);
-                    console.log("le compteur i"+i);
-                    console.log("le compteur stopLopp"+stopLopp);
+                    console.log("le compteur i" + i);
+                    console.log("le compteur stopLopp" + stopLopp);
                     if (i == stopLopp) {
                         console.log('elemt_dexter_elements' + JSON.stringify(elementsLesson));
                         let messageData = {

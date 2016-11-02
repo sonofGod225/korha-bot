@@ -464,7 +464,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid,o
         let step = 10;
         let limit =offset+step;
         models.lessons.findAll({
-            attributes: [[sequelize.fn('COUNT', sequelize.col('id')), 'no_lessons']],
+            attributes: ['id',[sequelize.fn('COUNT', sequelize.col('id')), 'no_lessons']],
         }).then(function (nbrLesson) {
             console.log(JSON.stringify(nbrLesson));
             models.lessons.findAll({

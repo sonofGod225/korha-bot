@@ -103,7 +103,9 @@ function receivedMessage(event) {
             case 'image':
                 sendImageMessage(senderID);
                 break;
-
+            case 'quick_replies':
+               console.log('quick_replies')
+                break;
             case 'button':
                 sendButtonMessage(senderID);
                 break;
@@ -564,7 +566,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                     console.log('elemt_dexter' + JSON.stringify(elementSingle));
                     elementsLesson.push(elementSingle);
                     console.log("le compteur i " + compter);
-                    console.log("le compteur stopLopp " +stopLopp+" "+ (compter == stopLopp));
+                    console.log("le compteur stopLopp " + stopLopp + " " + (compter == stopLopp));
                     if (compter == stopLopp) {
                         console.log('elemt_dexter_elements' + JSON.stringify(elementsLesson));
                         let messageData = {
@@ -583,15 +585,15 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                         };
                         callSendAPI(messageData).then(function () {
                             fulfill();
-                            if(nbrLesson>step){
-                             // afficher un putton voir encore
-                             console.log('reponse rapide '+nbrLesson+" "+step);
-                             sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, limit).then(function () {
-                             fulfill();
-                             })
-                             }else{
-                             fulfill();
-                             }
+                            if (nbrLesson > step) {
+                                // afficher un putton voir encore
+                                console.log('reponse rapide ' + nbrLesson + " " + step);
+                                sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, limit).then(function () {
+                                    fulfill();
+                                })
+                            } else {
+                                fulfill();
+                            }
 
                         });
                     }

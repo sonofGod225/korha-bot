@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c00c2d59-e5ab-4a0b-afcc-f38131f54b35" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/message.js" afterPath="$PROJECT_DIR$/data/message.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/messengerController.js" afterPath="$PROJECT_DIR$/api/controllers/messengerController.js" />
     </list>
     <ignored path="ibot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="974" column="31" selection-start-line="974" selection-start-column="31" selection-end-line="974" selection-end-column="31" />
+            <state relative-caret-position="96">
+              <caret line="976" column="59" selection-start-line="976" selection-start-column="59" selection-end-line="976" selection-end-column="59" />
               <folding>
                 <element signature="e#2613#3281#0" expanded="false" />
                 <element signature="e#4401#5113#0" expanded="false" />
@@ -50,14 +50,13 @@
                 <element signature="n#!!block;n#sendButtonMessageWithLesson#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithChapter#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithMatiere#0" expanded="false" />
-                <element signature="n#!!block;n#sendButtonMessageWithGrade#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
                 <element signature="e#29483#30228#0" expanded="false" />
                 <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
                 <element signature="e#32477#33151#0" expanded="false" />
                 <element signature="e#33965#34758#0" expanded="false" />
                 <element signature="e#34813#35051#0" expanded="false" />
-                <element signature="e#35694#35872#0" expanded="false" />
+                <element signature="e#35702#35880#0" expanded="false" />
                 <element signature="n#!!block;n#sendTypingOn#0" expanded="false" />
                 <element signature="n#!!block;n#sendTypingOff#0" expanded="false" />
                 <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
@@ -67,7 +66,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="message.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/message.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="251">
@@ -216,8 +215,8 @@
         <option value="$PROJECT_DIR$/config/env/development.js" />
         <option value="$PROJECT_DIR$/data/bot.json" />
         <option value="$PROJECT_DIR$/data/bot.js" />
-        <option value="$PROJECT_DIR$/api/controllers/messengerController.js" />
         <option value="$PROJECT_DIR$/data/message.js" />
+        <option value="$PROJECT_DIR$/api/controllers/messengerController.js" />
       </list>
     </option>
   </component>
@@ -745,12 +744,12 @@
       <workItem from="1477996618334" duration="7873000" />
       <workItem from="1478078271524" duration="19365000" />
       <workItem from="1478125843616" duration="35000" />
-      <workItem from="1478167404461" duration="21591000" />
+      <workItem from="1478167404461" duration="21760000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271027000" />
+    <option name="totallyTimeSpent" value="271196000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1163,10 +1162,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/message.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="974" column="31" selection-start-line="974" selection-start-column="31" selection-end-line="974" selection-end-column="31" />
+        <state relative-caret-position="96">
+          <caret line="976" column="59" selection-start-line="976" selection-start-column="59" selection-end-line="976" selection-end-column="59" />
           <folding>
             <element signature="e#2613#3281#0" expanded="false" />
             <element signature="e#4401#5113#0" expanded="false" />
@@ -1188,27 +1195,18 @@
             <element signature="n#!!block;n#sendButtonMessageWithLesson#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithChapter#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithMatiere#0" expanded="false" />
-            <element signature="n#!!block;n#sendButtonMessageWithGrade#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
             <element signature="e#29483#30228#0" expanded="false" />
             <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
             <element signature="e#32477#33151#0" expanded="false" />
             <element signature="e#33965#34758#0" expanded="false" />
             <element signature="e#34813#35051#0" expanded="false" />
-            <element signature="e#35694#35872#0" expanded="false" />
+            <element signature="e#35702#35880#0" expanded="false" />
             <element signature="n#!!block;n#sendTypingOn#0" expanded="false" />
             <element signature="n#!!block;n#sendTypingOff#0" expanded="false" />
             <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonAfterCourse#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/message.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>

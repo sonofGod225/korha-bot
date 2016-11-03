@@ -974,7 +974,7 @@ function receivedPostback(event) {
                 console.log("message "+msg);
                 callSendAPI(msg).then(function () {
                     sendTypingOn(senderID).then(function () {
-                        sendButtonMessageWithGrade();
+                        sendButtonMessageWithGrade(senderID);
                     });
                 });
                 break;

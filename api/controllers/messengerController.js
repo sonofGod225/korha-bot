@@ -205,7 +205,7 @@ function receivedMessage(event) {
                 sendTextMessage(senderID,msg)
                     .then(function () {
                         sendTypingOn(senderID).then(function () {
-                            const messageClass =  messageBote.getRandomWelcom();
+                            const messageClass =  messageBote.getRandomClass();
                             sendButtonMessageWithGrade(senderID,messageClass);
                         })
 
@@ -218,7 +218,7 @@ function receivedMessage(event) {
         sendTextMessage(senderID,msg)
             .then(function () {
                 sendTypingOn(senderID).then(function () {
-                    const messageClass =  messageBote.getRandomWelcom();
+                    const messageClass =  messageBote.getRandomClass();
                     sendButtonMessageWithGrade(senderID,messageClass);
                 })
 

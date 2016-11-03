@@ -714,31 +714,20 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
             for (var i = 0; i < chapters.length; i++) {
                 var arrayChapters = [];
                 var buttonChapter = {
-                    type: "postback",
-                    title: "Voir les cours",
+                    "title":chapters[i].name,
+                    "content_type":"text",
                     payload: 'choes_chapter' + delimiter + chapters[i].id + delimiter + gradeid + delimiter + courseid + delimiter + offset
                 };
-                arrayChapters.push(buttonChapter);
-                var elementSingle = {
-                    title: chapters[i].name,
-                    image_url: "http://previews.123rf.com/images/petovarga/petovarga1509/petovarga150900003/45314478-Illustration-de-cat-gories-de-d-chets-avec-organique-papier-plastique-verre-m-tal-textile-d-chets-da-Banque-d'images.jpg",
-                    buttons: arrayChapters
-                }
 
-                elements.push(elementSingle);
+                elements.push(buttonChapter);
             }
             var messageData = {
                 recipient: {
                     id: recipientId
                 },
-                "message": {
-                    "attachment": {
-                        "type": "template",
-                        "payload": {
-                            "template_type": "generic",
-                            "elements": elements
-                        }
-                    }
+                "message":{
+                    "text":"Choisi une thématique",
+                    "quick_replies":elements
                 }
             };
             callSendAPI(messageData).then(function () {

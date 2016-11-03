@@ -2,37 +2,21 @@
   "welcome": [
     {
       "id": 1,
-      "message": "Bienvenue"
+      "message": "Bienvenue "
     }
   ],
-  "grades": [
+  "classe": [
     {
       "id": 1,
-      "name": "CP",
-      "message": [
-        {
-          "id": 1,
-          "message": "cool les cours preparatoire !"
-        },
-        {
-          "id": 2,
-          "message": "cours preparatoire !"
-        }
-      ]
+      "message": "Pour commencer, choisis ton niveau."
     },
     {
       "id": 2,
-      "name": "CM",
-      "message": [
-        {
-          "id": 1,
-          "message": "cool les cours moyens !"
-        },
-        {
-          "id": 2,
-          "message": "cours moyens !"
-        }
-      ]
+      "message": "Choisis ton niveau avant toute chose."
+    },
+    {
+      "id": 3,
+      "message": "Nous allons débuter mais tout d’abord, choisis ton niveau."
     }
   ],
   "matiere": [
@@ -92,3 +76,5 @@
     }
   ]
 }
+
+

@@ -12,6 +12,7 @@ const PAGE_WEB_VIEW_SUCCESS_ASSURE = 'http://www.succes-assure.com/';
 const axios = require('axios');
 const delimiter = "_@@_";
 const models = require('../../app/models-sqelize');
+const messageBote = require('../../data/message');
 
 
 exports.webhook = function (req, res) {
@@ -109,67 +110,67 @@ function receivedMessage(event) {
 
         console.log("quik_reply_ok");
 
-            const arrayPayload = quickReplyPayload.split(delimiter);
-            switch (arrayPayload[0]) {
+        const arrayPayload = quickReplyPayload.split(delimiter);
+        switch (arrayPayload[0]) {
 
-                case 'choes_chapter' :
-                {
-                    const chapterId = arrayPayload[1];
-                    const gradeId = arrayPayload[2];
-                    const courseId = arrayPayload[3];
-                    const offset = arrayPayload[4];
+            case 'choes_chapter' :
+            {
+                const chapterId = arrayPayload[1];
+                const gradeId = arrayPayload[2];
+                const courseId = arrayPayload[3];
+                const offset = arrayPayload[4];
 
 
-                    const commentaireBotChpter = "Choisi maintenant la leçon à reviser !";
-                    sendTypingOn(senderID).then(function () {
-                        sendTextMessage(senderID, commentaireBotChpter).then(function () {
-                            sendTypingOn(senderID).then(function () {
-                                sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId, offset)
-                            });
-                        });
-                    });
-                    break;
-                }
-                case 'choes_grade' :
-                {
-                    const gradeId = arrayPayload[1];
-                    // recuperation du detail du grade
-                    models.grades.findOne({
-                        attributes: ['id', 'name', 'slug', 'comment_bot', 'order'],
-                        where: {
-                            id: gradeId
-                        }
-                    }).then(function (grade) {
-                        const commentaireBotGrade = grade.comment_bot;
+                const commentaireBotChpter = "Choisi maintenant la leçon à reviser !";
+                sendTypingOn(senderID).then(function () {
+                    sendTextMessage(senderID, commentaireBotChpter).then(function () {
                         sendTypingOn(senderID).then(function () {
-                            sendTextMessage(senderID, commentaireBotGrade).then(function () {
-                                sendTypingOn(senderID).then(function () {
-                                    sendButtonMessageWithMatiere(senderID, gradeId)
-                                });
-                            });
+                            sendButtonMessageWithLesson(senderID, gradeId, courseId, chapterId, offset)
                         });
                     });
-
-                    break;
-                }
-                case 'choes_course' :
-                {
-                    const courseId = arrayPayload[1];
-                    const gradeId = arrayPayload[2];
-                    let chapterId = arrayPayload[3] ? arrayPayload[3] : '';
-                    const commentaireBotCourse = "Choisi maintenant une thématique !";
-                    sendTypingOn(senderID).then(function () {
-                        sendTextMessage(senderID, commentaireBotCourse).then(function () {
-                            sendTypingOn(senderID).then(function () {
-                                sendButtonMessageWithChapter(senderID, gradeId, courseId, chapterId)
-                            });
-                        });
-                    });
-
-
-                    break;
-                }
+                });
+                break;
             }
+            case 'choes_grade' :
+            {
+                const gradeId = arrayPayload[1];
+                // recuperation du detail du grade
+                models.grades.findOne({
+                    attributes: ['id', 'name', 'slug', 'comment_bot', 'order'],
+                    where: {
+                        id: gradeId
+                    }
+                }).then(function (grade) {
+                    const commentaireBotGrade = grade.comment_bot;
+                    sendTypingOn(senderID).then(function () {
+                        sendTextMessage(senderID, commentaireBotGrade).then(function () {
+                            sendTypingOn(senderID).then(function () {
+                                sendButtonMessageWithMatiere(senderID, gradeId)
+                            });
+                        });
+                    });
+                });
+
+                break;
+            }
+            case 'choes_course' :
+            {
+                const courseId = arrayPayload[1];
+                const gradeId = arrayPayload[2];
+                let chapterId = arrayPayload[3] ? arrayPayload[3] : '';
+                const commentaireBotCourse = "Choisi maintenant une thématique !";
+                sendTypingOn(senderID).then(function () {
+                    sendTextMessage(senderID, commentaireBotCourse).then(function () {
+                        sendTypingOn(senderID).then(function () {
+                            sendButtonMessageWithChapter(senderID, gradeId, courseId, chapterId)
+                        });
+                    });
+                });
+
+
+                break;
+            }
+        }
 
         return;
     }
@@ -274,13 +275,6 @@ function saveUserDetail(user_id) {
                 avatar: body.profile_pic,
                 gender: body.gender
             };
-            /*const user = new User({
-             user_id: user_id,
-             first_name: body.first_name,
-             last_name: body.last_name,
-             profile_pic: body.profile_pic,
-             gender: body.gender
-             });*/
             models.users.findOne({
                 where: {
                     facebook_id: user_id
@@ -292,19 +286,7 @@ function saveUserDetail(user_id) {
                     models.users.create(UserObj);
                 }
             });
-            /*User.findOne({user_id: user_id}, (findErr, existingUser)=> {
-             if (existingUser) {
-             console.error('Account with this user_id already exists!');
-             }
 
-             user.save((saveErr) => {
-             if (saveErr) {
-             console.error('une erreur est surveur pendant l\'enregistre de l\'utilisateur');
-             }
-             console.log("utilisateur enregistré avec succes !");
-
-             });
-             })*/
         }
     });
 }
@@ -540,6 +522,7 @@ function sendMessageMatiere(recipientId) {
         callSendAPI(messageData);
     })
 }
+
 function sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, offset) {
     return new Promise(function (fulfill, rejected) {
         let messageData = {
@@ -563,6 +546,7 @@ function sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, off
         })
     })
 }
+
 function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, offset) {
     return new Promise(function (fulfill, rejected) {
         let whereObj = {chapter_id: chapterid};
@@ -670,7 +654,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                             if (nbrLesson > step) {
                                 // afficher un putton voir encore
                                 console.log('reponse rapide ' + nbrLesson + " " + step);
-                                sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, (limit-1)).then(function () {
+                                sendQuikAnswerMoreLesson(recipientId, gradeid, courseid, chapterid, (limit - 1)).then(function () {
                                     fulfill();
                                 })
                             } else {
@@ -686,6 +670,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
 
     });
 }
+
 function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapterId) {
     return new Promise(function (fulfill, rejected) {
         let whereObj;
@@ -747,6 +732,7 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
         })
     });
 }
+
 function sendButtonMessageWithMatiere(recipientId, gradeid) {
     return new Promise(function (fulfill, rejected) {
         models.courses.findAll({
@@ -765,8 +751,8 @@ function sendButtonMessageWithMatiere(recipientId, gradeid) {
             for (var i = 0; i < courses.length; i++) {
                 var arrayCourses = [];
                 var buttonCourse = {
-                    "title":courses[i].name,
-                    "content_type":"text",
+                    "title": courses[i].name,
+                    "content_type": "text",
                     payload: 'choes_course' + delimiter + courses[i].id + delimiter + gradeid
                 };
                 elements.push(buttonCourse);
@@ -775,9 +761,9 @@ function sendButtonMessageWithMatiere(recipientId, gradeid) {
                 recipient: {
                     id: recipientId
                 },
-                "message":{
-                    "text":"Choisi une matière",
-                    "quick_replies":elements
+                "message": {
+                    "text": "Choisi une matière",
+                    "quick_replies": elements
                 }
             };
             callSendAPI(messageData).then(function () {
@@ -786,6 +772,7 @@ function sendButtonMessageWithMatiere(recipientId, gradeid) {
         })
     });
 }
+
 function sendButtonMessageWithGrade(recipientId, message) {
     models.grades.findAll({
         attributes: ['id', 'name', 'slug', 'order'],
@@ -800,8 +787,8 @@ function sendButtonMessageWithGrade(recipientId, message) {
         for (var i = 0; i < grades.length; i++) {
             var arrayMatiere = [];
             var buttonMatiere = {
-                "title":grades[i].name,
-                "content_type":"text",
+                "title": grades[i].name,
+                "content_type": "text",
                 payload: 'choes_grade' + delimiter + grades[i].id
             };
             elements.push(buttonMatiere);
@@ -810,9 +797,9 @@ function sendButtonMessageWithGrade(recipientId, message) {
             recipient: {
                 id: recipientId
             },
-            "message":{
-                "text":"Choisi une filière",
-                "quick_replies":elements
+            "message": {
+                "text": "Choisi une filière",
+                "quick_replies": elements
             }
         };
         callSendAPI(messageData);
@@ -975,17 +962,27 @@ function receivedPostback(event) {
                 const chapterId = arrayPayload[4];
                 break;
             }
+            case 'choes_other_course' :
+            {
+                sendButtonMessageWithMatiere(senderID, "Fait le choix d'une autre matière de revision !");
+                break;
+            }
 
+            case 'menu_cours':
+            {
+                callSendAPI(messageBote.getRandomClass()).then(function () {
+                    sendTypingOn(senderID).then(function () {
+                        sendButtonMessageWithGrade();
+                    });
+                });
+                break;
+            }
             case 'end_revision' :
             {
                 sendTextMessage(senderID, "Ravi d'avoir reviser avec toi ! n'hésite pas à m'envoyer <HELLO> pour reviser encore :-) ;-) ");
                 break;
             }
-            case 'choes_other_course' :
-            {
-                sendButtonMessageWithMatiere(senderID, "Fait le choix d'une autre matière de revision !")
-                break;
-            }
+
             default:
             {
                 sendButtonMessageWithMatiere(senderID, "Quelque chose n'a pas fonctionné comme prevu ! Veuillez choisir une autre matière ou reessayer plutard.");

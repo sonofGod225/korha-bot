@@ -970,7 +970,9 @@ function receivedPostback(event) {
 
             case 'menu_cours':
             {
-                callSendAPI(messageBote.getRandomClass()).then(function () {
+                const msg = messageBote.getRandomClass();
+                console.log("message "+msg);
+                callSendAPI(msg).then(function () {
                     sendTypingOn(senderID).then(function () {
                         sendButtonMessageWithGrade();
                     });

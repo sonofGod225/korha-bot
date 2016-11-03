@@ -972,7 +972,7 @@ function receivedPostback(event) {
             {
                 const msg = messageBote.getRandomClass();
                 console.log("message "+msg);
-                callSendAPI(msg).then(function () {
+                sendTextMessage(senderID,msg).then(function () {
                     sendTypingOn(senderID).then(function () {
                         sendButtonMessageWithGrade(senderID);
                     });

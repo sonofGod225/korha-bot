@@ -712,7 +712,6 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
             var elements = [];
             let offset = 0;
             for (var i = 0; i < chapters.length; i++) {
-                var arrayChapters = [];
                 var buttonChapter = {
                     "title":chapters[i].name,
                     "content_type":"text",
@@ -730,6 +729,7 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
                     "quick_replies":elements
                 }
             };
+            console.log("thematique"+JSON.stringify(messageData));
             callSendAPI(messageData).then(function () {
                 fulfill();
             });

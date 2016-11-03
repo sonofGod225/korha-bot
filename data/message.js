@@ -1,6 +1,4 @@
-const fs = require('fs');
-const contents = fs.readFileSync("bot.json");
-const jsonContentBot = JSON.parse(contents);
+const jsonContentBot = require("./bot.js");
 
 
 exports.getRandomWelcom = function(){

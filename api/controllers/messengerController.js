@@ -130,6 +130,45 @@ function receivedMessage(event) {
                     });
                     break;
                 }
+                case 'choes_grade' :
+                {
+                    const gradeId = arrayPayload[1];
+                    // recuperation du detail du grade
+                    models.grades.findOne({
+                        attributes: ['id', 'name', 'slug', 'comment_bot', 'order'],
+                        where: {
+                            id: gradeId
+                        }
+                    }).then(function (grade) {
+                        const commentaireBotGrade = grade.comment_bot;
+                        sendTypingOn(senderID).then(function () {
+                            sendTextMessage(senderID, commentaireBotGrade).then(function () {
+                                sendTypingOn(senderID).then(function () {
+                                    sendButtonMessageWithMatiere(senderID, gradeId)
+                                });
+                            });
+                        });
+                    });
+
+                    break;
+                }
+                case 'choes_course' :
+                {
+                    const courseId = arrayPayload[1];
+                    const gradeId = arrayPayload[2];
+                    let chapterId = arrayPayload[3] ? arrayPayload[3] : '';
+                    const commentaireBotCourse = "Choisi maintenant une thématique !";
+                    sendTypingOn(senderID).then(function () {
+                        sendTextMessage(senderID, commentaireBotCourse).then(function () {
+                            sendTypingOn(senderID).then(function () {
+                                sendButtonMessageWithChapter(senderID, gradeId, courseId, chapterId)
+                            });
+                        });
+                    });
+
+
+                    break;
+                }
             }
 
         return;
@@ -726,31 +765,19 @@ function sendButtonMessageWithMatiere(recipientId, gradeid) {
             for (var i = 0; i < courses.length; i++) {
                 var arrayCourses = [];
                 var buttonCourse = {
-                    type: "postback",
-                    title: "Voir les thématiques",
+                    "title":courses[i].name,
+                    "content_type":"text",
                     payload: 'choes_course' + delimiter + courses[i].id + delimiter + gradeid
                 };
-                arrayCourses.push(buttonCourse);
-                var elementSingle = {
-                    title: courses[i].name,
-                    image_url: "http://teacherhomestay.com/img/img-cours.png",
-                    buttons: arrayCourses
-                }
-
-                elements.push(elementSingle);
+                elements.push(buttonCourse);
             }
             var messageData = {
                 recipient: {
                     id: recipientId
                 },
-                "message": {
-                    "attachment": {
-                        "type": "template",
-                        "payload": {
-                            "template_type": "generic",
-                            "elements": elements
-                        }
-                    }
+                "message":{
+                    "text":"Choisi une matière",
+                    "quick_replies":elements
                 }
             };
             callSendAPI(messageData).then(function () {

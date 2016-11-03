@@ -1,0 +1,33 @@
+nav.page-sidebar.visible.hidden-md.hidden-lg(data-pages='sidebar', style='transform: translate3d(0px, 0px, 0px);')
+    // BEGIN SIDEBAR MENU HEADER
+    .sidebar-header
+        img.brand(src='assets/img/logo_white.png', alt='logo', data-src='assets/img/logo_white.png', data-src-retina='assets/img/logo_white_2x.png', width='78', height='22')
+        .sidebar-header-controls
+            button.btn.btn-xs.sidebar-slide-toggle.btn-link.m-l-20(type='button', data-pages-toggle='#appMenu')
+                i.fa.fa-angle-down.fs-16
+            button.btn.btn-link.visible-lg-inline(type='button', data-toggle-pin='sidebar')
+                i.fa.fs-12
+    // END SIDEBAR MENU HEADER
+    // START SIDEBAR MENU
+    .sidebar-menu
+        // BEGIN SIDEBAR MENU ITEMS
+        .scroll-wrapper.menu-items(style='position: relative;')
+            ul.menu-items.scroll-content.scroll-scrolly_visible(style='margin-bottom: 0px; margin-right: 0px; height: 316px;')
+                li.m-t-30.open
+                    a.detailed(href='/')
+                        span.title Accueil
+                li
+                    a.detailed(href='/')
+                        span.title Messages
+            .scroll-element.scroll-x.scroll-scrolly_visible
+                .scroll-element_outer
+                    .scroll-element_size
+                    .scroll-element_track
+                    .scroll-bar(style='width: 89px;')
+            .scroll-element.scroll-y.scroll-scrolly_visible
+                .scroll-element_outer
+                    .scroll-element_size
+                    .scroll-element_track
+                    .scroll-bar(style='height: 151px; top: 0px;')
+        .clearfix
+    // END SIDEBAR MENU

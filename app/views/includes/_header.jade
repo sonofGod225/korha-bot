@@ -1,0 +1,23 @@
+.header
+    // START MOBILE CONTROLS
+    // LEFT SIDE
+    .pull-left.full-height.visible-sm.visible-xs
+        // START ACTION BAR
+        .sm-action-bar
+            a.btn-link.toggle-sidebar(href='#', data-toggle='sidebar')
+                span.icon-set.menu-hambuger
+        // END ACTION BAR
+    // END LEFT SIDE
+    // END MOBILE CONTROLS
+    .pull-left.sm-table
+        .header-inner
+            .brand.inline
+                img(src='assets/img/logo.png', alt='logo', data-src='assets/img/logo.png', data-src-retina='assets/img/logo_2x.png', width='78', height='22')
+            // START NOTIFICATION LIST
+    .page-menu.m-t-60.hidden-sm.hidden-xs
+        ul.menu-items
+            li.active
+                a(href="/") ACCUEIL
+            li
+                a(href="/bot-message") MESSAGES
+

@@ -17,15 +17,16 @@ const models = join(__dirname, 'app/models');
 const port = process.env.PORT || 3001;
 console.log(process.env.NODE_ENV);
 const app = express();
-const connection = connect();
+listen();
+//const connection = connect();
 
 /**
  * Expose
  */
 
 module.exports = {
-    app,
-    connection
+    app
+    //connection
 };
 
 // Bootstrap models
@@ -38,10 +39,10 @@ require('./config/passport')(passport);
 require('./config/express')(app, passport);
 require('./config/routes')(app, passport);
 
-connection
+/*connection
     .on('error', console.log)
     .on('disconnected', connect)
-    .once('open', listen);
+    .once('open', listen);*/
 
 function listen() {
     if (app.get('env') === 'test') return;

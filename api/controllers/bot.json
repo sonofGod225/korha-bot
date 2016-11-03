@@ -1,0 +1,94 @@
+{
+  "welcome": [
+    {
+      "id": 1,
+      "message": "Bienvenue"
+    }
+  ],
+  "grades": [
+    {
+      "id": 1,
+      "name": "CP",
+      "message": [
+        {
+          "id": 1,
+          "message": "cool les cours preparatoire !"
+        },
+        {
+          "id": 2,
+          "message": "cours preparatoire !"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "CM",
+      "message": [
+        {
+          "id": 1,
+          "message": "cool les cours moyens !"
+        },
+        {
+          "id": 2,
+          "message": "cours moyens !"
+        }
+      ]
+    }
+  ],
+  "matiere": [
+    {
+      "id": 1,
+      "message": "choisi une matiere!"
+    },
+    {
+      "id": 2,
+      "message": "matiere !"
+    },
+    {
+      "id": 3,
+      "message": "matiere !"
+    }
+  ],
+  "thematique": [
+    {
+      "id": 1,
+      "message": "choisi une thematique!"
+    },
+    {
+      "id": 2,
+      "message": "thematique !"
+    },
+    {
+      "id": 3,
+      "message": "thematique !"
+    }
+  ],
+  "lecon": [
+    {
+      "id": 1,
+      "message": "choisi une lecon!"
+    },
+    {
+      "id": 2,
+      "message": "lecon !"
+    },
+    {
+      "id": 3,
+      "message": "lecon !"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "message": "fait un quiz maintenant !"
+    },
+    {
+      "id": 2,
+      "message": "lecon !"
+    },
+    {
+      "id": 3,
+      "message": "lecon !"
+    }
+  ]
+}

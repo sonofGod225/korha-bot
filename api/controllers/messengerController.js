@@ -773,31 +773,18 @@ function sendButtonMessageWithGrade(recipientId, message) {
         for (var i = 0; i < grades.length; i++) {
             var arrayMatiere = [];
             var buttonMatiere = {
-                type: "postback",
-                title: "Voir les matières",
+                "title":grades[i].name,
                 payload: 'choes_grade' + delimiter + grades[i].id
             };
-            arrayMatiere.push(buttonMatiere);
-            var elementSingle = {
-                title: grades[i].name,
-                image_url: "http://accesetudesquebec.ca/images/sections/medium/3-diploma-3-opti.jpg",
-                buttons: arrayMatiere
-            }
-
-            elements.push(elementSingle);
+            elements.push(buttonMatiere);
         }
         var messageData = {
             recipient: {
                 id: recipientId
             },
-            "message": {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "generic",
-                        "elements": elements
-                    }
-                }
+            "message":{
+                "text":"Choisi une filière",
+                "quick_replies":elements
             }
         };
         callSendAPI(messageData);

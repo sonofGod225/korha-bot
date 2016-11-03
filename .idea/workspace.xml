@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c00c2d59-e5ab-4a0b-afcc-f38131f54b35" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/env/development.js" afterPath="$PROJECT_DIR$/config/env/development.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/env/production.js" afterPath="$PROJECT_DIR$/config/env/production.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/messengerController.js" afterPath="$PROJECT_DIR$/api/controllers/messengerController.js" />
     </list>
     <ignored path="ibot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="504" column="21" selection-start-line="504" selection-start-column="21" selection-end-line="504" selection-end-column="21" />
+            <state relative-caret-position="323">
+              <caret line="786" column="40" selection-start-line="786" selection-start-column="40" selection-end-line="786" selection-end-column="40" />
               <folding>
                 <element signature="e#4283#5148#0" expanded="false" />
                 <element signature="e#6829#6983#0" expanded="false" />
@@ -41,12 +40,10 @@
                 <element signature="e#13456#13666#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
-                <element signature="e#20332#20800#0" expanded="false" />
-                <element signature="e#20844#21365#0" expanded="false" />
-                <element signature="n#!!block;n#sendButtonMessageWithGrade#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-                <element signature="e#29462#30207#0" expanded="false" />
+                <element signature="e#28993#29738#0" expanded="false" />
                 <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
+                <element signature="n#!!block;n#receivedPostback#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -72,10 +69,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="development.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="development.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/env/development.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
+            <state relative-caret-position="607">
               <caret line="36" column="202" selection-start-line="36" selection-start-column="202" selection-end-line="36" selection-end-column="202" />
               <folding />
             </state>
@@ -197,7 +194,6 @@
         <option value="$PROJECT_DIR$/app/views/bot/slug.html" />
         <option value="$PROJECT_DIR$/app/views/bot/slug.jade" />
         <option value="$PROJECT_DIR$/app/controllers/botController.js" />
-        <option value="$PROJECT_DIR$/api/controllers/messengerController.js" />
         <option value="$PROJECT_DIR$/app/views/layouts/test.html" />
         <option value="$PROJECT_DIR$/app/views/layouts/test.jade" />
         <option value="$PROJECT_DIR$/app/views/includes/_sidebar-hidden.jade" />
@@ -212,6 +208,7 @@
         <option value="$PROJECT_DIR$/api/controllers/bot.json" />
         <option value="$PROJECT_DIR$/config/env/production.js" />
         <option value="$PROJECT_DIR$/config/env/development.js" />
+        <option value="$PROJECT_DIR$/api/controllers/messengerController.js" />
       </list>
     </option>
   </component>
@@ -616,12 +613,12 @@
       <workItem from="1477996618334" duration="7873000" />
       <workItem from="1478078271524" duration="19365000" />
       <workItem from="1478125843616" duration="35000" />
-      <workItem from="1478167404461" duration="8047000" />
+      <workItem from="1478167404461" duration="10613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="257483000" />
+    <option name="totallyTimeSpent" value="260049000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -633,7 +630,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1748512" sideWeight="0.1615245" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.05237316" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0883797" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1015,31 +1012,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="504" column="21" selection-start-line="504" selection-start-column="21" selection-end-line="504" selection-end-column="21" />
-          <folding>
-            <element signature="e#4283#5148#0" expanded="false" />
-            <element signature="e#6829#6983#0" expanded="false" />
-            <element signature="e#9173#9634#0" expanded="false" />
-            <element signature="n#!!block;n#sendGenericMessage#0" expanded="false" />
-            <element signature="n#!!block;n#receivedDeliveryConfirmation#0" expanded="false" />
-            <element signature="e#12182#12260#0" expanded="false" />
-            <element signature="e#12737#12815#0" expanded="false" />
-            <element signature="e#13456#13666#0" expanded="false" />
-            <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
-            <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
-            <element signature="e#20332#20800#0" expanded="false" />
-            <element signature="e#20844#21365#0" expanded="false" />
-            <element signature="n#!!block;n#sendButtonMessageWithGrade#0" expanded="false" />
-            <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-            <element signature="e#29462#30207#0" expanded="false" />
-            <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/bot.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1058,9 +1030,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/env/development.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
+        <state relative-caret-position="607">
           <caret line="36" column="202" selection-start-line="36" selection-start-column="202" selection-end-line="36" selection-end-column="202" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="786" column="40" selection-start-line="786" selection-start-column="40" selection-end-line="786" selection-end-column="40" />
+          <folding>
+            <element signature="e#4283#5148#0" expanded="false" />
+            <element signature="e#6829#6983#0" expanded="false" />
+            <element signature="e#9173#9634#0" expanded="false" />
+            <element signature="n#!!block;n#sendGenericMessage#0" expanded="false" />
+            <element signature="n#!!block;n#receivedDeliveryConfirmation#0" expanded="false" />
+            <element signature="e#12182#12260#0" expanded="false" />
+            <element signature="e#12737#12815#0" expanded="false" />
+            <element signature="e#13456#13666#0" expanded="false" />
+            <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
+            <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
+            <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
+            <element signature="e#28993#29738#0" expanded="false" />
+            <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
+            <element signature="n#!!block;n#receivedPostback#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

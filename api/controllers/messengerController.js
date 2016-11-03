@@ -774,6 +774,7 @@ function sendButtonMessageWithGrade(recipientId, message) {
             var arrayMatiere = [];
             var buttonMatiere = {
                 "title":grades[i].name,
+                "content_type":"text",
                 payload: 'choes_grade' + delimiter + grades[i].id
             };
             elements.push(buttonMatiere);

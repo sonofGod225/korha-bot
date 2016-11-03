@@ -27,7 +27,7 @@ exports.getRandomThematique = function(){
 
 
 function randomArray(arr){
-    var item = items[Math.floor(Math.random()*arr.length)];
+    var item = arr[Math.floor(Math.random()*arr.length)];
     return item;
 }
 

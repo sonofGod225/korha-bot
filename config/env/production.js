@@ -34,7 +34,7 @@ module.exports = {
     },
     facebookmessenger: {
         appSecret:"6d741afeda0b64e47c43480b4b3d9073",
-        pageAccessToken: "EAAXkZCNDkRCwBAE5XKeOEruyBwLNUwi7juHO4lYCXd3ClhDZC0tZBlF5GwhxKUQ4imhJaiVLdWwW6JZAjX8i9xzD2Qs5DK18MZBMFzbwN7vDD7sabFNVVg9iEl8QhCJne4ZCvJVqn5CLaKPbTc655FFG1vKcrsC7YidyJmZBHa3ggZDZD",
+        pageAccessToken: "EAAXkZCNDkRCwBANZCgqIwfYmHQ3WpcoD7wz4RE9VjtkPnPtluQu2IunUKzOaH9R1gcbrWpP8z00PQ802MlILxLJOTeDJutZBuAvtyfc4cBVAEomBZBexjyzTpzIDJiQjLpMLfjvZCFXwlqB2SUIxMZCPXmGnyZBlJZCXM8ZCQDbfVWAZDZD",
         validationToken: "mon_token_de_verification",
         serverURL: "/",
         webViewURL: "https://coach-success-assure.herokuapp.com/"

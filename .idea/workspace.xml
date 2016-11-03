@@ -4,6 +4,7 @@
     <list default="true" id="c00c2d59-e5ab-4a0b-afcc-f38131f54b35" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/messengerController.js" afterPath="$PROJECT_DIR$/api/controllers/messengerController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/bot.js" afterPath="$PROJECT_DIR$/data/bot.js" />
     </list>
     <ignored path="ibot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,22 +28,22 @@
       <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="979" column="19" selection-start-line="979" selection-start-column="19" selection-end-line="979" selection-end-column="19" />
+            <state relative-caret-position="319">
+              <caret line="224" column="14" selection-start-line="224" selection-start-column="14" selection-end-line="224" selection-end-column="14" />
               <folding>
                 <element signature="e#2613#3281#0" expanded="false" />
                 <element signature="e#4401#5113#0" expanded="false" />
                 <element signature="e#5159#6021#0" expanded="false" />
                 <element signature="n#!!block;n#sendTextMessage#0" expanded="false" />
-                <element signature="e#8433#8587#0" expanded="false" />
+                <element signature="e#8615#8769#0" expanded="false" />
                 <element signature="n#!!block;n#callSendAPI#0" expanded="false" />
                 <element signature="n#!!block;n#saveUserDetail#0" expanded="false" />
                 <element signature="n#!!block;n#sendGenericMessage#0" expanded="false" />
                 <element signature="n#!!block;n#receivedDeliveryConfirmation#0" expanded="false" />
-                <element signature="e#13066#13144#0" expanded="false" />
-                <element signature="e#13621#13699#0" expanded="false" />
-                <element signature="e#14022#16018#0" expanded="false" />
-                <element signature="e#14340#14550#0" expanded="false" />
+                <element signature="e#13248#13326#0" expanded="false" />
+                <element signature="e#13803#13881#0" expanded="false" />
+                <element signature="e#14204#16200#0" expanded="false" />
+                <element signature="e#14522#14732#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
                 <element signature="n#!!block;n#sendMessageMatiere#0" expanded="false" />
@@ -51,12 +52,12 @@
                 <element signature="n#!!block;n#sendButtonMessageWithChapter#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithMatiere#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-                <element signature="e#29483#30228#0" expanded="false" />
+                <element signature="e#29652#30397#0" expanded="false" />
                 <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
-                <element signature="e#32477#33151#0" expanded="false" />
-                <element signature="e#33965#34758#0" expanded="false" />
-                <element signature="e#34813#35051#0" expanded="false" />
-                <element signature="e#35715#35893#0" expanded="false" />
+                <element signature="e#32646#33320#0" expanded="false" />
+                <element signature="e#34134#34927#0" expanded="false" />
+                <element signature="e#34982#35220#0" expanded="false" />
+                <element signature="e#35805#35983#0" expanded="false" />
                 <element signature="n#!!block;n#sendTypingOn#0" expanded="false" />
                 <element signature="n#!!block;n#sendTypingOff#0" expanded="false" />
                 <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
@@ -139,8 +140,8 @@
       <file leaf-file-name="bot.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/bot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="12" column="110" selection-start-line="12" selection-start-column="110" selection-end-line="12" selection-end-column="110" />
               <folding />
             </state>
           </provider>
@@ -214,8 +215,8 @@
         <option value="$PROJECT_DIR$/config/env/production.js" />
         <option value="$PROJECT_DIR$/config/env/development.js" />
         <option value="$PROJECT_DIR$/data/bot.json" />
-        <option value="$PROJECT_DIR$/data/bot.js" />
         <option value="$PROJECT_DIR$/data/message.js" />
+        <option value="$PROJECT_DIR$/data/bot.js" />
         <option value="$PROJECT_DIR$/api/controllers/messengerController.js" />
       </list>
     </option>
@@ -744,12 +745,12 @@
       <workItem from="1477996618334" duration="7873000" />
       <workItem from="1478078271524" duration="19365000" />
       <workItem from="1478125843616" duration="35000" />
-      <workItem from="1478167404461" duration="21898000" />
+      <workItem from="1478167404461" duration="22691000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271334000" />
+    <option name="totallyTimeSpent" value="272127000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1154,14 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/bot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/message.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -1170,24 +1163,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/bot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="110" selection-start-line="12" selection-start-column="110" selection-end-line="12" selection-end-column="110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="979" column="19" selection-start-line="979" selection-start-column="19" selection-end-line="979" selection-end-column="19" />
+        <state relative-caret-position="319">
+          <caret line="224" column="14" selection-start-line="224" selection-start-column="14" selection-end-line="224" selection-end-column="14" />
           <folding>
             <element signature="e#2613#3281#0" expanded="false" />
             <element signature="e#4401#5113#0" expanded="false" />
             <element signature="e#5159#6021#0" expanded="false" />
             <element signature="n#!!block;n#sendTextMessage#0" expanded="false" />
-            <element signature="e#8433#8587#0" expanded="false" />
+            <element signature="e#8615#8769#0" expanded="false" />
             <element signature="n#!!block;n#callSendAPI#0" expanded="false" />
             <element signature="n#!!block;n#saveUserDetail#0" expanded="false" />
             <element signature="n#!!block;n#sendGenericMessage#0" expanded="false" />
             <element signature="n#!!block;n#receivedDeliveryConfirmation#0" expanded="false" />
-            <element signature="e#13066#13144#0" expanded="false" />
-            <element signature="e#13621#13699#0" expanded="false" />
-            <element signature="e#14022#16018#0" expanded="false" />
-            <element signature="e#14340#14550#0" expanded="false" />
+            <element signature="e#13248#13326#0" expanded="false" />
+            <element signature="e#13803#13881#0" expanded="false" />
+            <element signature="e#14204#16200#0" expanded="false" />
+            <element signature="e#14522#14732#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
             <element signature="n#!!block;n#sendMessageMatiere#0" expanded="false" />
@@ -1196,12 +1197,12 @@
             <element signature="n#!!block;n#sendButtonMessageWithChapter#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithMatiere#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-            <element signature="e#29483#30228#0" expanded="false" />
+            <element signature="e#29652#30397#0" expanded="false" />
             <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
-            <element signature="e#32477#33151#0" expanded="false" />
-            <element signature="e#33965#34758#0" expanded="false" />
-            <element signature="e#34813#35051#0" expanded="false" />
-            <element signature="e#35715#35893#0" expanded="false" />
+            <element signature="e#32646#33320#0" expanded="false" />
+            <element signature="e#34134#34927#0" expanded="false" />
+            <element signature="e#34982#35220#0" expanded="false" />
+            <element signature="e#35805#35983#0" expanded="false" />
             <element signature="n#!!block;n#sendTypingOn#0" expanded="false" />
             <element signature="n#!!block;n#sendTypingOff#0" expanded="false" />
             <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />

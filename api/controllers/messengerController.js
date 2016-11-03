@@ -201,19 +201,28 @@ function receivedMessage(event) {
                 sendReceiptMessage(senderID);
                 break;
             default:
-                sendTextMessage(senderID, "Hello je suis ton Coach 'succès assuré' \nje peux t'aider à reviser des cours du primaire au secondaire. \nChoisi ta classe pour débuter !")
+                const msg = messageBote.getRandomWelcom();
+                sendTextMessage(senderID,msg)
                     .then(function () {
-                        sendButtonMessageWithGrade(senderID, " ");
+                        sendTypingOn(senderID).then(function () {
+                            const messageClass =  messageBote.getRandomWelcom();
+                            sendButtonMessageWithGrade(senderID,messageClass);
+                        })
+
                     })
         }
     } else if (messageAttachments) {
 
 
-        sendTextMessage(senderID, "Hello je suis ton Coach 'succès assuré' \nje peux t'aider à reviser des cours  du primaire au secondaire. \nChoisi ta classe pour débuter !")
+        const msg = messageBote.getRandomWelcom();
+        sendTextMessage(senderID,msg)
             .then(function () {
-                sendButtonMessageWithGrade(senderID, " ");
-            })
+                sendTypingOn(senderID).then(function () {
+                    const messageClass =  messageBote.getRandomWelcom();
+                    sendButtonMessageWithGrade(senderID,messageClass);
+                })
 
+            })
         //sendTextMessage(senderID, "Message with attachment received");
     }
 }
@@ -798,7 +807,7 @@ function sendButtonMessageWithGrade(recipientId, message) {
                 id: recipientId
             },
             "message": {
-                "text": "Choisi une filière",
+                "text": message,
                 "quick_replies": elements
             }
         };
@@ -972,11 +981,11 @@ function receivedPostback(event) {
             {
                 const msg = messageBote.getRandomClass();
                 console.log("message "+msg);
-                sendTextMessage(senderID,msg).then(function () {
+
                     sendTypingOn(senderID).then(function () {
-                        sendButtonMessageWithGrade(senderID);
+                        sendButtonMessageWithGrade(senderID,msg);
                     });
-                });
+
                 break;
             }
             case 'end_revision' :

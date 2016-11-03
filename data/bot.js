@@ -2,7 +2,15 @@ module.exports = {
   welcome: [
     {
       id: 1,
-      message: "Bienvenue "
+      message: "Bonjour , Je suis ton coach scolaire et je vais t’aider pour réviser tes cours.",
+    },
+    {
+      id: 2,
+      message: "Salut! ,  Je suis ton coach scolaire. Je vais t’aider avec la révision de tes cours.",
+    },
+    {
+      id: 3,
+      message: "Hello ! Je suis ton coach ‘‘succès assuré’’ et je vais t’aider avec la révision de tes cours."
     }
   ],
   classe: [

@@ -5,4 +5,29 @@ window.extAsyncInit = function () {
     }, function error(err) {
 
     });
+
+    $('.closelessonwindow').click(function () {
+        var lessonId = $('#lesson_id').val();
+        var gradeid = $('#grade_id').val();
+        var courseid = $('#course_id').val();
+        var chapterid = $('#chapter_id').val();
+        $.ajax({
+            url: '/botsendquiz/lesson/' + lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid,
+            type: 'get',
+            success: function () {
+                MessengerExtensions.requestCloseBrowser(function success() {
+
+                }, function error(err) {
+
+                });
+            },
+            error: function () {
+                MessengerExtensions.requestCloseBrowser(function success() {
+
+                }, function error(err) {
+
+                });
+            }
+        })
+    })
 };

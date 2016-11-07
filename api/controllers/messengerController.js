@@ -669,8 +669,8 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                     if (lessonBody != '') {
                         let buttonLessonText = {
                             type: "web_url",
-                            title: "Cours",
-                            url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId,
+                            title: "Prendre le cours",
+                            url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid,
                             webview_height_ratio: "tall",
                             messenger_extensions: true,
                             fallback_url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId
@@ -683,7 +683,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                         console.log('elemt_dexter_quiz' + JSON.stringify(quiz[0]));
                         let buttonLessonQuiz = {
                             type: "web_url",
-                            title: "Quiz",
+                            title: "Evaluer mes connaissances",
                             url: PAGE_WEB_VIEW + "cours/quiz-bot/" + lessonSlug,
                             webview_height_ratio: "tall",
                             messenger_extensions: true,

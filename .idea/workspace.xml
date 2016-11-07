@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c00c2d59-e5ab-4a0b-afcc-f38131f54b35" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/messengerController.js" afterPath="$PROJECT_DIR$/api/controllers/messengerController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/botController.js" afterPath="$PROJECT_DIR$/app/controllers/botController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/bot/lessons.jade" afterPath="$PROJECT_DIR$/app/views/bot/lessons.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.js" afterPath="$PROJECT_DIR$/config/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/bot/bot.js" afterPath="$PROJECT_DIR$/public/bot/bot.js" />
     </list>
     <ignored path="ibot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +31,8 @@
       <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+            <state relative-caret-position="17">
+              <caret line="618" column="0" selection-start-line="618" selection-start-column="0" selection-end-line="618" selection-end-column="0" />
               <folding>
                 <element signature="e#2642#3310#0" expanded="false" />
                 <element signature="e#4430#5142#0" expanded="false" />
@@ -50,16 +55,15 @@
                 <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
                 <element signature="n#!!block;n#sendMessageMatiere#0" expanded="false" />
                 <element signature="n#!!block;n#sendQuikAnswerMoreLesson#0" expanded="false" />
-                <element signature="n#!!block;n#sendButtonMessageWithLesson#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithChapter#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithMatiere#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-                <element signature="e#32206#32951#0" expanded="false" />
+                <element signature="e#32277#33022#0" expanded="false" />
                 <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
-                <element signature="e#35200#35874#0" expanded="false" />
-                <element signature="e#36688#37481#0" expanded="false" />
-                <element signature="e#37536#37774#0" expanded="false" />
-                <element signature="e#38392#38570#0" expanded="false" />
+                <element signature="e#35271#35945#0" expanded="false" />
+                <element signature="e#36759#37552#0" expanded="false" />
+                <element signature="e#37607#37845#0" expanded="false" />
+                <element signature="e#38463#38641#0" expanded="false" />
                 <element signature="n#!!block;n#sendTypingOn#0" expanded="false" />
                 <element signature="n#!!block;n#sendTypingOff#0" expanded="false" />
                 <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
@@ -69,31 +73,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bot.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bot.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/bot/bot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+            <state relative-caret-position="404">
+              <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lessons.jade" pinned="false" current-in-tab="true">
+      <file leaf-file-name="lessons.jade" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/bot/lessons.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="35" column="104" selection-start-line="35" selection-start-column="104" selection-end-line="35" selection-end-column="104" />
+            <state relative-caret-position="21">
+              <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bot_user.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models-sqelize/bot_user.js">
+      <file leaf-file-name="edit.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/matiere/edit.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+            <state relative-caret-position="187">
+              <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -109,31 +113,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/message.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="43" column="2" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
+            <state relative-caret-position="152">
+              <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/env/production.js">
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="36" column="206" selection-start-line="36" selection-start-column="206" selection-end-line="36" selection-end-column="206" />
+            <state relative-caret-position="419">
+              <caret line="68" column="7" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="botController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/botController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -144,16 +148,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
               <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="default.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/default.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -201,10 +195,8 @@
         <option value="$PROJECT_DIR$/app/models-sqelize/quiz.js" />
         <option value="$PROJECT_DIR$/app/views/bot/lessons.html" />
         <option value="$PROJECT_DIR$/app/models-sqelize/lessons.js" />
-        <option value="$PROJECT_DIR$/config/routes.js" />
         <option value="$PROJECT_DIR$/app/views/bot/slug.html" />
         <option value="$PROJECT_DIR$/app/views/bot/slug.jade" />
-        <option value="$PROJECT_DIR$/app/controllers/botController.js" />
         <option value="$PROJECT_DIR$/app/views/layouts/test.html" />
         <option value="$PROJECT_DIR$/app/views/layouts/test.jade" />
         <option value="$PROJECT_DIR$/app/views/includes/_sidebar-hidden.jade" />
@@ -224,9 +216,11 @@
         <option value="$PROJECT_DIR$/job/bot.js" />
         <option value="$PROJECT_DIR$/data/bot.js" />
         <option value="$PROJECT_DIR$/data/message.js" />
+        <option value="$PROJECT_DIR$/app/views/bot/lessons.jade" />
+        <option value="$PROJECT_DIR$/config/routes.js" />
+        <option value="$PROJECT_DIR$/app/controllers/botController.js" />
         <option value="$PROJECT_DIR$/api/controllers/messengerController.js" />
         <option value="$PROJECT_DIR$/public/bot/bot.js" />
-        <option value="$PROJECT_DIR$/app/views/bot/lessons.jade" />
       </list>
     </option>
   </component>
@@ -300,25 +294,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ibot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ibot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bot" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -337,6 +313,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ibot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ibot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="matiere" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -785,12 +783,12 @@
       <workItem from="1478078271524" duration="19365000" />
       <workItem from="1478125843616" duration="35000" />
       <workItem from="1478167404461" duration="22935000" />
-      <workItem from="1478511654158" duration="16899000" />
+      <workItem from="1478511654158" duration="19986000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="289270000" />
+    <option name="totallyTimeSpent" value="292357000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -964,13 +962,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/matiere/edit.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models-sqelize/quiz.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -997,20 +988,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="71" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/botController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1135,14 +1112,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="43" column="2" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models-sqelize/bot_user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1167,6 +1136,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/matiere/edit.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/default.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/bot.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1175,10 +1168,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/bot/lessons.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        <state relative-caret-position="17">
+          <caret line="618" column="0" selection-start-line="618" selection-start-column="0" selection-end-line="618" selection-end-column="0" />
           <folding>
             <element signature="e#2642#3310#0" expanded="false" />
             <element signature="e#4430#5142#0" expanded="false" />
@@ -1201,16 +1202,15 @@
             <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
             <element signature="n#!!block;n#sendMessageMatiere#0" expanded="false" />
             <element signature="n#!!block;n#sendQuikAnswerMoreLesson#0" expanded="false" />
-            <element signature="n#!!block;n#sendButtonMessageWithLesson#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithChapter#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithMatiere#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-            <element signature="e#32206#32951#0" expanded="false" />
+            <element signature="e#32277#33022#0" expanded="false" />
             <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
-            <element signature="e#35200#35874#0" expanded="false" />
-            <element signature="e#36688#37481#0" expanded="false" />
-            <element signature="e#37536#37774#0" expanded="false" />
-            <element signature="e#38392#38570#0" expanded="false" />
+            <element signature="e#35271#35945#0" expanded="false" />
+            <element signature="e#36759#37552#0" expanded="false" />
+            <element signature="e#37607#37845#0" expanded="false" />
+            <element signature="e#38463#38641#0" expanded="false" />
             <element signature="n#!!block;n#sendTypingOn#0" expanded="false" />
             <element signature="n#!!block;n#sendTypingOff#0" expanded="false" />
             <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
@@ -1219,26 +1219,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="68" column="7" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/botController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/bot/bot.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/default.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/bot/lessons.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="35" column="104" selection-start-line="35" selection-start-column="104" selection-end-line="35" selection-end-column="104" />
+        <state relative-caret-position="404">
+          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
           <folding />
         </state>
       </provider>

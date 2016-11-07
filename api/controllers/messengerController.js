@@ -216,23 +216,23 @@ function receivedMessage(event) {
                 break;
             default:
                 getDetailUser(senderID).then(function (user) {
-                    console.log("detail user 219"+JSON.stringify(user));
+                    console.log("detail user 219" + JSON.stringify(user));
                     let msg = messageBote.getRandomWelcom();
                     msg = _.replace(msg, '@name', user.first_name);
+                    console.log("message 219" + msg);
                     sendTextMessage(senderID, msg)
                         .then(function () {
                             sendTypingOn(senderID).then(function () {
                                 const messageClass = messageBote.getRandomClass();
                                 sendButtonMessageWithGrade(senderID, messageClass);
-                            })
-
+                            });
                         })
                 })
 
         }
     } else if (messageAttachments) {
         getDetailUser(senderID).then(function (user) {
-            console.log("detail user 234"+JSON.stringify(user));
+            console.log("detail user 234" + JSON.stringify(user));
             let msg = messageBote.getRandomWelcom();
             msg = _.replace(msg, '@name', user.first_name);
             sendTextMessage(senderID, msg)

@@ -70,7 +70,8 @@ models.bot_users.findAll({
             payload: 'response_invitation' + delimiter + "no"
         };
         elements.push(buttonNo);
-        const messageInvite = messageBote.getRandomInvite();
+        let messageInvite = messageBote.getRandomInvite();
+        messageInvite = _.replace(messageInvite,"@name",user.first_name)
         let messageData = {
             recipient: {
                 id: user.facebook_id

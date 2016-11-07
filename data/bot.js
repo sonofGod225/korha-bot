@@ -2,25 +2,25 @@ module.exports = {
   invite:[
     {
       id: 1,
-      message: "Veux tu reviser avec moi ?",
+      message: "Hello  @name ! Veux tu reviser avec moi ?",
     },
     {
       id: 2,
-      message: "bonjour ! alors prêt pour une revision ?",
+      message: "Bonsoir  @name ! alors prêt pour une revision ?",
     }
   ],
   welcome: [
     {
       id: 1,
-      message: "Bonjour , Je suis ton coach scolaire et je vais t’aider pour réviser tes cours.",
+      message: "Bonjour   @name, Je suis ton coach scolaire et je vais t’aider pour réviser tes cours.",
     },
     {
       id: 2,
-      message: "Salut! ,  Je suis ton coach scolaire. Je vais t’aider avec la révision de tes cours.",
+      message: "Salut  @name ! ,  Je suis ton coach scolaire. Je vais t’aider avec la révision de tes cours.",
     },
     {
       id: 3,
-      message: "Hello ! Je suis ton coach ‘‘succès assuré’’ et je vais t’aider avec la révision de tes cours."
+      message: "Hello  @name ! Je suis ton coach ‘‘succès assuré’’ et je vais t’aider avec la révision de tes cours."
     }
   ],
   classe: [

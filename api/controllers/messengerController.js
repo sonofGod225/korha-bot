@@ -298,7 +298,7 @@ function getDetailUser(user_id) {
         }).then(function (user) {
             if (user) {
                 fulfill(user);
-                console.error('Account with this user_id already exists!');
+                console.log('Account with this user_id already exists!');
 
             } else {
                 saveUserDetail(user_id).then(function (user) {
@@ -326,7 +326,7 @@ function saveUserDetail(user_id) {
             }).then(function (user) {
                 if (user) {
                     fulfill(user);
-                    console.error('Account with this user_id already exists!');
+                    console.log('Account with this user_id already exists!');
                 } else {
                     models.bot_users.create(UserObj);
                 }

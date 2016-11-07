@@ -279,12 +279,10 @@ function saveUserDetail(user_id) {
         if (!error && response.statusCode == 200) {
             const UserObj = {
                 facebook_id: user_id,
-                firstname: body.first_name,
-                lastname: body.last_name,
-                avatar: body.profile_pic,
-                gender: body.gender
+                first_name: body.first_name,
+                last_name: body.last_name
             };
-            models.users.findOne({
+            models.bot_users.findOne({
                 where: {
                     facebook_id: user_id
                 }
@@ -292,7 +290,7 @@ function saveUserDetail(user_id) {
                 if (user) {
                     console.error('Account with this user_id already exists!');
                 } else {
-                    models.users.create(UserObj);
+                    models.bot_users.create(UserObj);
                 }
             });
 
@@ -985,6 +983,7 @@ function receivedPostback(event) {
 
             case 'menu_cours':
             {
+                saveUserDetail(senderID);
                 const msg = messageBote.getRandomClass();
                 console.log("message "+msg);
 

@@ -13,6 +13,7 @@ const axios = require('axios');
 const delimiter = "_@@_";
 const models = require('../../app/models-sqelize');
 const messageBote = require('../../data/message');
+const _ = require('lodash');
 
 
 exports.webhook = function (req, res) {

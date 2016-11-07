@@ -7,6 +7,7 @@ const PAGE_ACCESS_TOKEN = config.facebookmessenger.pageAccessToken;
 const messageBote = require('../data/message');
 const request = require('request');
 const _ = require('lodash');
+const delimiter = "_@@_";
 
 function sendTextMessage(recipientId, messageText) {
     return new Promise(function (fulfill, reject) {

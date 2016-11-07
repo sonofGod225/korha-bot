@@ -277,7 +277,7 @@ function saveUserDetail(user_id) {
         method: 'GET'
     }, (error, response, body)=> {
         if (!error && response.statusCode == 200) {
-            const UserObj = {
+            let UserObj = {
                 facebook_id: user_id,
                 first_name: body.first_name,
                 last_name: body.last_name

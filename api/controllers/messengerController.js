@@ -271,32 +271,37 @@ function callSendAPI(messageData) {
 }
 
 function saveUserDetail(user_id) {
-    request({
+    const urlUserProfil = "https://graph.facebook.com/v2.6/" + user_id + "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + PAGE_ACCESS_TOKEN;
+    axios.get(urlUserProfil).then(function (response) {
+        const body = response.data;
+        let UserObj = {
+            facebook_id: user_id,
+            first_name: body.first_name,
+            last_name: body.last_name
+        };
+        models.bot_users.findOne({
+            attributes:['id','facebook_id','first_name','last_name'],
+            where: {
+                facebook_id: user_id
+            }
+        }).then(function (user) {
+            if (user) {
+                console.error('Account with this user_id already exists!');
+            } else {
+                models.bot_users.create(UserObj);
+            }
+        });
+    })
+    /*request({
         uri: 'https://graph.facebook.com/v2.6/' + user_id,
         qs: {access_token: PAGE_ACCESS_TOKEN, fields: 'first_name,last_name,profile_pic,locale,timezone,gender'},
         method: 'GET'
     }, (error, response, body)=> {
         if (!error && response.statusCode == 200) {
-            let UserObj = {
-                facebook_id: user_id,
-                first_name: body.first_name,
-                last_name: body.last_name
-            };
-            models.bot_users.findOne({
-                attributes:['id','facebook_id','first_name','last_name'],
-                where: {
-                    facebook_id: user_id
-                }
-            }).then(function (user) {
-                if (user) {
-                    console.error('Account with this user_id already exists!');
-                } else {
-                    models.bot_users.create(UserObj);
-                }
-            });
+
 
         }
-    });
+    });*/
 }
 
 function sendGenericMessage(recipientId) {

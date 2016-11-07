@@ -1,4 +1,14 @@
 module.exports = {
+  invite:[
+    {
+      id: 1,
+      message: "Veux tu reviser avec moi ?",
+    },
+    {
+      id: 2,
+      message: "bonjour ! alors prêt pour une revision ?",
+    }
+  ],
   welcome: [
     {
       id: 1,

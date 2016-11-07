@@ -1,8 +1,13 @@
 var Promise = require('promise');
 var User = require('../app/models/user');
+const models = require('../app/models-sqelize');
+const config = require('../config');
 const VALIDATION_TOKEN = config.facebookmessenger.validationToken;
 const PAGE_ACCESS_TOKEN = config.facebookmessenger.pageAccessToken;
-const messageBote = require('../../data/message');
+const messageBote = require('../data/message');
+const request = require('request');
+const _ = require('lodash');
+
 function sendTextMessage(recipientId, messageText) {
     return new Promise(function (fulfill, reject) {
         var messageData = {
@@ -43,5 +48,37 @@ function callSendAPI(messageData) {
             }
         });
     });
-
 }
+
+
+// recuperation de tous les utilisateurs
+models.bot_users.findAll({
+    attributes: ['id', 'facebook_id', 'first_name', 'last_name']
+}).then(function (users) {
+    _.each(users, function (user) {
+        let elements = [];
+        let buttonYes = {
+            "title": "oui",
+            "content_type": "text",
+            payload: 'response_invitation' + delimiter + "yes"
+        };
+        elements.push(buttonYes);
+        let buttonNo = {
+            "title": "Non",
+            "content_type": "text",
+            payload: 'response_invitation' + delimiter + "no"
+        };
+        elements.push(buttonNo);
+        const messageInvite = messageBote.getRandomInvite();
+        let messageData = {
+            recipient: {
+                id: user.facebook_id
+            },
+            "message": {
+                "text": messageInvite,
+                "quick_replies": elements
+            }
+        };
+        callSendAPI(messageData);
+    })
+});

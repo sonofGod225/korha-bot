@@ -1,5 +1,10 @@
 const jsonContentBot = require("./bot.js");
 
+exports.getRandomInvite = function(){
+    const invite = jsonContentBot.invite;
+    const messageSelect = randomArray(invite);
+    return messageSelect.message;
+}
 
 exports.getRandomWelcom = function(){
     const welcoms = jsonContentBot.welcome;

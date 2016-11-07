@@ -393,10 +393,8 @@ function receivedAuthentication(event) {
 
         const UserObj = {
             facebook_id: user_id,
-            firstname: body.first_name,
-            lastname: body.last_name,
-            avatar: body.profile_pic,
-            gender: body.gender
+            first_name: body.first_name,
+            last_name: body.last_name
         };
         /*const user = new User({
          user_id: user_id,
@@ -405,8 +403,8 @@ function receivedAuthentication(event) {
          profile_pic: body.profile_pic,
          gender: body.gender
          });*/
-        models.users.findOne({
-            attributes: ['id', 'name', 'slug', 'order'],
+        models.bot_users.findOne({
+            attributes: ['id', 'facebook_id', 'first_name', 'last_name'],
             where: {
                 facebook_id: user_id
             }
@@ -414,13 +412,21 @@ function receivedAuthentication(event) {
             if (user) {
                 console.error('Account with this user_id already exists!');
             } else {
-                models.users.create(UserObj);
+                models.bot_users.create(UserObj);
             }
-            sendTextMessage(senderID, "Hello  " + body.last_name + " je suis ton Coach 'succès assuré' ! \nje peux t'aider à reviser des cours du primaire au secondaire. \n Choisi ta classe pour débuter !")
+            /*sendTextMessage(senderID, "Hello  " + body.last_name + " je suis ton Coach 'succès assuré' ! \nje peux t'aider à reviser des cours du primaire au secondaire. \n Choisi ta classe pour débuter !")
                 .then(function () {
                     sendButtonMessageWithGrade(senderID, " ");
-                })
+                })*/
+            const msg = messageBote.getRandomWelcom();
+            sendTextMessage(senderID,msg)
+                .then(function () {
+                    sendTypingOn(senderID).then(function () {
+                        const messageClass =  messageBote.getRandomClass();
+                        sendButtonMessageWithGrade(senderID,messageClass);
+                    })
 
+                })
 
         });
 

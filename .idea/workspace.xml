@@ -27,8 +27,8 @@
       <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="985" column="41" selection-start-line="985" selection-start-column="41" selection-end-line="985" selection-end-column="41" />
+            <state relative-caret-position="156">
+              <caret line="287" column="31" selection-start-line="287" selection-start-column="20" selection-end-line="287" selection-end-column="31" />
               <folding>
                 <element signature="e#2613#3281#0" expanded="false" />
                 <element signature="e#4401#5113#0" expanded="false" />
@@ -38,11 +38,11 @@
                 <element signature="n#!!block;n#callSendAPI#0" expanded="false" />
                 <element signature="n#!!block;n#sendGenericMessage#0" expanded="false" />
                 <element signature="n#!!block;n#receivedDeliveryConfirmation#0" expanded="false" />
-                <element signature="e#13177#13255#0" expanded="false" />
-                <element signature="e#13732#13810#0" expanded="false" />
-                <element signature="e#14133#16477#0" expanded="false" />
-                <element signature="e#14248#14372#0" expanded="false" />
-                <element signature="e#14382#14592#0" expanded="false" />
+                <element signature="e#13251#13329#0" expanded="false" />
+                <element signature="e#13806#13884#0" expanded="false" />
+                <element signature="e#14207#16551#0" expanded="false" />
+                <element signature="e#14322#14446#0" expanded="false" />
+                <element signature="e#14456#14666#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
                 <element signature="n#!!block;n#sendMessageMatiere#0" expanded="false" />
@@ -51,12 +51,12 @@
                 <element signature="n#!!block;n#sendButtonMessageWithChapter#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithMatiere#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-                <element signature="e#29929#30674#0" expanded="false" />
+                <element signature="e#30003#30748#0" expanded="false" />
                 <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
-                <element signature="e#32923#33597#0" expanded="false" />
-                <element signature="e#34411#35204#0" expanded="false" />
-                <element signature="e#35259#35497#0" expanded="false" />
-                <element signature="e#36124#36302#0" expanded="false" />
+                <element signature="e#32997#33671#0" expanded="false" />
+                <element signature="e#34485#35278#0" expanded="false" />
+                <element signature="e#35333#35571#0" expanded="false" />
+                <element signature="e#36198#36376#0" expanded="false" />
                 <element signature="n#!!block;n#sendTypingOn#0" expanded="false" />
                 <element signature="n#!!block;n#sendTypingOff#0" expanded="false" />
                 <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
@@ -720,12 +720,12 @@
       <workItem from="1478078271524" duration="19365000" />
       <workItem from="1478125843616" duration="35000" />
       <workItem from="1478167404461" duration="22935000" />
-      <workItem from="1478511654158" duration="2574000" />
+      <workItem from="1478511654158" duration="2948000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="274945000" />
+    <option name="totallyTimeSpent" value="275319000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -737,7 +737,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1748512" sideWeight="0.1615245" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3878887" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1130,8 +1130,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="985" column="41" selection-start-line="985" selection-start-column="41" selection-end-line="985" selection-end-column="41" />
+        <state relative-caret-position="156">
+          <caret line="287" column="31" selection-start-line="287" selection-start-column="20" selection-end-line="287" selection-end-column="31" />
           <folding>
             <element signature="e#2613#3281#0" expanded="false" />
             <element signature="e#4401#5113#0" expanded="false" />
@@ -1141,11 +1141,11 @@
             <element signature="n#!!block;n#callSendAPI#0" expanded="false" />
             <element signature="n#!!block;n#sendGenericMessage#0" expanded="false" />
             <element signature="n#!!block;n#receivedDeliveryConfirmation#0" expanded="false" />
-            <element signature="e#13177#13255#0" expanded="false" />
-            <element signature="e#13732#13810#0" expanded="false" />
-            <element signature="e#14133#16477#0" expanded="false" />
-            <element signature="e#14248#14372#0" expanded="false" />
-            <element signature="e#14382#14592#0" expanded="false" />
+            <element signature="e#13251#13329#0" expanded="false" />
+            <element signature="e#13806#13884#0" expanded="false" />
+            <element signature="e#14207#16551#0" expanded="false" />
+            <element signature="e#14322#14446#0" expanded="false" />
+            <element signature="e#14456#14666#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
             <element signature="n#!!block;n#sendMessageMatiere#0" expanded="false" />
@@ -1154,12 +1154,12 @@
             <element signature="n#!!block;n#sendButtonMessageWithChapter#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithMatiere#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-            <element signature="e#29929#30674#0" expanded="false" />
+            <element signature="e#30003#30748#0" expanded="false" />
             <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
-            <element signature="e#32923#33597#0" expanded="false" />
-            <element signature="e#34411#35204#0" expanded="false" />
-            <element signature="e#35259#35497#0" expanded="false" />
-            <element signature="e#36124#36302#0" expanded="false" />
+            <element signature="e#32997#33671#0" expanded="false" />
+            <element signature="e#34485#35278#0" expanded="false" />
+            <element signature="e#35333#35571#0" expanded="false" />
+            <element signature="e#36198#36376#0" expanded="false" />
             <element signature="n#!!block;n#sendTypingOn#0" expanded="false" />
             <element signature="n#!!block;n#sendTypingOff#0" expanded="false" />
             <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />

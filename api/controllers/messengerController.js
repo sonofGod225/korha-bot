@@ -283,6 +283,7 @@ function saveUserDetail(user_id) {
                 last_name: body.last_name
             };
             models.bot_users.findOne({
+                attributes:['id','facebook_id','first_name','last_name'],
                 where: {
                     facebook_id: user_id
                 }

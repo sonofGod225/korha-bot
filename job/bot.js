@@ -59,7 +59,7 @@ models.bot_users.findAll({
     _.each(users, function (user) {
         let elements = [];
         let buttonYes = {
-            "title": "oui",
+            "title": "Oui",
             "content_type": "text",
             payload: 'response_invitation' + delimiter + "yes"
         };

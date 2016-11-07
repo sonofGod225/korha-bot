@@ -2,11 +2,28 @@ module.exports = {
   invite:[
     {
       id: 1,
-      message: "Hello  @name ! Veux tu reviser avec moi ?",
+      message: "Hello  @name ! Veux-tu reprendre la révision avec moi ?",
     },
     {
       id: 2,
-      message: "Bonsoir  @name ! alors prêt pour une revision ?",
+      message: "Bonsoir  @name ! O-o tu m’as oublié ? Reprenons ou nous en étions.",
+    }
+  ],
+  responseInviteYes:[
+    {
+      id: 1,
+      message: "Super ! Choisi maintenat ta classe ! :-)",
+    },
+    {
+      id: 2,
+      message: "Cool ! Selectionne ta classe ! :-)",
+    }
+  ],
+
+  responseInviteNo:[
+    {
+      id: 1,
+      message: "Apparemment tu es occupé ! fait moi signe quant tu es disponible !",
     }
   ],
   welcome: [

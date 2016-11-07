@@ -170,6 +170,20 @@ function receivedMessage(event) {
 
                 break;
             }
+            case 'response_invitation':
+            {
+                const responseInviteation = arrayPayload[1];
+                if(responseInviteation=='yes'){
+                            sendTypingOn(senderID).then(function () {
+                                let msg = messageBote.getRandomInviteYes();
+                                sendButtonMessageWithGrade(senderID, msg);
+                            })
+                }else{
+                    let msg = messageBote.getRandomInviteNo();
+                    sendTextMessage(senderID,msg);
+                }
+                break;
+            }
         }
 
         return;
@@ -202,11 +216,11 @@ function receivedMessage(event) {
                 break;
             default:
                 const msg = messageBote.getRandomWelcom();
-                sendTextMessage(senderID,msg)
+                sendTextMessage(senderID, msg)
                     .then(function () {
                         sendTypingOn(senderID).then(function () {
-                            const messageClass =  messageBote.getRandomClass();
-                            sendButtonMessageWithGrade(senderID,messageClass);
+                            const messageClass = messageBote.getRandomClass();
+                            sendButtonMessageWithGrade(senderID, messageClass);
                         })
 
                     })
@@ -215,11 +229,11 @@ function receivedMessage(event) {
 
 
         const msg = messageBote.getRandomWelcom();
-        sendTextMessage(senderID,msg)
+        sendTextMessage(senderID, msg)
             .then(function () {
                 sendTypingOn(senderID).then(function () {
-                    const messageClass =  messageBote.getRandomClass();
-                    sendButtonMessageWithGrade(senderID,messageClass);
+                    const messageClass = messageBote.getRandomClass();
+                    sendButtonMessageWithGrade(senderID, messageClass);
                 })
 
             })
@@ -280,7 +294,7 @@ function saveUserDetail(user_id) {
             last_name: body.last_name
         };
         models.bot_users.findOne({
-            attributes:['id','facebook_id','first_name','last_name'],
+            attributes: ['id', 'facebook_id', 'first_name', 'last_name'],
             where: {
                 facebook_id: user_id
             }
@@ -293,15 +307,15 @@ function saveUserDetail(user_id) {
         });
     })
     /*request({
-        uri: 'https://graph.facebook.com/v2.6/' + user_id,
-        qs: {access_token: PAGE_ACCESS_TOKEN, fields: 'first_name,last_name,profile_pic,locale,timezone,gender'},
-        method: 'GET'
-    }, (error, response, body)=> {
-        if (!error && response.statusCode == 200) {
+     uri: 'https://graph.facebook.com/v2.6/' + user_id,
+     qs: {access_token: PAGE_ACCESS_TOKEN, fields: 'first_name,last_name,profile_pic,locale,timezone,gender'},
+     method: 'GET'
+     }, (error, response, body)=> {
+     if (!error && response.statusCode == 200) {
 
 
-        }
-    });*/
+     }
+     });*/
 }
 
 function sendGenericMessage(recipientId) {
@@ -419,15 +433,15 @@ function receivedAuthentication(event) {
                 models.bot_users.create(UserObj);
             }
             /*sendTextMessage(senderID, "Hello  " + body.last_name + " je suis ton Coach 'succès assuré' ! \nje peux t'aider à reviser des cours du primaire au secondaire. \n Choisi ta classe pour débuter !")
-                .then(function () {
-                    sendButtonMessageWithGrade(senderID, " ");
-                })*/
+             .then(function () {
+             sendButtonMessageWithGrade(senderID, " ");
+             })*/
             const msg = messageBote.getRandomWelcom();
-            sendTextMessage(senderID,msg)
+            sendTextMessage(senderID, msg)
                 .then(function () {
                     sendTypingOn(senderID).then(function () {
-                        const messageClass =  messageBote.getRandomClass();
-                        sendButtonMessageWithGrade(senderID,messageClass);
+                        const messageClass = messageBote.getRandomClass();
+                        sendButtonMessageWithGrade(senderID, messageClass);
                     })
 
                 })
@@ -991,11 +1005,11 @@ function receivedPostback(event) {
             {
                 saveUserDetail(senderID);
                 const msg = messageBote.getRandomClass();
-                console.log("message "+msg);
+                console.log("message " + msg);
 
-                    sendTypingOn(senderID).then(function () {
-                        sendButtonMessageWithGrade(senderID,msg);
-                    });
+                sendTypingOn(senderID).then(function () {
+                    sendButtonMessageWithGrade(senderID, msg);
+                });
 
                 break;
             }

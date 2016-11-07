@@ -173,14 +173,14 @@ function receivedMessage(event) {
             case 'response_invitation':
             {
                 const responseInviteation = arrayPayload[1];
-                if(responseInviteation=='yes'){
-                            sendTypingOn(senderID).then(function () {
-                                let msg = messageBote.getRandomInviteYes();
-                                sendButtonMessageWithGrade(senderID, msg);
-                            })
-                }else{
+                if (responseInviteation == 'yes') {
+                    sendTypingOn(senderID).then(function () {
+                        let msg = messageBote.getRandomInviteYes();
+                        sendButtonMessageWithGrade(senderID, msg);
+                    })
+                } else {
                     let msg = messageBote.getRandomInviteNo();
-                    sendTextMessage(senderID,msg);
+                    sendTextMessage(senderID, msg);
                 }
                 break;
             }
@@ -215,28 +215,33 @@ function receivedMessage(event) {
                 sendReceiptMessage(senderID);
                 break;
             default:
-                const msg = messageBote.getRandomWelcom();
-                sendTextMessage(senderID, msg)
-                    .then(function () {
-                        sendTypingOn(senderID).then(function () {
-                            const messageClass = messageBote.getRandomClass();
-                            sendButtonMessageWithGrade(senderID, messageClass);
+                getDetailUser(senderID).then(function (user) {
+                    let msg = messageBote.getRandomWelcom();
+                    msg = _.replace(msg, '@name', user.first_name);
+                    sendTextMessage(senderID, msg)
+                        .then(function () {
+                            sendTypingOn(senderID).then(function () {
+                                const messageClass = messageBote.getRandomClass();
+                                sendButtonMessageWithGrade(senderID, messageClass);
+                            })
+
                         })
-
-                    })
-        }
-    } else if (messageAttachments) {
-
-
-        const msg = messageBote.getRandomWelcom();
-        sendTextMessage(senderID, msg)
-            .then(function () {
-                sendTypingOn(senderID).then(function () {
-                    const messageClass = messageBote.getRandomClass();
-                    sendButtonMessageWithGrade(senderID, messageClass);
                 })
 
-            })
+        }
+    } else if (messageAttachments) {
+        getDetailUser(senderID).then(function (user) {
+            let msg = messageBote.getRandomWelcom();
+            msg = _.replace(msg, '@name', user.first_name);
+            sendTextMessage(senderID, msg)
+                .then(function () {
+                    sendTypingOn(senderID).then(function () {
+                        const messageClass = messageBote.getRandomClass();
+                        sendButtonMessageWithGrade(senderID, messageClass);
+                    })
+
+                })
+        })
         //sendTextMessage(senderID, "Message with attachment received");
     }
 }
@@ -283,16 +288,8 @@ function callSendAPI(messageData) {
     });
 
 }
-
-function saveUserDetail(user_id) {
-    const urlUserProfil = "https://graph.facebook.com/v2.6/" + user_id + "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + PAGE_ACCESS_TOKEN;
-    axios.get(urlUserProfil).then(function (response) {
-        const body = response.data;
-        let UserObj = {
-            facebook_id: user_id,
-            first_name: body.first_name,
-            last_name: body.last_name
-        };
+function getDetailUser(user_id) {
+    return new Promise(function (fulfill, rejected) {
         models.bot_users.findOne({
             attributes: ['id', 'facebook_id', 'first_name', 'last_name'],
             where: {
@@ -301,11 +298,41 @@ function saveUserDetail(user_id) {
         }).then(function (user) {
             if (user) {
                 console.error('Account with this user_id already exists!');
+                fulfill(user);
             } else {
-                models.bot_users.create(UserObj);
+                saveUserDetail(user_id).then(function (user) {
+                    fulfill(user);
+                })
             }
         });
     })
+}
+function saveUserDetail(user_id) {
+    return new Promise(function (fulfill, rejected) {
+        const urlUserProfil = "https://graph.facebook.com/v2.6/" + user_id + "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + PAGE_ACCESS_TOKEN;
+        axios.get(urlUserProfil).then(function (response) {
+            const body = response.data;
+            let UserObj = {
+                facebook_id: user_id,
+                first_name: body.first_name,
+                last_name: body.last_name
+            };
+            models.bot_users.findOne({
+                attributes: ['id', 'facebook_id', 'first_name', 'last_name'],
+                where: {
+                    facebook_id: user_id
+                }
+            }).then(function (user) {
+                if (user) {
+                    console.error('Account with this user_id already exists!');
+                } else {
+                    models.bot_users.create(UserObj);
+                }
+                fulfill(user);
+            });
+        })
+    })
+
     /*request({
      uri: 'https://graph.facebook.com/v2.6/' + user_id,
      qs: {access_token: PAGE_ACCESS_TOKEN, fields: 'first_name,last_name,profile_pic,locale,timezone,gender'},
@@ -436,7 +463,8 @@ function receivedAuthentication(event) {
              .then(function () {
              sendButtonMessageWithGrade(senderID, " ");
              })*/
-            const msg = messageBote.getRandomWelcom();
+            let msg = messageBote.getRandomWelcom();
+            msg = _.replace(msg, '@name', user.first_name);
             sendTextMessage(senderID, msg)
                 .then(function () {
                     sendTypingOn(senderID).then(function () {

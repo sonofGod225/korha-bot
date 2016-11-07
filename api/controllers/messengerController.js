@@ -216,6 +216,7 @@ function receivedMessage(event) {
                 break;
             default:
                 getDetailUser(senderID).then(function (user) {
+                    console.log("detail user 219"+JSON.stringify(user));
                     let msg = messageBote.getRandomWelcom();
                     msg = _.replace(msg, '@name', user.first_name);
                     sendTextMessage(senderID, msg)
@@ -231,6 +232,7 @@ function receivedMessage(event) {
         }
     } else if (messageAttachments) {
         getDetailUser(senderID).then(function (user) {
+            console.log("detail user 234"+JSON.stringify(user));
             let msg = messageBote.getRandomWelcom();
             msg = _.replace(msg, '@name', user.first_name);
             sendTextMessage(senderID, msg)
@@ -330,8 +332,10 @@ function saveUserDetail(user_id) {
                 } else {
                     models.bot_users.create(UserObj);
                 }
-                fulfill(user);
+
             });
+
+            fulfill(UserObj);
         })
     })
 
@@ -457,7 +461,7 @@ function receivedAuthentication(event) {
             }
         }).then(function (user) {
             if (user) {
-                console.error('Account with this user_id already exists!');
+                console.log('Account with this user_id already exists!');
             } else {
                 models.bot_users.create(UserObj);
             }

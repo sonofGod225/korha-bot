@@ -789,7 +789,7 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
                     limit: 1,
                     attributes: ['id'],
                 }).then(function (lessons) {
-                    console.log("lesson de chapitre "+JSON.stringify(lessons))
+
                     if(lessons.length){
                         var arrayChapters = [];
                         var buttonChapter = {
@@ -808,6 +808,7 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
                     }
                 })
                if(i==(chapters.length-1)){
+                   console.log("inter in the loop "+JSON.stringify(elements))
                    var messageData = {
                        recipient: {
                            id: recipientId

@@ -783,9 +783,8 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
 
                 //verifion si la tematique à des lecons
                 models.lessons.findAll({
-                    offset: {chapter_id: chapters[i].id},
+                    where: {chapter_id: chapters[i].id},
                     limit: 1,
-                    where: whereObj,
                     attributes: ['id'],
                 }).then(function (lessons) {
                     if(lessons.length){

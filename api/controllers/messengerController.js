@@ -520,6 +520,10 @@ function receivedAuthentication(event) {
 
 }
 
+function formatString(chaine,nbr){
+   return  _.truncate(chaine, { 'length': nbr});
+}
+
 function sendButtonMessageWithThematique(recipientId, matiere_id, classe_id, message) {
     Thematique.find({matiere_id: matiere_id}, function (err, thematiques) {
 
@@ -653,8 +657,8 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                 let compter = i;
                 let arrayLessons = [];
                 let lessonId = lessons[i].id;
-                let lessonName = lessons[i].name;
-                let lessonShort = lessons[i].short;
+                let lessonName = formatString(lessons[i].name,75);
+                let lessonShort = formatString(lessons[i].short,75);
                 let lessonSlug = lessons[i].slug;
                 let lessonBody = lessons[i].body;
                 let lessonVideo = lessons[i].video;
@@ -866,7 +870,7 @@ function sendButtonMessageWithGrade(recipientId, message) {
         for (var i = 0; i < grades.length; i++) {
             var arrayMatiere = [];
             var buttonMatiere = {
-                "title": grades[i].name,
+                "title": formatString(grades[i].name,17),
                 "content_type": "text",
                 payload: 'choes_grade' + delimiter + grades[i].id
             };

@@ -14,8 +14,9 @@ window.extAsyncInit = function () {
         var gradeid = $('#grade_id').val();
         var courseid = $('#course_id').val();
         var chapterid = $('#chapter_id').val();
+        var userId = $('#user_id').val();
         $.ajax({
-            url: '/botsendquiz/lesson/'+psid+"/"+ lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid,
+            url: '/botsendquiz/lesson/'+userId+"/"+ lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid,
             type: 'get',
             success: function () {
                 MessengerExtensions.requestCloseBrowser(function success() {

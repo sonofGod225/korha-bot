@@ -670,10 +670,10 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                         let buttonLessonText = {
                             type: "web_url",
                             title: "Prendre le cours",
-                            url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid,
+                            url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid+"/"+recipientId,
                             webview_height_ratio: "tall",
                             messenger_extensions: true,
-                            fallback_url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid
+                            fallback_url: PAGE_WEB_VIEW +  "bot/lesson/" + lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid+"/"+recipientId
                         };
                         arrayLessons.push(buttonLessonText);
                     }

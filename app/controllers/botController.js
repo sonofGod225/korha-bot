@@ -4,6 +4,7 @@ exports.cours = function (req, res) {
     const gradeid = req.params.gradeid;
     const courseid = req.params.courseid;
     const chapterid = req.params.chapterid;
+    const userid    = req.params.userid;
     models.lessons.findOne({
         attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body'],
         where: {
@@ -14,6 +15,7 @@ exports.cours = function (req, res) {
             lesson: lesson,
             gradeid: gradeid,
             courseid: courseid,
+            userid: userid,
             chapterid: chapterid
         });
     })

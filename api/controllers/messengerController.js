@@ -673,7 +673,7 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                             url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid,
                             webview_height_ratio: "tall",
                             messenger_extensions: true,
-                            fallback_url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId
+                            fallback_url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid
                         };
                         arrayLessons.push(buttonLessonText);
                     }

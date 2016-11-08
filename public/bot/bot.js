@@ -12,7 +12,7 @@ window.extAsyncInit = function () {
         var courseid = $('#course_id').val();
         var chapterid = $('#chapter_id').val();
         $.ajax({
-            url: '/botsendquiz/lesson/' + lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid,
+            url: '/botsendquiz/lesson/'+psid+"/"+ lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid,
             type: 'get',
             success: function () {
                 MessengerExtensions.requestCloseBrowser(function success() {

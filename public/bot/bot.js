@@ -1,6 +1,9 @@
 window.extAsyncInit = function () {
+
+    console.log("facebook sdk loaded")
     var psid;
     MessengerExtensions.getUserID(function success(uids) {
+        console.log(uids);
         psid = uids.psid;
     }, function error(err) {
 

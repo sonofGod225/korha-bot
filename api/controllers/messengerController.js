@@ -782,6 +782,7 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
             for (var i = 0; i < chapters.length; i++) {
 
                 //verifion si la tematique à des lecons
+                let compter = i;
                 let gradeId = chapters[i].id
                 let chapterName = formatString(chapters[i].name,17);
                 models.lessons.findAll({
@@ -808,7 +809,7 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
                         elements.push(elementSingle);
                     }
 
-                    if(i==(chapters.length-1)){
+                    if(compter==(chapters.length-1)){
                         console.log("inter in the loop "+JSON.stringify(elements))
                         var messageData = {
                             recipient: {

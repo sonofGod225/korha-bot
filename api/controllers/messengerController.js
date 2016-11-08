@@ -782,8 +782,10 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
             for (var i = 0; i < chapters.length; i++) {
 
                 //verifion si la tematique à des lecons
+                let gradeId = chapters[i].id
+                let chapterName = formatString(chapters[i].name,17);
                 models.lessons.findAll({
-                    where: {chapter_id: chapters[i].id},
+                    where: {chapter_id: gradeId},
                     limit: 1,
                     attributes: ['id'],
                 }).then(function (lessons) {
@@ -792,11 +794,11 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
                         var buttonChapter = {
                             type: "postback",
                             title: "Voir les cours",
-                            payload: 'choes_chapter' + delimiter + chapters[i].id + delimiter + gradeid + delimiter + courseid + delimiter + offset
+                            payload: 'choes_chapter' + delimiter + gradeId + delimiter + gradeid + delimiter + courseid + delimiter + offset
                         };
                         arrayChapters.push(buttonChapter);
                         var elementSingle = {
-                            title: chapters[i].name,
+                            title: chapterName,
                             image_url: "http://previews.123rf.com/images/petovarga/petovarga1509/petovarga150900003/45314478-Illustration-de-cat-gories-de-d-chets-avec-organique-papier-plastique-verre-m-tal-textile-d-chets-da-Banque-d'images.jpg",
                             buttons: arrayChapters
                         }

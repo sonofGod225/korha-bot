@@ -1,5 +1,5 @@
 const models = require('../models-sqelize');
-const messengerController = require('../../api/controllers/messengerController');
+const request = require('request');
 exports.cours = function (req, res) {
     const lessonId = req.params.lessonId;
     const gradeid = req.params.gradeid;
@@ -30,15 +30,4 @@ exports.quiz = function (req, res) {
     });
 }
 
-
-exports.botsendquiz = function (req, res) {
-    const lessonId = req.params.lessonId;
-    const userId = req.params.userId;
-    const gradeid = req.params.gradeid;
-    const courseid = req.params.courseid;
-    const chapterid = req.params.chapterid;
-    messengerController.sendButtonAfterCourse(userId, lessonId, gradeid, courseid, chapterid);
-    res.status(200).json({'success': 'callback send'})
-
-}
 

@@ -4,6 +4,8 @@
     <list default="true" id="c00c2d59-e5ab-4a0b-afcc-f38131f54b35" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/messengerController.js" afterPath="$PROJECT_DIR$/api/controllers/messengerController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/botController.js" afterPath="$PROJECT_DIR$/app/controllers/botController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.js" afterPath="$PROJECT_DIR$/config/routes.js" />
     </list>
     <ignored path="ibot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,26 +29,26 @@
       <file leaf-file-name="messengerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="1204" column="1" selection-start-line="1204" selection-start-column="1" selection-end-line="1204" selection-end-column="1" />
+            <state relative-caret-position="145">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
-                <element signature="e#2642#3310#0" expanded="false" />
-                <element signature="e#4430#5142#0" expanded="false" />
-                <element signature="e#5188#6050#0" expanded="false" />
-                <element signature="e#6097#6771#0" expanded="false" />
+                <element signature="e#3026#3694#0" expanded="false" />
+                <element signature="e#4814#5526#0" expanded="false" />
+                <element signature="e#5572#6434#0" expanded="false" />
+                <element signature="e#6481#7155#0" expanded="false" />
                 <element signature="n#!!block;n#sendTextMessage#0" expanded="false" />
-                <element signature="e#9757#9911#0" expanded="false" />
+                <element signature="e#10141#10295#0" expanded="false" />
                 <element signature="n#!!block;n#callSendAPI#0" expanded="false" />
-                <element signature="e#11888#12028#0" expanded="false" />
-                <element signature="e#12067#12244#0" expanded="false" />
-                <element signature="e#12578#12880#0" expanded="false" />
+                <element signature="e#12272#12412#0" expanded="false" />
+                <element signature="e#12451#12628#0" expanded="false" />
+                <element signature="e#12962#13264#0" expanded="false" />
                 <element signature="n#!!block;n#sendGenericMessage#0" expanded="false" />
                 <element signature="n#!!block;n#receivedDeliveryConfirmation#0" expanded="false" />
-                <element signature="e#15410#15488#0" expanded="false" />
-                <element signature="e#15965#16043#0" expanded="false" />
-                <element signature="e#16481#16605#0" expanded="false" />
-                <element signature="e#16615#16825#0" expanded="false" />
-                <element signature="e#17236#17539#0" expanded="false" />
+                <element signature="e#15794#15872#0" expanded="false" />
+                <element signature="e#16349#16427#0" expanded="false" />
+                <element signature="e#16865#16989#0" expanded="false" />
+                <element signature="e#16999#17209#0" expanded="false" />
+                <element signature="e#17620#17923#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
                 <element signature="n#!!block;n#sendMessageMatiere#0" expanded="false" />
@@ -54,15 +56,16 @@
                 <element signature="n#!!block;n#sendButtonMessageWithChapter#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessageWithMatiere#0" expanded="false" />
                 <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-                <element signature="e#32380#33125#0" expanded="false" />
+                <element signature="e#32764#33509#0" expanded="false" />
                 <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
-                <element signature="e#35374#36048#0" expanded="false" />
-                <element signature="e#36862#37655#0" expanded="false" />
-                <element signature="e#37710#37948#0" expanded="false" />
-                <element signature="e#38566#38744#0" expanded="false" />
+                <element signature="e#35758#36432#0" expanded="false" />
+                <element signature="e#37246#38039#0" expanded="false" />
+                <element signature="e#38094#38332#0" expanded="false" />
+                <element signature="e#38950#39128#0" expanded="false" />
                 <element signature="n#!!block;n#sendTypingOn#0" expanded="false" />
                 <element signature="n#!!block;n#sendTypingOff#0" expanded="false" />
                 <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
+                <element signature="n#!!block;n#sendButtonAfterCourse#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -121,8 +124,8 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="60" column="7" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
+            <state relative-caret-position="150">
+              <caret line="64" column="102" selection-start-line="64" selection-start-column="102" selection-end-line="64" selection-end-column="102" />
               <folding />
             </state>
           </provider>
@@ -131,8 +134,8 @@
       <file leaf-file-name="botController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/botController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" column="94" selection-start-line="39" selection-start-column="94" selection-end-line="39" selection-end-column="94" />
+            <state relative-caret-position="0">
+              <caret line="0" column="44" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -211,11 +214,11 @@
         <option value="$PROJECT_DIR$/job/bot.js" />
         <option value="$PROJECT_DIR$/data/bot.js" />
         <option value="$PROJECT_DIR$/data/message.js" />
-        <option value="$PROJECT_DIR$/config/routes.js" />
         <option value="$PROJECT_DIR$/app/views/bot/lessons.jade" />
         <option value="$PROJECT_DIR$/public/bot/bot.js" />
-        <option value="$PROJECT_DIR$/app/controllers/botController.js" />
         <option value="$PROJECT_DIR$/api/controllers/messengerController.js" />
+        <option value="$PROJECT_DIR$/app/controllers/botController.js" />
+        <option value="$PROJECT_DIR$/config/routes.js" />
       </list>
     </option>
   </component>
@@ -811,23 +814,23 @@
       <workItem from="1478125843616" duration="35000" />
       <workItem from="1478167404461" duration="22935000" />
       <workItem from="1478511654158" duration="20597000" />
-      <workItem from="1478597242315" duration="3983000" />
+      <workItem from="1478597242315" duration="4400000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="296951000" />
+    <option name="totallyTimeSpent" value="297368000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1748512" sideWeight="0.8384755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1748512" sideWeight="0.18218623" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1748512" sideWeight="0.1615245" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1748512" sideWeight="0.81781375" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19281046" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1203,44 +1206,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.js">
+    <entry file="file://$PROJECT_DIR$/app/controllers/botController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="60" column="7" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
+        <state relative-caret-position="0">
+          <caret line="0" column="44" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/botController.js">
+    <entry file="file://$PROJECT_DIR$/config/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="94" selection-start-line="39" selection-start-column="94" selection-end-line="39" selection-end-column="94" />
+        <state relative-caret-position="150">
+          <caret line="64" column="102" selection-start-line="64" selection-start-column="102" selection-end-line="64" selection-end-column="102" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/messengerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="1204" column="1" selection-start-line="1204" selection-start-column="1" selection-end-line="1204" selection-end-column="1" />
+        <state relative-caret-position="145">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="e#2642#3310#0" expanded="false" />
-            <element signature="e#4430#5142#0" expanded="false" />
-            <element signature="e#5188#6050#0" expanded="false" />
-            <element signature="e#6097#6771#0" expanded="false" />
+            <element signature="e#3026#3694#0" expanded="false" />
+            <element signature="e#4814#5526#0" expanded="false" />
+            <element signature="e#5572#6434#0" expanded="false" />
+            <element signature="e#6481#7155#0" expanded="false" />
             <element signature="n#!!block;n#sendTextMessage#0" expanded="false" />
-            <element signature="e#9757#9911#0" expanded="false" />
+            <element signature="e#10141#10295#0" expanded="false" />
             <element signature="n#!!block;n#callSendAPI#0" expanded="false" />
-            <element signature="e#11888#12028#0" expanded="false" />
-            <element signature="e#12067#12244#0" expanded="false" />
-            <element signature="e#12578#12880#0" expanded="false" />
+            <element signature="e#12272#12412#0" expanded="false" />
+            <element signature="e#12451#12628#0" expanded="false" />
+            <element signature="e#12962#13264#0" expanded="false" />
             <element signature="n#!!block;n#sendGenericMessage#0" expanded="false" />
             <element signature="n#!!block;n#receivedDeliveryConfirmation#0" expanded="false" />
-            <element signature="e#15410#15488#0" expanded="false" />
-            <element signature="e#15965#16043#0" expanded="false" />
-            <element signature="e#16481#16605#0" expanded="false" />
-            <element signature="e#16615#16825#0" expanded="false" />
-            <element signature="e#17236#17539#0" expanded="false" />
+            <element signature="e#15794#15872#0" expanded="false" />
+            <element signature="e#16349#16427#0" expanded="false" />
+            <element signature="e#16865#16989#0" expanded="false" />
+            <element signature="e#16999#17209#0" expanded="false" />
+            <element signature="e#17620#17923#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithThematique#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithClass#0" expanded="false" />
             <element signature="n#!!block;n#sendMessageMatiere#0" expanded="false" />
@@ -1248,15 +1251,16 @@
             <element signature="n#!!block;n#sendButtonMessageWithChapter#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessageWithMatiere#0" expanded="false" />
             <element signature="n#!!block;n#sendButtonMessage#0" expanded="false" />
-            <element signature="e#32380#33125#0" expanded="false" />
+            <element signature="e#32764#33509#0" expanded="false" />
             <element signature="n#!!block;n#sendImageMessage#0" expanded="false" />
-            <element signature="e#35374#36048#0" expanded="false" />
-            <element signature="e#36862#37655#0" expanded="false" />
-            <element signature="e#37710#37948#0" expanded="false" />
-            <element signature="e#38566#38744#0" expanded="false" />
+            <element signature="e#35758#36432#0" expanded="false" />
+            <element signature="e#37246#38039#0" expanded="false" />
+            <element signature="e#38094#38332#0" expanded="false" />
+            <element signature="e#38950#39128#0" expanded="false" />
             <element signature="n#!!block;n#sendTypingOn#0" expanded="false" />
             <element signature="n#!!block;n#sendTypingOff#0" expanded="false" />
             <element signature="n#!!block;n#sendVideoMessage#0" expanded="false" />
+            <element signature="n#!!block;n#sendButtonAfterCourse#0" expanded="false" />
           </folding>
         </state>
       </provider>

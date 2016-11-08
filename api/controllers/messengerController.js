@@ -16,6 +16,17 @@ const messageBote = require('../../data/message');
 const _ = require('lodash');
 
 
+
+exports.botsendquiz = function (req, res) {
+    const lessonId = req.params.lessonId;
+    const userId = req.params.userId;
+    const gradeid = req.params.gradeid;
+    const courseid = req.params.courseid;
+    const chapterid = req.params.chapterid;
+    sendButtonAfterCourse(userId, lessonId, gradeid, courseid, chapterid);
+    res.status(200).json({'success': 'callback send'})
+
+}
 exports.webhook = function (req, res) {
     if (req.query['hub.mode'] === 'subscribe' &&
         req.query['hub.verify_token'] === VALIDATION_TOKEN) {
@@ -1199,7 +1210,3 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
 
 }
 
-
-exports.sendButtonAfterCourse = {
-    sendButtonAfterCourse: sendButtonAfterCourse
-}

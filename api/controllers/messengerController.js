@@ -1200,6 +1200,6 @@ function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapter
 }
 
 
-module.exports = {
+exports.sendButtonAfterCourse = {
     sendButtonAfterCourse: sendButtonAfterCourse
 }

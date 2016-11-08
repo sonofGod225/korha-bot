@@ -789,6 +789,7 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
                     limit: 1,
                     attributes: ['id'],
                 }).then(function (lessons) {
+                    console.log("lesson de chapitre "+JSON.stringify(lessons))
                     if(lessons.length){
                         var arrayChapters = [];
                         var buttonChapter = {
@@ -806,25 +807,27 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
                         elements.push(elementSingle);
                     }
                 })
-
+               if(i==(chapters.length-1)){
+                   var messageData = {
+                       recipient: {
+                           id: recipientId
+                       },
+                       "message": {
+                           "attachment": {
+                               "type": "template",
+                               "payload": {
+                                   "template_type": "generic",
+                                   "elements": elements
+                               }
+                           }
+                       }
+                   };
+                   callSendAPI(messageData).then(function () {
+                       fulfill();
+                   });
+               }
             }
-            var messageData = {
-                recipient: {
-                    id: recipientId
-                },
-                "message": {
-                    "attachment": {
-                        "type": "template",
-                        "payload": {
-                            "template_type": "generic",
-                            "elements": elements
-                        }
-                    }
-                }
-            };
-            callSendAPI(messageData).then(function () {
-                fulfill();
-            });
+
         })
     });
 }

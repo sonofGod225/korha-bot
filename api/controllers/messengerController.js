@@ -789,8 +789,9 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
                     limit: 1,
                     attributes: ['id'],
                 }).then(function (lessons) {
-
+                    console.log("lesson length "+lessons.length)
                     if(lessons.length){
+                        console.log("inter in the condition "+JSON.stringify(lessons))
                         var arrayChapters = [];
                         var buttonChapter = {
                             type: "postback",

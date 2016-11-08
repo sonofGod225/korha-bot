@@ -670,10 +670,10 @@ function sendButtonMessageWithLesson(recipientId, gradeid, courseid, chapterid, 
                         let buttonLessonText = {
                             type: "web_url",
                             title: "Prendre le cours",
-                            url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid+"/"+recipientId,
+                            url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId + "/" + gradeid + "/" + courseid + "/" + chapterid + "/" + recipientId,
                             webview_height_ratio: "tall",
                             messenger_extensions: true,
-                            fallback_url: PAGE_WEB_VIEW +  "bot/lesson/" + lessonId+"/"+gradeid+"/"+courseid+"/"+chapterid+"/"+recipientId
+                            fallback_url: PAGE_WEB_VIEW + "bot/lesson/" + lessonId + "/" + gradeid + "/" + courseid + "/" + chapterid + "/" + recipientId
                         };
                         arrayLessons.push(buttonLessonText);
                     }
@@ -1123,73 +1123,83 @@ function sendVideoMessage(recipientId, videoUrl, lessonId, gradeId, courseId, ch
 }
 
 function sendButtonAfterCourse(recipientId, lessonId, gradeId, courseId, chapterId) {
+    return new Promise(function (fulfill, rejected) {
+        // recuperation des autres lesson de la thematique
 
-    // recuperation des autres lesson de la thematique
-    models.chapters.findAll({
-        where: {
-            course_id: courseId,
-            id: {
-                $ne: chapterId
-            }
-        },
-        attributes: ['id']
-    }).then(function (chapter) {
-        console.log("CallBack video");
-        let buttonArray = [];
-        if (chapter.length) {
-            let btnOtherChapter = {
-                type: "postback",
-                title: "Autres thématiques",
-                payload: 'choes_course' + delimiter + courseId + delimiter + gradeId + delimiter + chapterId
-            }
-            buttonArray.push(btnOtherChapter);
-        }
-
-        models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
-            replacements: {
-                lesson_id: lessonId,
-                type: models.sequelize.QueryTypes.SELECT
-            }
-        }).then(function (quiz) {
-
-            if (quiz[0].length) {
-                let btnQuizLesson = {
+        models.chapters.findAll({
+            where: {
+                course_id: courseId,
+                id: {
+                    $ne: chapterId
+                }
+            },
+            attributes: ['id']
+        }).then(function (chapter) {
+            console.log("CallBack video");
+            let buttonArray = [];
+            if (chapter.length) {
+                let btnOtherChapter = {
                     type: "postback",
-                    title: "Quiz",
-                    payload: "choes_make_quiz" + delimiter + lessonId + delimiter + gradeId + delimiter + courseId + delimiter + chapterId
-                };
-                buttonArray.push(btnQuizLesson);
+                    title: "Autres thématiques",
+                    payload: 'choes_course' + delimiter + courseId + delimiter + gradeId + delimiter + chapterId
+                }
+                buttonArray.push(btnOtherChapter);
             }
 
-            let btnEnd = {
-                type: "postback",
-                title: "Terminer",
-                payload: "end_revision" + delimiter
+            models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
+                replacements: {
+                    lesson_id: lessonId,
+                    type: models.sequelize.QueryTypes.SELECT
+                }
+            }).then(function (quiz) {
 
-            };
-            buttonArray.push(btnEnd);
+                if (quiz[0].length) {
+                    let btnQuizLesson = {
+                        type: "postback",
+                        title: "Quiz",
+                        payload: "choes_make_quiz" + delimiter + lessonId + delimiter + gradeId + delimiter + courseId + delimiter + chapterId
+                    };
+                    buttonArray.push(btnQuizLesson);
+                }
 
-            console.log('btnEnd' + JSON.stringify(buttonArray));
-            let messageData = {
-                recipient: {
-                    id: recipientId
-                },
-                message: {
-                    attachment: {
-                        type: "template",
-                        payload: {
-                            template_type: "button",
-                            text: "Options",
-                            buttons: buttonArray
+                let btnEnd = {
+                    type: "postback",
+                    title: "Terminer",
+                    payload: "end_revision" + delimiter
+
+                };
+                buttonArray.push(btnEnd);
+
+                console.log('btnEnd' + JSON.stringify(buttonArray));
+                let messageData = {
+                    recipient: {
+                        id: recipientId
+                    },
+                    message: {
+                        attachment: {
+                            type: "template",
+                            payload: {
+                                template_type: "button",
+                                text: "Options",
+                                buttons: buttonArray
+                            }
                         }
                     }
                 }
-            }
 
-            callSendAPI(messageData);
+                callSendAPI(messageData).then(function () {
+                       fulfill()
+                });
+            });
+
         });
+    })
 
-    });
 
 
+}
+
+
+module.exports = {
+    sendButtonAfterCourse: sendButtonAfterCourse
 }

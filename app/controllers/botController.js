@@ -1,10 +1,11 @@
 const models = require('../models-sqelize');
+const messengerController = require('../../api/controllers/messengerController');
 exports.cours = function (req, res) {
     const lessonId = req.params.lessonId;
     const gradeid = req.params.gradeid;
     const courseid = req.params.courseid;
     const chapterid = req.params.chapterid;
-    const userid    = req.params.userid;
+    const userid = req.params.userid;
     models.lessons.findOne({
         attributes: ['id', 'name', 'slug', 'short', 'video', 'thumbnail', 'preview', 'order', 'body'],
         where: {
@@ -31,26 +32,13 @@ exports.quiz = function (req, res) {
 
 
 exports.botsendquiz = function (req, res) {
-    const lessonId  = req.params.lessonId;
-    const userId    = req.params.userId;
-    const gradeid   = req.params.gradeid;
-    const courseid  = req.params.courseid;
+    const lessonId = req.params.lessonId;
+    const userId = req.params.userId;
+    const gradeid = req.params.gradeid;
+    const courseid = req.params.courseid;
     const chapterid = req.params.chapterid;
-    models.sequelize.query('SELECT id,timer,lesson_id FROM quiz WHERE lesson_id = :lesson_id ', {
-        replacements: {
-            lesson_id: lessonId,
-            type: models.sequelize.QueryTypes.SELECT
-        }
-    }).then(function (quiz) {
-        // verification si la lesson à un quiz
-        if (quiz[0].length) {//si quiz
-
-        } else { // si pas de quiz
-
-        }
-    })
-
-    res.status(200).json({'success':'callback send'})
+    messengerController.sendButtonAfterCourse(userId, lessonId, gradeid, courseid, chapterid);
+    res.status(200).json({'success': 'callback send'})
 
 }
 

@@ -50,5 +50,7 @@ exports.botsendquiz = function (req, res) {
         }
     })
 
+    res.status(200).json({'success':'callback send'})
+
 }
 

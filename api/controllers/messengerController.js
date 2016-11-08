@@ -790,7 +790,7 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
                     attributes: ['id'],
                 }).then(function (lessons) {
                     console.log("lesson length "+lessons.length)
-                    if(lessons.length){
+                    if(lessons.length>0){
                         console.log("inter in the condition "+JSON.stringify(lessons))
                         var arrayChapters = [];
                         var buttonChapter = {
@@ -807,27 +807,29 @@ function sendButtonMessageWithChapter(recipientId, gradeid, courseid, oldChapter
 
                         elements.push(elementSingle);
                     }
+
+                    if(i==(chapters.length-1)){
+                        console.log("inter in the loop "+JSON.stringify(elements))
+                        var messageData = {
+                            recipient: {
+                                id: recipientId
+                            },
+                            "message": {
+                                "attachment": {
+                                    "type": "template",
+                                    "payload": {
+                                        "template_type": "generic",
+                                        "elements": elements
+                                    }
+                                }
+                            }
+                        };
+                        callSendAPI(messageData).then(function () {
+                            fulfill();
+                        });
+                    }
                 })
-               if(i==(chapters.length-1)){
-                   console.log("inter in the loop "+JSON.stringify(elements))
-                   var messageData = {
-                       recipient: {
-                           id: recipientId
-                       },
-                       "message": {
-                           "attachment": {
-                               "type": "template",
-                               "payload": {
-                                   "template_type": "generic",
-                                   "elements": elements
-                               }
-                           }
-                       }
-                   };
-                   callSendAPI(messageData).then(function () {
-                       fulfill();
-                   });
-               }
+
             }
 
         })

@@ -13,7 +13,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var csrf = require('csurf');
 
-var mongoStore = require('connect-mongo')(session);
+//var mongoStore = require('connect-mongo')(session);
 //var flash = require('connect-flash');
 var flash = require('express-flash');
 var winston = require('winston');
@@ -86,14 +86,10 @@ module.exports = function (app, passport) {
   app.use(cookieSession({ secret: 'secret' }));
   app.use(session({
     secret: pkg.name,
-    proxy: true,
-    resave: true,
+    resave: false,
     saveUninitialized: true,
-    store: new mongoStore({
-      url: config.db,
-      collection : 'sessions'
-    })
-  }));
+    cookie: { secure: true }
+  }))
 
   // use passport session
   //app.use(passport.initialize());

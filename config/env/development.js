@@ -7,8 +7,8 @@ module.exports = {
   db: 'mongodb://localhost/your_project_development',
   squelize: {
     "username": "root",
-    "password": null,
-    "database": "sa",
+    "password": "root",
+    "database": "bot-korha",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
